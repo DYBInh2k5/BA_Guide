@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/{{reservationCode}}/decision"
+method: PATCH
+headers:
+  Content-Type: application/json
+  X-Training-Staff: demo
+body:
+  type: text
+  content: |-
+    {
+      "decision": "REJECT",
+      "reason": "Duplicate action sample"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('invalid status transition is blocked', function () { pm.response.to.have.status(409); });
+      pm.test('conflict code is clear', function () { pm.expect(pm.response.json().code).to.eql('STATUS_CONFLICT'); });
+    language: text/javascript
+order: 10000

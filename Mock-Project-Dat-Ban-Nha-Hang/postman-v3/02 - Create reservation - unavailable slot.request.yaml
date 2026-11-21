@@ -1,0 +1,21 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "customerName": "Test Guest (sample)",
+      "phone": "0900000001",
+      "partySize": 12,
+      "startAt": "2026-12-05T19:00:00+07:00"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('slot is rejected', function () { pm.response.to.have.status(409); });
+      pm.test('error identifies unavailable slot', function () { pm.expect(pm.response.json().code).to.eql('SLOT_UNAVAILABLE'); });
+    language: text/javascript
+order: 3000

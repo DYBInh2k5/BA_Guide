@@ -1,0 +1,6 @@
+$kind: collection
+id: ba-mock-reservation-project
+name: BA Mock Project - Restaurant Reservations
+description: Collection training dùng với practice-api/server.js. Chỉ dữ liệu giả, local-only.
+variables:
+  baseUrl: http://127.0.0.1:3000

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+  <defs>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#3D6F9E"/></marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#557A46"/></marker>
+    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#6A4C93"/></marker>
+    <marker id="arrowLeftBlue" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto"><path d="M12,0 L0,6 L12,12 z" fill="#3D6F9E"/></marker>
+    <marker id="arrowLeftGreen" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto"><path d="M12,0 L0,6 L12,12 z" fill="#557A46"/></marker>
+    <marker id="arrowLeftPurple" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto"><path d="M12,0 L0,6 L12,12 z" fill="#6A4C93"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #172B4D; }
+      .label { font-size: 18px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .small { font-size: 15px; }
+      .edgeLabel { font-size: 15px; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="1800" height="1050" fill="#FFFFFF"/>
+  <text x="55" y="62" font-size="32" font-weight="700">SYSTEM CONTEXT — BOOKING REQUEST (DRAFT)</text>
+  <text x="55" y="100" font-size="18" fill="#52606D">Case study giả lập · ranh giới và luồng đề xuất để review, chưa phải integration/solution đã duyệt</text>
+
+  <!-- Proposed system boundary -->
+  <rect x="490" y="230" width="800" height="550" rx="24" fill="#F3F7FF" stroke="#4676B8" stroke-width="3" stroke-dasharray="14 9"/>
+  <text x="530" y="280" font-size="24" font-weight="700">PROPOSED BOOKING REQUEST</text>
+  <text x="530" y="312" font-size="24" font-weight="700">MANAGEMENT SYSTEM</text>
+  <text x="530" y="348" class="small" fill="#52606D">Phạm vi hệ thống đề xuất — Draft</text>
+  <line x1="530" y1="370" x2="1250" y2="370" stroke="#B8C8DF" stroke-width="2"/>
+  <circle cx="552" cy="420" r="6" fill="#4676B8"/><text x="575" y="426" class="body">Nhận và validate booking request</text>
+  <circle cx="552" cy="470" r="6" fill="#4676B8"/><text x="575" y="476" class="body">Áp dụng giờ/capacity rule đã được duyệt</text>
+  <circle cx="552" cy="520" r="6" fill="#4676B8"/><text x="575" y="526" class="body">Lưu reference và trạng thái PENDING</text>
+  <circle cx="552" cy="570" r="6" fill="#4676B8"/><text x="575" y="576" class="body">Cung cấp queue để staff quyết định</text>
+  <circle cx="552" cy="620" r="6" fill="#4676B8"/><text x="575" y="626" class="body">Ghi audit history cho thay đổi trạng thái</text>
+  <circle cx="552" cy="670" r="6" fill="#4676B8"/><text x="575" y="676" class="body">Gửi email event sau state change theo policy</text>
+  <text x="530" y="730" class="small" fill="#52606D">Không mô tả hạ tầng/database implementation</text>
+
+  <!-- Customer -->
+  <rect x="60" y="370" width="270" height="118" rx="18" fill="#FFFFFF" stroke="#3D6F9E" stroke-width="2.5"/>
+  <circle cx="103" cy="411" r="15" fill="#D8EBFA" stroke="#3D6F9E" stroke-width="2"/>
+  <path d="M77 463 Q103 427 129 463" fill="none" stroke="#3D6F9E" stroke-width="5" stroke-linecap="round"/>
+  <text x="150" y="413" class="label">CUSTOMER</text>
+  <text x="150" y="444" class="small">External actor</text>
+  <text x="150" y="469" class="small">Khách đặt bàn</text>
+  <line x1="330" y1="401" x2="490" y2="401" stroke="#3D6F9E" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <rect x="337" y="346" width="150" height="46" rx="8" fill="#FFFFFF"/>
+  <text x="345" y="365" class="edgeLabel">Booking request</text><text x="345" y="385" class="small">date/time, party, contact</text>
+  <line x1="490" y1="466" x2="330" y2="466" stroke="#3D6F9E" stroke-width="3" marker-end="url(#arrowLeftBlue)"/>
+  <rect x="337" y="475" width="150" height="65" rx="8" fill="#FFFFFF"/>
+  <text x="345" y="497" class="edgeLabel">Reference + PENDING</text><text x="345" y="520" class="small">or validation /</text><text x="345" y="538" class="small">unavailable outcome</text>
+
+  <!-- Staff -->
+  <rect x="60" y="645" width="270" height="118" rx="18" fill="#FFFFFF" stroke="#557A46" stroke-width="2.5"/>
+  <circle cx="103" cy="686" r="15" fill="#E6F0DF" stroke="#557A46" stroke-width="2"/>
+  <path d="M77 738 Q103 702 129 738" fill="none" stroke="#557A46" stroke-width="5" stroke-linecap="round"/>
+  <text x="150" y="683" class="label">RESTAURANT STAFF</text>
+  <text x="150" y="714" class="small">Reception / manager</text>
+  <text x="150" y="740" class="small">External actor to this system</text>
+  <line x1="330" y1="677" x2="490" y2="677" stroke="#557A46" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <rect x="337" y="625" width="150" height="45" rx="8" fill="#FFFFFF"/>
+  <text x="345" y="646" class="edgeLabel">View queue/detail</text><text x="345" y="665" class="small">state history</text>
+  <line x1="490" y1="730" x2="330" y2="730" stroke="#557A46" stroke-width="3" marker-end="url(#arrowLeftGreen)"/>
+  <rect x="337" y="775" width="150" height="65" rx="8" fill="#FFFFFF"/>
+  <text x="345" y="798" class="edgeLabel">Confirm / reject</text><text x="345" y="821" class="small">+ reason; authority TBD</text>
+
+  <!-- Email provider -->
+  <rect x="1450" y="365" width="290" height="125" rx="24" fill="#E1F5FE" stroke="#5B9BD5" stroke-width="2.5"/>
+  <path d="M1483 398 h56 v42 h-56 z M1484 400 l27 22 27-22" fill="none" stroke="#3D6F9E" stroke-width="3"/>
+  <text x="1555" y="408" class="label">EMAIL PROVIDER</text>
+  <text x="1555" y="438" class="small">External service</text>
+  <text x="1555" y="463" class="small">Proposed; vendor TBD</text>
+  <line x1="1290" y1="405" x2="1450" y2="405" stroke="#6A4C93" stroke-width="3" marker-end="url(#arrowPurple)"/>
+  <rect x="1302" y="343" width="142" height="48" rx="8" fill="#FFFFFF"/>
+  <text x="1310" y="363" class="edgeLabel">Email event after</text><text x="1310" y="383" class="small">approved state change</text>
+  <line x1="1450" y1="462" x2="1290" y2="462" stroke="#6A4C93" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrowLeftPurple)"/>
+  <rect x="1302" y="473" width="142" height="60" rx="8" fill="#FFFFFF"/>
+  <text x="1310" y="493" class="edgeLabel">Delivery result /</text><text x="1310" y="514" class="small">callback if supported</text><text x="1310" y="532" class="small">(TBD)</text>
+
+  <!-- Capacity open question -->
+  <line x1="1290" y1="686" x2="1400" y2="686" stroke="#D6B656" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="1400" y="610" width="340" height="165" rx="16" fill="#FFF2CC" stroke="#D6B656" stroke-width="2.5"/>
+  <text x="1422" y="646" font-size="17" font-weight="700" fill="#5B4B00">OPEN QUESTION — CAPACITY SOURCE</text>
+  <text x="1422" y="680" class="small" fill="#5B4B00">Ai sở hữu capacity và trạng thái nào</text>
+  <text x="1422" y="704" class="small" fill="#5B4B00">giữ chỗ? Cấu hình nội bộ hay nguồn ngoài?</text>
+  <text x="1422" y="728" class="small" fill="#5B4B00">Chưa xác nhận integration.</text>
+
+  <!-- Scope caveat -->
+  <rect x="490" y="875" width="1250" height="105" rx="14" fill="#F5F5F5" stroke="#B7B7B7" stroke-width="2"/>
+  <text x="515" y="911" font-size="16" font-weight="700" fill="#424B54">SCOPE NOTE</text>
+  <text x="515" y="940" class="small" fill="#424B54">System boundary mô tả trách nhiệm, không mô tả hạ tầng. Không giả định POS, payment, SMS, vendor thật, database,</text>
+  <text x="515" y="963" class="small" fill="#424B54">hay integration production. Confirm actor, owner, source, policy và error behavior trong discovery.</text>
+</svg>

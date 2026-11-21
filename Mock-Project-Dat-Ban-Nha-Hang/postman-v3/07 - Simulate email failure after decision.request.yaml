@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/{{reservationCode}}/decision"
+method: PATCH
+headers:
+  Content-Type: application/json
+  X-Training-Staff: demo
+  X-Simulate-Email-Failure: "true"
+body:
+  type: text
+  content: |-
+    {
+      "decision": "CONFIRM"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('reservation decision is saved', function () { pm.response.to.have.status(200); });
+      pm.test('email failure is simulated separately', function () { pm.expect(pm.response.json().notificationStatus).to.eql('FAILED_SIMULATED'); pm.expect(pm.response.json().status).to.eql('CONFIRMED'); });
+    language: text/javascript
+order: 8000

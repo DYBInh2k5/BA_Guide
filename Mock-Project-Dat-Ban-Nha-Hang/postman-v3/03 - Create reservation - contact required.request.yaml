@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "customerName": "No Contact (sample)",
+      "partySize": 2,
+      "startAt": "2026-12-05T19:30:00+07:00"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('invalid contact returns 400', function () { pm.response.to.have.status(400); });
+      pm.test('contact error is explicit', function () { pm.expect(pm.response.json().fields.contact).to.eql('PHONE_OR_EMAIL_REQUIRED'); });
+    language: text/javascript
+order: 4000

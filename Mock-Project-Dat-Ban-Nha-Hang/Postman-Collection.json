@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_postman_id": "ba-mock-reservation-project",
+    "name": "BA Mock Project - Restaurant Reservations",
+    "description": "Collection training dùng với practice-api/server.js. Chỉ dữ liệu giả, local-only.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "00 - Health check",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/health" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('mock API is up', function () { pm.response.to.have.status(200); });", "pm.test('in-memory mode is explicit', function () { pm.expect(pm.response.json().persistence).to.eql('in-memory'); });"] } }]
+    },
+    {
+      "name": "01 - Create reservation - valid request",
+      "request": {
+        "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/reservations",
+        "body": { "mode": "raw", "raw": "{\n  \"customerName\": \"Nguyen An (sample)\",\n  \"phone\": \"0900000000\",\n  \"email\": \"an@example.test\",\n  \"partySize\": 4,\n  \"startAt\": \"2026-12-05T19:00:00+07:00\",\n  \"note\": \"Sample request\"\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('returns created', function () { pm.response.to.have.status(201); });", "const body = pm.response.json();", "pm.test('reservation starts pending', function () { pm.expect(body.status).to.eql('PENDING'); });", "pm.collectionVariables.set('reservationCode', body.reservationCode);"] } }]
+    },
+    {
+      "name": "02 - Create reservation - unavailable slot",
+      "request": {
+        "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/reservations",
+        "body": { "mode": "raw", "raw": "{\n  \"customerName\": \"Test Guest (sample)\",\n  \"phone\": \"0900000001\",\n  \"partySize\": 12,\n  \"startAt\": \"2026-12-05T19:00:00+07:00\"\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('slot is rejected', function () { pm.response.to.have.status(409); });", "pm.test('error identifies unavailable slot', function () { pm.expect(pm.response.json().code).to.eql('SLOT_UNAVAILABLE'); });"] } }]
+    },
+    {
+      "name": "03 - Create reservation - contact required",
+      "request": {
+        "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/reservations",
+        "body": { "mode": "raw", "raw": "{\n  \"customerName\": \"No Contact (sample)\",\n  \"partySize\": 2,\n  \"startAt\": \"2026-12-05T19:30:00+07:00\"\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('invalid contact returns 400', function () { pm.response.to.have.status(400); });", "pm.test('contact error is explicit', function () { pm.expect(pm.response.json().fields.contact).to.eql('PHONE_OR_EMAIL_REQUIRED'); });"] } }]
+    },
+    {
+      "name": "04 - Staff - list reservations",
+      "request": { "method": "GET", "header": [{ "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations?date=2026-12-05" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('staff can list sample reservations', function () { pm.response.to.have.status(200); });", "pm.test('list response includes items', function () { pm.expect(pm.response.json().items).to.be.an('array'); });"] } }]
+    },
+    {
+      "name": "05 - Staff - confirm a pending reservation",
+      "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/RSV-DEMO-001/decision", "body": { "mode": "raw", "raw": "{\n  \"decision\": \"CONFIRM\"\n}" } },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('decision saved', function () { pm.response.to.have.status(200); });", "pm.test('status is confirmed', function () { pm.expect(pm.response.json().status).to.eql('CONFIRMED'); });"] } }]
+    },
+    {
+      "name": "06 - Staff - reject with reason",
+      "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/RSV-DEMO-004/decision", "body": { "mode": "raw", "raw": "{\n  \"decision\": \"REJECT\",\n  \"reason\": \"Requested time is no longer available (sample)\"\n}" } },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('rejection saved', function () { pm.response.to.have.status(200); });", "pm.test('reason is retained', function () { pm.expect(pm.response.json().reason).to.include('sample'); });"] } }]
+    },
+    {
+      "name": "07 - Simulate email failure after decision",
+      "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "X-Training-Staff", "value": "demo" }, { "key": "X-Simulate-Email-Failure", "value": "true" }], "url": "{{baseUrl}}/api/reservations/{{reservationCode}}/decision", "body": { "mode": "raw", "raw": "{\n  \"decision\": \"CONFIRM\"\n}" } },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('reservation decision is saved', function () { pm.response.to.have.status(200); });", "pm.test('email failure is simulated separately', function () { pm.expect(pm.response.json().notificationStatus).to.eql('FAILED_SIMULATED'); pm.expect(pm.response.json().status).to.eql('CONFIRMED'); });"] } }]
+    },
+    {
+      "name": "08 - Staff - read reservation history",
+      "request": { "method": "GET", "header": [{ "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/{{reservationCode}}/history" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('history is available to staff', function () { pm.response.to.have.status(200); });", "pm.test('history includes a decision', function () { pm.expect(pm.response.json().items.some(x => x.newStatus === 'CONFIRMED')).to.eql(true); });"] } }]
+    },
+    {
+      "name": "09 - Staff - reject a non-pending reservation",
+      "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/{{reservationCode}}/decision", "body": { "mode": "raw", "raw": "{\n  \"decision\": \"REJECT\",\n  \"reason\": \"Duplicate action sample\"\n}" } },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('invalid status transition is blocked', function () { pm.response.to.have.status(409); });", "pm.test('conflict code is clear', function () { pm.expect(pm.response.json().code).to.eql('STATUS_CONFLICT'); });"] } }]
+    }
+  ],
+  "variable": [{ "key": "baseUrl", "value": "http://127.0.0.1:3000" }]
+}

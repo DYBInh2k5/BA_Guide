@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/RSV-DEMO-001/decision"
+method: PATCH
+headers:
+  Content-Type: application/json
+  X-Training-Staff: demo
+body:
+  type: text
+  content: |-
+    {
+      "decision": "CONFIRM"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('decision saved', function () { pm.response.to.have.status(200); });
+      pm.test('status is confirmed', function () { pm.expect(pm.response.json().status).to.eql('CONFIRMED'); });
+    language: text/javascript
+order: 6000

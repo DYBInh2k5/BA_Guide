@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/health"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('mock API is up', function () { pm.response.to.have.status(200); });
+      pm.test('in-memory mode is explicit', function () { pm.expect(pm.response.json().persistence).to.eql('in-memory'); });
+    language: text/javascript
+order: 1000

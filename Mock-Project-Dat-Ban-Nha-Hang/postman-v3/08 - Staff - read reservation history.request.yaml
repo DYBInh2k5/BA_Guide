@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/{{reservationCode}}/history"
+method: GET
+headers:
+  X-Training-Staff: demo
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('history is available to staff', function () { pm.response.to.have.status(200); });
+      pm.test('history includes a decision', function () { pm.expect(pm.response.json().items.some(x => x.newStatus === 'CONFIRMED')).to.eql(true); });
+    language: text/javascript
+order: 9000

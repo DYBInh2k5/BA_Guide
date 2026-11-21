@@ -1,6 +1,12 @@
-# 📚 Business Analysis - Tổng Hợp Kiến Thức
+# 📚 Business Analysis — Lộ trình học và thực hành
 
-Bộ tài liệu này tổng hợp toàn bộ kiến thức về Business Analysis (BA) từ cơ bản đến nâng cao — **14 chủ đề**, đủ để từ người mới bắt đầu đến Senior BA.
+Bộ tài liệu này là điểm bắt đầu để học Business Analysis (BA), sau đó thực hành qua một dự án mẫu xuyên suốt. Tài liệu hỗ trợ xây nền tảng và portfolio học tập; việc đọc tài liệu hoặc hoàn thành dự án giả lập không tự chứng minh năng lực Senior hay thay thế kinh nghiệm dự án thực tế.
+
+## 🧭 Dự án thực hành xuyên suốt
+
+Mở [Dự án mẫu đặt bàn nhà hàng](./Mock-Project-Dat-Ban-Nha-Hang/README.md) để học theo các chặng từ khám phá vấn đề, stakeholder, quy trình, yêu cầu, mô hình hệ thống, API/dữ liệu, UAT đến portfolio. Đây là tình huống giả lập; cần ghi rõ điều gì là giả định và điều gì đã được xác minh.
+
+Theo dõi bài lab và bằng chứng tự thực hành trong [BA Tool Mastery Tracker](./Mock-Project-Dat-Ban-Nha-Hang/24-BA-Tool-Mastery-Tracker.md). Năng lực giữ ở trạng thái **Chưa đánh giá** cho tới khi người học tự tạo artifact và giải thích được lựa chọn của mình.
 
 ---
 
@@ -55,12 +61,12 @@ Tập trung vào kiến thức BABOK core + thực hành
 
 ## 🚀 Quick Start
 
-Nếu bạn chỉ có 30 phút, đọc:
-- **01** — BA là gì (5 phút)
-- **02** — Career path (5 phút)  
-- **05** — 3 kỹ thuật quan trọng nhất: User Story, MoSCoW, BPMN (15 phút)
-- **14** — Câu hỏi phỏng vấn thường gặp (5 phút)
+Nếu bạn mới bắt đầu, học theo thứ tự:
+1. Đọc [01 — Giới thiệu BA](./01-Gioi-Thieu-BA.md) để nắm Need, Solution, Stakeholder, Value và Context.
+2. Mở [Bài 1 — Khám phá vấn đề](./Mock-Project-Dat-Ban-Nha-Hang/06-Bai-tap-Kham-pha-van-de.md), viết câu hỏi phỏng vấn trước khi đọc đáp án mẫu.
+3. Đọc [ví dụ phỏng vấn và phân tích](./Mock-Project-Dat-Ban-Nha-Hang/07-Minh-hoa-Phong-van-va-Phan-tich.md), so sánh ghi chú, rồi tự vẽ As-Is theo [bài BPMN](./Mock-Project-Dat-Ban-Nha-Hang/09-BPMN-Modeling-Lesson.md).
+4. Dùng tracker để chọn công cụ theo đầu ra cần tạo; chưa cần học mọi công cụ cùng lúc.
 
 ---
 
-> 💡 **Tip**: Học đến đâu thực hành đến đó. Tạo sơ đồ, viết user story, và làm quen với Jira + Confluence ngay từ đầu. Tài liệu này được cập nhật liên tục — star repo để theo dõi!
+> 💡 **Tip**: Học đến đâu thực hành đến đó. Tạo artifact, lưu bằng chứng, xin review và ghi lại điều đã sửa. Bắt đầu bằng công cụ sẵn có; chuyển năng lực sang công cụ tương đương khi một tích hợp chưa kết nối.

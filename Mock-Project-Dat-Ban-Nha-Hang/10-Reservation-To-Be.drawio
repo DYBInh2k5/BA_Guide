@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2026-11-20T10:00:00.000Z" agent="OpenAI Codex" version="32.3.0" type="device">
+  <diagram id="reservation-tobe" name="Reservation To-Be">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="poolCustomer" value="Khách hàng" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;container=1;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="1300" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="cStart" value="Bắt đầu" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=standard;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="poolCustomer">
+          <mxGeometry x="35" y="62" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cEnter" value="Nhập thông tin đặt bàn" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="poolCustomer">
+          <mxGeometry x="125" y="52" width="155" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="cSend" value="Gửi yêu cầu" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="poolCustomer">
+          <mxGeometry x="330" y="52" width="135" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="cWait" value="Nhận kết quả" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="poolCustomer">
+          <mxGeometry x="1070" y="52" width="140" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="cEnd" value="Kết thúc" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=end;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="poolCustomer">
+          <mxGeometry x="1245" y="62" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="poolRestaurant" value="Nhà hàng" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;container=1;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="1300" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="laneSystem" value="Hệ thống" style="swimlane;html=1;startSize=30;horizontal=0;collapsible=0;fillColor=none;container=1;whiteSpace=wrap;" vertex="1" parent="poolRestaurant">
+          <mxGeometry x="0" y="30" width="1300" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="laneStaff" value="Lễ tân" style="swimlane;html=1;startSize=30;horizontal=0;collapsible=0;fillColor=none;container=1;whiteSpace=wrap;" vertex="1" parent="poolRestaurant">
+          <mxGeometry x="0" y="310" width="1300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="rStart" value="Yêu cầu đến" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=standard;symbol=message;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="laneSystem">
+          <mxGeometry x="35" y="115" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="validate" value="Kiểm tra dữ liệu, giờ mở và sức chứa" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="115" y="105" width="185" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="validGate" value="Dữ liệu hợp lệ? (BRULE-07)" style="shape=mxgraph.bpmn.gateway;html=1;perimeter=rhombusPerimeter;outline=standard;" vertex="1" parent="laneSystem">
+          <mxGeometry x="350" y="108" width="55" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="capacity" value="Kiểm tra slot đang mở (BRULE-01) và sức chứa (BRULE-02)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="455" y="105" width="170" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="capacityGate" value="Còn chỗ? (BRULE-02; PENDING hold: TBD)" style="shape=mxgraph.bpmn.gateway;html=1;perimeter=rhombusPerimeter;outline=standard;" vertex="1" parent="laneSystem">
+          <mxGeometry x="675" y="108" width="55" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="createReq" value="Tạo mã yêu cầu: PENDING (BRULE-03; hold TBD)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="785" y="105" width="185" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="notify" value="Gửi kết quả; lỗi gửi không rollback (BRULE-06)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="1080" y="105" width="165" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="staffQueue" value="Xem hàng đợi yêu cầu" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;taskMarker=user;" vertex="1" parent="laneStaff">
+          <mxGeometry x="720" y="65" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="decision" value="Staff có quyền xác nhận / từ chối? (BRULE-04)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;taskMarker=user;" vertex="1" parent="laneStaff">
+          <mxGeometry x="950" y="65" width="175" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="history" value="Ghi actor, thời điểm, trạng thái, reason (BRULE-05)" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="1080" y="205" width="165" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="badData" value="Báo lỗi; không tạo reservation (BRULE-07)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="300" y="205" width="155" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="noCapacity" value="Báo slot đóng / hết chỗ; không tạo reservation (BRULE-01/02/07)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="laneSystem">
+          <mxGeometry x="625" y="205" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="poolCustomer" source="cStart" target="cEnter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="poolCustomer" source="cEnter" target="cSend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="poolCustomer" source="cWait" target="cEnd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="rStart" target="validate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="validate" target="validGate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="validGate" target="capacity">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="validGate" target="badData">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="capacity" target="capacityGate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="capacityGate" target="createReq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="capacityGate" target="noCapacity">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="poolRestaurant" source="createReq" target="staffQueue">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneStaff" source="staffQueue" target="decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="poolRestaurant" source="decision" target="history">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="laneSystem" source="history" target="notify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg1" value="Yêu cầu đặt bàn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;" edge="1" parent="1" source="cSend" target="rStart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg2" value="Mã yêu cầu / kết quả" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;" edge="1" parent="1" source="notify" target="cWait">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Case study giả lập — rule đều là Draft/TBD; cần stakeholder chốt giờ, capacity, PENDING hold, quyền và thông báo." style="shape=note;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="850" width="800" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
