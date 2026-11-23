@@ -80,6 +80,11 @@
       "name": "11 - Staff - code not found",
       "request": { "method": "GET", "header": [{ "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations?code=RSV-NOT-FOUND" },
       "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('mock list endpoint returns 200', function () { pm.response.to.have.status(200); });", "const body = pm.response.json();", "pm.test('missing code has no list items', function () { pm.expect(body.items).to.eql([]); });", "pm.test('missing code returns zero total', function () { pm.expect(body.total).to.eql(0); });"] } }]
+    },
+    {
+      "name": "12 - Staff - missing history resource",
+      "request": { "method": "GET", "header": [{ "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/RSV-NOT-FOUND/history" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('missing history resource returns 404', function () { pm.response.to.have.status(404); });", "const body = pm.response.json();", "pm.test('not-found error code is explicit', function () { pm.expect(body.code).to.eql('RESERVATION_NOT_FOUND'); });", "pm.test('not-found response has a message', function () { pm.expect(body.message).to.be.a('string').and.not.empty; });"] } }]
     }
   ],
   "variable": [{ "key": "baseUrl", "value": "http://127.0.0.1:3000" }]

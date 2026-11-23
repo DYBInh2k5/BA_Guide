@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/RSV-NOT-FOUND/history"
+method: GET
+headers:
+  X-Training-Staff: demo
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('missing history resource returns 404', function () { pm.response.to.have.status(404); });
+      const body = pm.response.json();
+      pm.test('not-found error code is explicit', function () { pm.expect(body.code).to.eql('RESERVATION_NOT_FOUND'); });
+      pm.test('not-found response has a message', function () { pm.expect(body.message).to.be.a('string').and.not.empty; });
+    language: text/javascript
+order: 12000

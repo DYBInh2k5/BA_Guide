@@ -70,3 +70,5 @@ Phân biệt **không có kết quả trong một danh sách** với **không t�
 **Ghi nhận:** `200 + []`/`404` ở đây là implementation hiện tại của mock, chưa tự nó chứng minh contract sản phẩm đã được phê duyệt. Dùng `X-Training-Staff: demo` chỉ để diễn tập header; không phải kiểm tra bảo mật.
 
 **Mẫu execution do trợ lý chạy — không phải evidence người học:** 2026-11-23, server mock local trên `127.0.0.1:3013`, hai GET dùng header demo. `GET /api/reservations?code=RSV-NOT-FOUND` trả HTTP `200`, `items: []`, `total: 0`; `GET /api/reservations/RSV-NOT-FOUND/history` trả HTTP `404`, `RESERVATION_NOT_FOUND`. Cổng riêng được dùng cho lần chạy này và server đã dừng. Hãy tự chạy lại trong Postman để ghi evidence cá nhân; không đánh dấu case của bạn là đã chạy dựa trên ví dụ này.
+
+**Mẫu execution request 12 do trợ lý chạy — không phải learner evidence:** HTTP `404 Not Found`, body `code=RESERVATION_NOT_FOUND`, message không rỗng; 3 assertions pass; Postman CLI exit code `1` do response là 4xx. Ghi riêng ba trạng thái này trong execution log: response status, assertion results, CLI process exit code.

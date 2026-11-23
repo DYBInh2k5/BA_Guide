@@ -112,3 +112,9 @@ postman request ".\postman-v3\11 - Staff - code not found.request.yaml" --enviro
 ```
 
 Nếu server chưa chạy, CLI không thể lấy response. Hãy khởi động mock theo hướng dẫn đầu bài trước. Lần chạy mẫu của trợ lý được ghi riêng trong worksheet; cần chạy lại để lưu evidence cá nhân. Bản v2.1 JSON và Local Mode v3 YAML đều có request này.
+
+## Request 12 — resource history không tồn tại
+
+Request `12 - Staff - missing history resource` gọi trực tiếp history của mã không có trong mock. Ba assertion kiểm tra `404`, `RESERVATION_NOT_FOUND` và message dạng chuỗi không rỗng. Chạy bằng Postman CLI giống request 11, thay tên file YAML bằng `12 - Staff - missing history resource.request.yaml`.
+
+**Mẫu execution do trợ lý chạy:** response `404`, cả 3 assertion pass, CLI exit code `1` vì CLI cũng xem HTTP 4xx là request failure. Đây không phải assertion failure. Khi báo cáo, ghi cả HTTP verdict (404 đúng theo mock contract) lẫn assertion result và exit code; không gọi chính sách sản phẩm đã được duyệt chỉ dựa trên mock.
