@@ -92,7 +92,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 - Không coi nội dung giả lập trong hồ sơ là sự thật đã được stakeholder xác nhận.
 - Mỗi quyết định phải truy được về mục tiêu, stakeholder hoặc bằng chứng.
 - Học công cụ theo nhiệm vụ BA: đầu vào là gì, thao tác nào cần làm, đầu ra dùng cho ai.
-- Jira/Confluence hiện chưa kết nối tài khoản. Postman Desktop v12 đang mở và Local Files hiển thị thư mục `postman-v3`; Postman CLI 1.93 đã chạy `GET /api/health` trên mock local với telemetry tắt: HTTP 200, 2 assertions pass, 17 ms. Đây là lần chạy do trợ lý thực hiện, không phải evidence kỹ năng người học; request builder UI chưa được mở và chưa có request gửi từ Desktop.
+- Jira/Confluence hiện chưa kết nối tài khoản. Postman Desktop v12 đang mở và Local Files hiển thị thư mục `postman-v3`; Postman CLI 1.93 đã chạy health check và walkthrough UAT-05 trên mock local với telemetry tắt. Đây là các lần chạy do trợ lý thực hiện, không phải evidence kỹ năng người học; request builder UI chưa được mở và chưa có request gửi từ Desktop. Kết quả UAT-05 chỉ chứng minh mock branch/no-insert; policy UAT vẫn Blocked vì DEC-01 Open.
 - Board FigJam dự án mẫu: [BA Practice Project — Restaurant Reservation](https://www.figma.com/board/J2aymYBMv2bJEzn75EET23), tạo trong team Cody empire theo lựa chọn của người dùng; đã kiểm tra ảnh render và chỉnh chiều cao khung để nội dung không tràn. Board là tài liệu học do trợ lý soạn, không phải evidence kỹ năng người học.
 
 ## Tiến độ

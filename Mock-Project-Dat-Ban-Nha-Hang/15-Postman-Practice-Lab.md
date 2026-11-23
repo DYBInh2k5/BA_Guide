@@ -68,6 +68,10 @@ Trong collection có ví dụ gửi hợp lệ, slot không đủ chỗ, validat
 - **HTTP 201**: yêu cầu đã được ghi nhận ở trạng thái `PENDING`, chưa đồng nghĩa nhà hàng đã xác nhận.
 - Sau `PATCH`, kiểm tra history và so trạng thái mới. Với header giả lập lỗi email, API vẫn giữ quyết định; response báo `FAILED_SIMULATED`.
 
+### Phân biệt HTTP verdict và Postman CLI exit code
+
+UAT-05 mong đợi API trả `409` cho fixture hiện tại. Postman CLI có thể trả exit code `1` khi response không phải 2xx/3xx, dù không có assertion nào thất bại; vì vậy không dùng riêng exit code như verdict nghiệp vụ. Đối chiếu status/body với test basis và kiểm tra hậu điều kiện (record có được tạo hay không). Với DEC-01 còn `Open`, có thể ghi “mock branch matched”, nhưng policy UAT vẫn `Blocked`.
+
 ### Coverage boundary — timeout/retry và idempotency
 
 `POST /api/reservations` trong mock hiện chưa nhận idempotency key. Mỗi request hợp lệ đi tới nhánh tạo reservation và thêm record mới vào bộ nhớ (`practice-api/server.js`, nhánh `POST /api/reservations`). Vì vậy, gửi cùng một payload hai lần trong Postman sẽ tạo hai lần submit độc lập theo implementation hiện tại. Kết quả đó **không chứng minh** cách xử lý retry của một sản phẩm thật và cũng chưa phải kiểm thử BRULE-09.

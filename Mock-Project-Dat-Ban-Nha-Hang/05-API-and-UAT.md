@@ -76,6 +76,8 @@ Content-Type: application/json
 4. Kiểm tra riêng UI/prototype: khách thấy slot không khả dụng, không thấy mã/trạng thái `PENDING` thành công, và có đường chọn slot khác.
 5. Lưu request/response, thời điểm chạy, server seed version và ảnh UI/prototype làm evidence.
 
+**Ví dụ execution do trợ lý chạy bằng Postman CLI — không phải bằng chứng người học:** ngày 2026-11-23, request trên trả `409 Conflict`, `code = SLOT_UNAVAILABLE`, `availableSeats = 4`; response không có `reservationCode`. CLI hiển thị 40 ms và exit code `1` vì HTTP status là 4xx, trong khi request này không có assertion thất bại. Follow-up `GET /api/reservations?date=2026-12-05&name=UAT-05` với header training trả `200`, `items: []`, `total: 0` (36 ms, exit code `0`). Kết quả chứng minh mock runtime hiện tại từ chối request và không tạo record khớp tên tại thời điểm kiểm tra; nó không phê duyệt policy capacity. Vì DEC-01 vẫn `Open`, ghi **mock branch matched / policy UAT Blocked**, không gộp hai kết luận thành một `Pass`. UI chưa được kiểm tra và learner chưa tự chạy các request này.
+
 Không dùng query trong `Reservation-Practice.sql` để khẳng định trạng thái của mock API: SQL script tạo một database fixture độc lập; server hiện giữ dữ liệu trong memory. API check ở bước 3 chứng minh không có reservation trong mock runtime tại lúc chạy, còn AC về UI cần evidence riêng. Nếu seed thay đổi hoặc server không restart, tính lại occupancy trước khi chạy và ghi giá trị thật.
 
 **Coverage còn thiếu:** test này không chứng minh hai request đồng thời không vượt capacity. Cần scenario riêng với engineering/QA, rule concurrency đã chốt và một cách quan sát state trước/sau.
