@@ -84,6 +84,17 @@ Sponsor đề xuất: “Nếu còn chỗ thì tự xác nhận ngay; thêm SMS 
 
 **Điều có thể cập nhật ngay:** change log ở trạng thái New/Under Analysis, decision log `DEC-01`/`BRULE-02` ở Open, câu hỏi discovery và impact links. **Chỉ cập nhật sau decision approval:** baseline business rule, product AC, API/state model, prototype final, UAT expected outcomes, release commitment và KPI target.
 
+### Worked example — evidence owner, reviewer và decision authority
+
+| Impact row | Evidence cần có | Evidence owner / reviewer | Decision authority | Trước khi baseline |
+|---|---|---|---|---|
+| API/concurrency | Capacity event/source cho online, phone và walk-in; timestamp/timezone/completeness; cách cập nhật và confirm hiện tại; scenario nhiều request cạnh tranh. Không suy ra dữ liệu thiếu là không có conflict. | **Evidence owner:** Operations + data/system owner cung cấp source và giới hạn; Engineering mô tả behavior hiện tại; QA rà scenario/checkability. | Business owner chốt policy capacity/`PENDING`; Engineering owner phê duyệt thiết kế kỹ thuật theo governance riêng. | Không baseline auto-confirm hay response contract trước khi capacity unit, state occupancy, conflict outcome và decision authority rõ. Cơ chế kiểm soát đồng thời do Engineering chọn và QA xác minh sau đó. |
+| Operations/metrics | Call/support logs đã khử định danh, trạng thái reservation và timestamp; định nghĩa “repeat contact”, cửa sổ quan sát, mẫu số/các kênh thiếu, thời gian nhận→quyết định. Không dùng số mô phỏng làm baseline. | **Evidence owner:** Operations/Support + data owner; BA ghi phương pháp và caveat; Product review metric definition. | Product Owner/sponsor được governance chỉ định chốt outcome target và chấp nhận baseline. | Chưa cam kết mục tiêu giảm cuộc gọi/thời gian. Ghi metric candidate và kế hoạch thu evidence; không chuyển target minh họa thành KPI đã duyệt. |
+
+**Phân biệt trách nhiệm:** evidence owner lấy/giải thích nguồn; reviewer kiểm tra chất lượng hoặc tính khả thi; decision authority chấp nhận policy/trade-off. Một người có thể kiêm vai trò nếu governance cho phép, nhưng không suy ra quyền duyệt chỉ từ chức danh.
+
+**Ánh xạ công cụ:** Jira discovery task lưu owner, evidence deliverable và dependency; Excel/RTM lưu nguồn, thời gian, denominator và caveat; Confluence giữ decision status `Open` cho tới khi authority xác nhận. Ghi bằng chứng vào công cụ không tự biến nó thành quyết định được duyệt.
+
 ## 4. Workflow impact analysis khi thay đổi
 
 1. Ghi change/defect ID, requester, ngày, lý do, bằng chứng và trạng thái.
