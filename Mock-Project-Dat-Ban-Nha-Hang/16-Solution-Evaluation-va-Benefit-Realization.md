@@ -12,10 +12,13 @@
 | Tỷ lệ sự cố trùng lịch | Sự cố trùng / yêu cầu online; so sánh mức thay đổi tương đối giữa pilot và baseline | Sổ sự cố + booking; quản lý | Hàng tuần | Giảm 30%, cần xác nhận |
 | Tỷ lệ khách đến | Booking đã đến / booking được xác nhận đã đến hạn | Trạng thái booking; lễ tân | Hàng tuần | ≥80% ban đầu, cần xác nhận |
 | Vi phạm sức chứa | Số sự cố đặt vượt năng lực cấu hình | Booking + cấu hình; quản lý | Mỗi sự cố/tháng | 0 trong UAT; cần định nghĩa riêng cho vận hành |
-| Tỷ lệ lỗi thông báo | Thông báo gửi lỗi / tổng lần gửi | Log email; hỗ trợ/IT | Hàng tuần | Chưa đặt mục tiêu |
+| Tỷ lệ sự kiện gửi không thành công | Sự kiện gửi có trạng thái khác `DELIVERED` / tổng sự kiện gửi; retry được tính là sự kiện riêng và `UNKNOWN_TIMEOUT` nằm trong tử số | Log email; hỗ trợ/IT | Hàng tuần | Chỉ số vận hành chẩn đoán; chưa đặt mục tiêu |
+| Tỷ lệ thông báo thất bại cuối cùng (đề xuất) | Message ID duy nhất có trạng thái cuối `BOUNCED` hoặc `FAILED_PERMANENT` / Message ID duy nhất đã có ít nhất một lần thử gửi; báo cáo `UNKNOWN_TIMEOUT` riêng | Log email; hỗ trợ/IT | Hàng tuần | Chưa đặt mục tiêu; cần xác nhận quy tắc trạng thái cuối |
 | Độ đầy đủ dữ liệu | Booking có đủ trường bắt buộc / booking tạo ra | Booking; BA/owner dữ liệu | Hàng tuần | Chỉ số chẩn đoán, chưa đặt mục tiêu |
 
 **Cần thống nhất trước khi đo:** định nghĩa “đã xử lý”, giờ hoạt động, một sự cố trùng lịch, booking đến hạn/no-show, nguồn dữ liệu chuẩn, múi giờ, cách loại dữ liệu thử nghiệm và người chịu trách nhiệm. Chỉ so sánh nhóm kênh và kỳ có cách ghi nhận tương đương.
+
+Hai KPI email trên trả lời câu hỏi **vận hành gửi thông báo**, không chứng minh khách đã đọc/thấy email hay lợi ích kinh doanh đã tăng. Khi retry tạo nhiều dòng log, tỷ lệ theo sự kiện có thể khác tỷ lệ theo từng thông báo; vì vậy phải ghi rõ grain (đơn vị đếm), quy tắc chọn trạng thái cuối và cách xử lý trạng thái chưa xác định. Bài thực hành Excel dùng Message ID duy nhất và tách `UNKNOWN_TIMEOUT`; xem [Bài 56 — Thực hành KPI email bằng Excel](56-Email-Delivery-Metric-Excel-Practice.md). Muốn đánh giá kết quả cho khách hàng/nhà hàng, cần đo thêm chỉ số riêng như tỷ lệ khách xác nhận sau nhắc lịch hoặc tỷ lệ khách đến; phải xác định nguồn, mẫu số, kỳ đo và yếu tố gây nhiễu trước khi kết luận.
 
 ### Đọc đúng mức thay đổi KPI
 
