@@ -107,6 +107,50 @@ Chỉ đưa vào model thông tin mà organization cho phép. Không nhập PII 
 4. Tạo một change impact summary cho CR-01, đối chiếu RTM trước khi chấp nhận.
 5. Lưu prompt, câu trả lời đã ẩn danh, reviewer note và corrected artifact như evidence học tập.
 
+## Worked lab — phân tích phỏng vấn bằng AI
+
+Dùng đoạn role-play giả lập trong [bài 48](./48-Stakeholder-Interview-Change-Request-Practice.md). Nội dung này là lời thoại do trợ lý soạn để học, không phải evidence stakeholder thật:
+
+> “Một khách gọi hai lần trong buổi tối. Lễ tân nói đang chờ quản lý xác nhận. Tôi nghĩ SMS sẽ giúp khách yên tâm.”
+>
+> “Tôi lo khách tưởng bàn đã được giữ. Không rõ chuyện này xảy ra bao nhiêu lần; mình chưa ghi riêng cuộc gọi hỏi trạng thái.”
+>
+> Quản lý thường xem sổ và lịch; walk-in có thể làm đổi sức chứa; chưa có policy viết thành văn về `PENDING` hay thứ tự ưu tiên.
+
+### Prompt vòng 1 — phân loại, chưa đề xuất giải pháp
+
+```text
+Chỉ dùng thông tin trong transcript giả lập dưới đây. Tạo bảng:
+statement | classification | exact source | confidence | not established | follow-up question | likely owner
+Classification chỉ gồm: stakeholder-reported, proposal, assumption, decision, open question.
+Không tạo requirement, KPI, tần suất, nguyên nhân hay policy nếu transcript không nói rõ.
+Transcript: [dán đoạn role-play]
+```
+
+### Bản tổng hợp đã review
+
+| Statement | Classification | Điều được phép kết luận | Phần chưa được xác lập |
+|---|---|---|---|
+| Một khách gọi hai lần trong buổi tối | Stakeholder-reported | Sponsor kể một trường hợp cụ thể | Chưa kiểm chứng bằng call log; chưa biết tỷ lệ/tần suất |
+| SMS sẽ giúp khách yên tâm | Proposal / hypothesis | Sponsor đề xuất một giải pháp và outcome mong muốn | Chưa chứng minh SMS là nguyên nhân phù hợp hay phương án tốt nhất |
+| Sponsor lo khách tưởng bàn đã được giữ | Stakeholder-reported concern | Có lo ngại về kỳ vọng trạng thái | Chưa biết khách thật hiểu message ra sao hoặc đã bị thiệt hại chưa |
+| Không rõ tần suất, chưa ghi riêng cuộc gọi hỏi trạng thái | Evidence gap được sponsor nêu | Baseline chưa có trong bối cảnh role-play | Không được tự suy ra số cuộc gọi hoặc mức benefit |
+| Quản lý xem sổ/lịch; walk-in có thể đổi sức chứa | Reported process/exception | Cần xác minh nguồn capacity và xử lý walk-in | Chưa phải quy trình chuẩn áp dụng mọi ca |
+| Chưa có policy thành văn về `PENDING`/ưu tiên | Open policy | Cần tìm policy owner và cách ra quyết định hiện hành | AI/BA không tự quyết `PENDING` có giữ chỗ hay không |
+
+### Prompt vòng 2 — kiểm tra hallucination
+
+```text
+Rà bảng phân tích trước. Với mỗi dòng, chỉ ra phần nào là quote/fact trong transcript,
+phần nào là suy diễn. Tìm mọi từ mang nghĩa “always”, “usually”, nguyên nhân, KPI,
+policy hoặc approval không có nguồn. Đề xuất câu hỏi follow-up trung lập; không trả lời thay stakeholder.
+```
+
+**Rubric:** mỗi kết luận phải trỏ được tới câu nguồn; giữ “một trường hợp được kể” khác “mức độ phổ biến”; giữ proposal khác decision; unknowns phải có câu hỏi/owner kế tiếp. So với [matrix gốc ở bài 48](./48-Stakeholder-Interview-Change-Request-Practice.md), sửa mọi kết luận AI viết quá mức.
+
+**Chuyển giao:** sau review, chỉ tạo discovery action như “xin log đã khử định danh và xác nhận cách đo” hoặc “xác định authority của policy capacity”. Chưa tạo acceptance criteria cho SMS/auto-confirm từ transcript này vì consent, trigger state, capacity và source-of-truth còn mở.
+
+**Evidence học tập:** lưu prompt, output AI có đánh dấu, bản sửa của bạn và lý do sửa. Đây là evidence bạn biết review AI; transcript giả lập và câu trả lời do assistant tạo không phải evidence về năng lực cá nhân cho tới khi bạn tự làm.
 ## Nguồn chính thức tham khảo
 
 - [IIBA — BABOK Guide](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/)
@@ -131,4 +175,3 @@ Phần chứng chỉ của source repo có một số điều kiện ECBA cũ v�
 Phần trong source repo ghi ECBA cần 21 PD hours là không khớp FAQ ECBA hiện hành; bảng nguồn cũ cũng nêu giá và lộ trình nhiều năm như số cố định. Không dùng giá, số câu thi, thời lượng, lương hay câu “chứng chỉ làm tăng cơ hội/mức lương” từ tài liệu cũ nếu chưa xác minh với nguồn chính thức và thị trường/thời điểm hiện tại.
 
 Nguồn primary để xác minh lại: [IIBA Certification FAQ](https://www.iiba.org/business-analysis-certifications/certification-faq/), [IIBA Certification Fees](https://www.iiba.org/business-analysis-certifications/certification-fees/), [PMI-PBA certification](https://www.pmi.org/certifications/business-analysis-pba). Quy định và phí có thể thay đổi; kiểm tra handbook/fee page mới nhất trước khi đăng ký.
-
