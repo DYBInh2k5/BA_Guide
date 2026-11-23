@@ -144,13 +144,16 @@ Follow-up này không tự gán kết quả “khách mất doanh thu” hay “
 
 > Register dưới đây được trích từ transcript **mô phỏng** ở bài này. `Reported` nghĩa là stakeholder/nhân viên kể; chưa phải quan sát độc lập. `Open` nghĩa là chưa có quyết định hoặc bằng chứng đủ để đóng câu hỏi.
 
-| Ref/source trong bài role-play | Ghi nhận tạm | Phân loại/trạng thái | Người có thể cung cấp/kiểm tra | Bước xác minh và bằng chứng cần xin |
+| Discovery ID / source | Ghi nhận tạm | Phân loại/trạng thái | Người có thể cung cấp/kiểm tra | Bước xác minh và bằng chứng cần xin |
 |---|---|---|---|---|
-| Quản lý kể trường hợp tuần trước: khách đến trước khi xác nhận; ca làm hỏi các bàn để sắp xếp; quản lý không chắc khách cuối cùng có ngồi được không | Một case được kể, outcome chưa rõ | Stakeholder-reported; chưa đối chiếu | Quản lý có thể giúp định vị case; lễ tân ca đó có thể bổ sung; BA tổng hợp | Xin khoảng ngày/ca hoặc mã đã khử định danh; đối chiếu lịch bàn/trao đổi trong phạm vi được phép; ghi rõ nếu không truy được |
-| Quản lý ước lượng “vài lần trong tháng” | Tần suất là estimate, chưa có định nghĩa/denominator | Estimate; chưa đo | Quản lý + người giữ sổ/log | Chốt “sự cố” nghĩa là gì và kỳ đo; xem nguồn có sẵn; không biến “vài lần” thành tỷ lệ |
-| Nhân viên kể ca sau đọc tin nhắn và sổ; tin chưa trả lời có thể đã được người ca trước gọi | Cách xác định yêu cầu còn chờ có thể mơ hồ | Stakeholder-reported process; cần xem mẫu | Nhân viên nhiều ca; quản lý xác nhận cách làm | Quan sát bàn giao hoặc xem mẫu tin/sổ đã khử PII; hỏi cách phân biệt chưa gọi/đã gọi/chờ quyết định |
-| Nhân viên nói sổ không ghi giờ gọi hay người phụ trách | Thiếu field được báo cáo; chưa xem sổ thực tế | Reported; chưa xác minh artifact | Nhân viên quản lý sổ; owner vận hành | Xin xem biểu mẫu/trang mẫu được phép; ghi version và ngày; hỏi có kênh ghi khác không |
-| Sponsor/nhân vật đề xuất “làm app” | App là option, không phải requirement/approval | Proposal; decision còn mở | Sponsor/Product; người phê duyệt scope cần xác định | Xác minh need trước; so sánh no-change, quy trình bàn giao chuẩn hóa, queue/inbox và app; ghi owner cho quyết định |
+| DISC-01 — Quản lý kể trường hợp tuần trước: khách đến trước khi xác nhận; ca làm hỏi các bàn để sắp xếp; quản lý không chắc khách cuối cùng có ngồi được không | Một case được kể, outcome chưa rõ | Stakeholder-reported; chưa đối chiếu | Quản lý có thể giúp định vị case; lễ tân ca đó có thể bổ sung; BA tổng hợp | Xin khoảng ngày/ca hoặc mã đã khử định danh; đối chiếu lịch bàn/trao đổi trong phạm vi được phép; ghi rõ nếu không truy được |
+| DISC-02 — Quản lý ước lượng “vài lần trong tháng” | Tần suất là estimate, chưa có định nghĩa/denominator | Estimate; chưa đo | Quản lý + người giữ sổ/log | Chốt “sự cố” nghĩa là gì và kỳ đo; xem nguồn có sẵn; không biến “vài lần” thành tỷ lệ |
+| DISC-03 — Nhân viên kể ca sau đọc tin nhắn và sổ; tin chưa trả lời có thể đã được người ca trước gọi | Cách xác định yêu cầu còn chờ có thể mơ hồ | Stakeholder-reported process; cần xem mẫu | Nhân viên nhiều ca; quản lý xác nhận cách làm | Quan sát bàn giao hoặc xem mẫu tin/sổ đã khử PII; hỏi cách phân biệt chưa gọi/đã gọi/chờ quyết định |
+| DISC-04 — Nhân viên nói sổ không ghi giờ gọi hay người phụ trách | Thiếu field được báo cáo; chưa xem sổ thực tế | Reported; chưa xác minh artifact | Nhân viên quản lý sổ; owner vận hành | Xin xem biểu mẫu/trang mẫu được phép; ghi version và ngày; hỏi có kênh ghi khác không |
+| DISC-05 — Sponsor/nhân vật đề xuất “làm app” | App là option, không phải requirement/approval | Proposal; decision còn mở | Sponsor/Product; người phê duyệt scope cần xác định | Xác minh need trước; so sánh no-change, quy trình bàn giao chuẩn hóa, queue/inbox và app; ghi owner cho quyết định |
+
+**Trace sang [BPMN As-Is có annotation](./09-Reservation-As-Is-Annotation-Example.drawio):** DISC-01 nằm trong phạm vi role-play giả lập ở note; DISC-03/DISC-04 liên hệ noteOpenQuestion về ownership/handoff; noteAssumption đánh dấu kiểm tra lịch/gateway hỗ trợ quản lý là giả thuyết. DISC-02 cần đo baseline, không phải một bước quy trình; DISC-05 chuyển sang options analysis, không vẽ thành task BPMN.
+
 
 ### Chuyển sang công cụ
 
