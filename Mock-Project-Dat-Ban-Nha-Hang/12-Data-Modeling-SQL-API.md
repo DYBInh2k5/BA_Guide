@@ -191,3 +191,27 @@ Mã HTTP trong bảng là gợi ý để thống nhất với kỹ thuật, khô
 - Giả định về sức chứa, múi giờ, hủy và retention được ghi thành câu hỏi/open decision.
 
 
+
+## Test design — reservation lưu nhưng history lỗi
+
+**Mục đích:** làm rõ tính nhất quán giữa trạng thái hiện tại và audit history. Đây là scenario cần phối hợp với Engineering/QA; BA mô tả kết quả nghiệp vụ mong muốn và không tự chọn transaction hay kiến trúc lưu trữ.
+
+| Trường | Nội dung dự thảo |
+|---|---|
+| Test ID | DATA-ATOMIC-01 |
+| Test basis | Draft requirement: một reservation được chấp nhận phải có thể truy vết sự kiện khởi tạo; policy cần được Product/Operations xác nhận |
+| Precondition | Dùng database kiểm thử; chuẩn bị dữ liệu hợp lệ và slot đủ chỗ; test harness có thể làm lỗi thao tác ghi history một cách có kiểm soát |
+| Action | Gửi một request mới đúng một lần trong khi history write được cấu hình thất bại |
+| Expected cần chốt | Chọn một hợp đồng lỗi/recovery rõ ràng bên dưới trước khi gán Pass/Fail |
+| Evidence | API response; tra cứu reservation; truy vấn history; log/outbox hoặc trạng thái retry nếu kiến trúc có dùng |
+
+**Hai hợp đồng có thể đánh giá:**
+
+1. **Cùng transaction:** nếu không ghi được history thì rollback cả reservation và history; response báo lỗi theo contract đã thống nhất. Hậu kiểm phải không tìm thấy reservation mới và không có event khởi tạo mồ côi.
+2. **Lưu reservation kèm outbox/recovery:** reservation được chấp nhận khi event audit đã được ghi bền vững vào cơ chế hàng đợi/outbox để xử lý lại; cần quan sát được event pending/retry và không được âm thầm mất event. Chi tiết retry, trạng thái hiển thị và thời hạn khắc phục cần thống nhất với Product/Engineering.
+
+Không mặc định “reservation thành công, history bị mất” là chấp nhận được. Cũng không bắt buộc transaction DB nếu Engineering dùng kiến trúc khác nhưng đạt được invariant đã thống nhất. Nếu chưa chọn hợp đồng, test basis còn thiếu và case là `Blocked`/`Draft`, không phải Pass.
+
+**Giới hạn mock hiện tại:** `practice-api/server.js` thêm reservation và history vào hai array trong memory liên tiếp; không có persistent database, history write failure injection, transaction, outbox hoặc retry. Vì thế DATA-ATOMIC-01 là **Not executable against current mock**. Không sửa kết quả worksheet hoặc gây lỗi thủ công rồi gọi đó là bằng chứng của hệ thống thật.
+
+**Câu hỏi elicitation:** “Nếu tạo reservation thành công nhưng không lưu được audit history, nghiệp vụ muốn giữ reservation để xử lý/retry hay hủy toàn bộ thao tác? Bằng chứng nào cho phép vận hành biết và khắc phục sự cố này?” Engineering/QA tiếp theo xác nhận cách kiểm thử fault injection và bằng chứng hậu kiểm.
