@@ -27,3 +27,7 @@ Giữ bản gốc nguyên trạng; lưu bản copy đã tự điền, kèm một
 - [Bài 51 — chuẩn bị CSV cho Jira](./51-Jira-CSV-Backlog-Staging-Lab.md)
 - [Bài 52 — Confluence và decision log](./52-Confluence-Decision-Log-and-Canonical-Page.md)
 - [CSV backlog staging](./Jira-Backlog-Import-Staging.csv)
+
+## Hướng dẫn sau khi tự làm
+
+Sau khi hoàn thành bản copy cá nhân, dùng [Bài 54 — hướng dẫn phân tích ưu tiên backlog bằng Excel](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md) để đối chiếu cách lập luận theo điều kiện. Ví dụ trong bài 54 không thay thế quyết định release của người có thẩm quyền.
