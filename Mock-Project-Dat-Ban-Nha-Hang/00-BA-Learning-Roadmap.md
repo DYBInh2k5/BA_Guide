@@ -94,3 +94,5 @@ Dùng [worksheet 55 — Postman UAT Execution](./55-Postman-UAT-Execution-Worksh
 ### Lab Excel — định nghĩa metric và grain dữ liệu
 
 Dùng [bài 56 — Email Delivery Metric](./56-Email-Delivery-Metric-Excel-Practice.md) và [workbook thực hành](./outputs/notification-failure-rate-practice-20261123/Email-Delivery-Metric-Practice.xlsx) để nhóm event theo notification, phân biệt retry với thông báo duy nhất, tính numerator/denominator và báo riêng timeout chưa rõ. Đây là dữ liệu giả lập; chỉ bản tự làm của người học mới được dùng làm evidence cá nhân.
+
+Tiếp tục với [bài 57 — Attendance Rate](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx): xác định cohort booking đến hạn, tách outcome chưa rõ khỏi no-show, tính tỷ lệ khách đến và outcome coverage. Chỉ số và dữ liệu đều giả lập; tự hoàn thành bản copy rồi gửi lại để được review.
