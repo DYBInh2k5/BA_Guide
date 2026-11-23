@@ -60,11 +60,13 @@ Need (draft): nhân viên nhận biết request cần follow-up
   → FR / Story + BRULE-02 (capacity còn TBD)
   → AC-US01-04: slot unavailable
   → API 409 (contract draft)
-  → UAT-05 / test evidence (chưa chạy)
+  → UAT-05 (assistant-run CLI: 409 / 4 seats; follow-up total 0)
+  → mock branch matched; policy UAT Blocked (DEC-01 Open)
 ```
 
 - Nêu một requirement thực sự đã tự review/thay đổi, nếu có; file do trợ lý chuẩn bị không tính là evidence tự làm.
 - Hiển thị một câu hỏi còn mở (ví dụ: `PENDING` có chiếm capacity?).
+- Execution UAT-05 ở đây do trợ lý chạy trên mock local; chưa có execution evidence cá nhân của người học.
 - Không dùng requirement draft như policy đã được sponsor duyệt.
 
 **Lời nói:** “Tôi giữ trace từ need tới test để change impact có thể truy ra. Với capacity, unit và cách tính `PENDING` vẫn là quyết định cần Product/Operations chốt; mock API chỉ phản ánh một giả định học tập.”
@@ -76,10 +78,10 @@ Need (draft): nhân viên nhận biết request cần follow-up
 **Trên slide:**
 
 - Prototype: form khách → trạng thái chờ → queue nhân viên; thêm unavailable/error state.
-- Postman/mock API: request/response, validation và conflict path.
+- Postman CLI/mock API: assistant-run health `200` (2 assertions) và UAT-05 `409`, `availableSeats: 4`; follow-up trả `total: 0`. Chỉ xác nhận nhánh mock/no-insert, không xác nhận policy hay UI.
 - SQL/Excel: dataset giả lập để luyện quy tắc và phân tích, không phải operating data.
 - UAT-08: booking decision và email failure là hai trạng thái riêng; actual result chưa có.
-- UAT evidence: test setup, actual result, expected result, issue/sign-off owner.
+- UAT-08 booking decision/email failure chưa chạy; learner chưa tự thực hành Postman. Giữ actual, expected, issue và sign-off owner tách riêng.
 
 **Lời nói:** “Prototype dùng để lấy phản hồi và làm rõ trạng thái, chưa kết nối backend thật. API mock giúp luyện contract; dữ liệu SQL/Excel đều tổng hợp. Tôi phân biệt UAT business acceptance với performance/security test do QA hoặc chuyên gia phụ trách.”
 
