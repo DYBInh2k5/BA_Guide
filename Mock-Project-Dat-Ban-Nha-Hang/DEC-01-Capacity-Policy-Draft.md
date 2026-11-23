@@ -25,6 +25,17 @@ Chưa có quy tắc nghiệp vụ nào được phê duyệt trong case study. M
 
 Các trade-off là giả thuyết cần kiểm chứng: không giữ có thể tăng rủi ro overbooking; giữ tạm cần rule hết hạn/giải phóng; giữ đến khi staff xử lý có thể làm slot bị chiếm lâu khi xử lý chậm. Chưa option nào được chọn.
 
+### Walkthrough tác động trên fixture (không phải policy)
+
+[SQLite sensitivity fixture](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md) có slot 19:00 với capacity 10, gồm 2 `CONFIRMED` và 4 `PENDING`. Giả sử request mới cần 5 ghế và các điều kiện khác hợp lệ:
+
+| Kịch bản giả định | Occupancy dùng trong phép tính | Remaining | Kết quả capacity cho request 5 ghế |
+|---|---:|---:|---|
+| `PENDING` không giữ chỗ; chỉ tính `CONFIRMED` | 2 | 8 | Đủ chỗ theo kịch bản này |
+| `PENDING` giữ chỗ trong lúc chờ xử lý | 6 | 4 | Không đủ chỗ theo kịch bản này |
+
+Chênh lệch 4 ghế là **tác động của hai giả định lên fixture**; nó không chứng minh còn chỗ thật hay chọn option nào. Sau khi policy được duyệt, BA/QA cần dùng rule/version đó làm test oracle. Trước thời điểm đó, expected result gắn với policy vẫn là `Open/Blocked`.
+
 ## Open questions and actions
 
 | ID | Câu hỏi/action | Owner role | Due/review | Blocks | Status |
