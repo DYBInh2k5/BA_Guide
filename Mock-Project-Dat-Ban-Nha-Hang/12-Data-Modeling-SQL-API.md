@@ -120,6 +120,7 @@ Trong Postman:
 - Định dạng múi giờ và slot được quyết định thế nào?
 - `400`, `409`, `401`, `403`, `404`, `500` nghĩa là gì với người gọi API?
 - API có idempotency key không, để gửi lại khi timeout không tạo đặt bàn trùng?
+- Nếu client timeout, có reference/endpoint nào để tra cứu request trước khi user gửi thao tác mới không? Retry cùng key có replay kết quả nào?
 - Khi email lỗi, API trả gì và trạng thái đặt bàn được lưu ở đâu?
 - Có phân trang, giới hạn tốc độ, log, quyền truy cập và chính sách lưu dữ liệu nào?
 
@@ -141,6 +142,8 @@ Mã HTTP trong bảng là gợi ý để thống nhất với kỹ thuật, khô
 4. Hãy tìm một điều còn mơ hồ trong schema, chẳng hạn trạng thái PENDING có giữ chỗ không, rồi viết câu hỏi cho stakeholder.
 
 **Đáp án khung:** RES-DEMO-003 ở trạng thái REJECTED nên `slot_utilization` không tính 3 khách đó; đây chỉ là quy tắc mẫu. Nếu `baseUrl` sai hoặc service chưa chạy, Postman báo lỗi kết nối và chưa có HTTP response. Lỗi validation nên có field và code ổn định để UI/QA kiểm tra; nhóm API cần quyết định status code/shape.
+
+**Bài tiếp nối:** dùng [Lab 47 — API timeout, retry và đối soát](./47-API-Timeout-Retry-Reconciliation-Lab.md). Timeout phía client không nói chắc server chưa commit; cần request identity, oracle và khả năng tra cứu/đối soát trước khi quyết định hướng dẫn retry.
 
 ## Checklist review
 - Mỗi cột có nguồn yêu cầu và định nghĩa rõ.
