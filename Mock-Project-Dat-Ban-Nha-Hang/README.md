@@ -64,7 +64,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 46. `39-Reservation-Use-Case.drawio` — UML Use Case Diagram draft với system boundary, actor và mục tiêu; policy/permission còn mở.
 47. [FigJam BA Practice Project — Restaurant Reservation](https://www.figma.com/board/J2aymYBMv2bJEzn75EET23) — board có sáu chặng lifecycle cùng khu 07 Trace & Practice để nối evidence → requirement → acceptance → test; phần mới đã được chụp ảnh kiểm tra.
 48. `40-Gap-Analysis-Coached-Example.md` — worked example có evidence labels, hypothesis có thể bác bỏ, options trade-off, To-Be giả thuyết, trace tới test và lab FigJam.
-49. `postman-v3/` — Postman Collection v3 YAML, 10 request để dùng trong Local Mode; `Postman-Collection.json` vẫn là nguồn interchange v2.1.
+49. `postman-v3/` — Postman Collection v3 YAML, 10 request, local environment `BA Local` và hướng dẫn chạy request bằng Postman CLI; `Postman-Collection.json` vẫn là nguồn interchange v2.1. Health check đã được trợ lý chạy một lần bằng CLI (2 assertions pass); không phải evidence người học tự thực hành.
 50. `41-BPMN-to-Requirements-Lab.md` — nối evidence/quy trình As-Is với need, requirement, AC, test evidence và traceability; có tool lab FigJam/draw.io/Jira-or-spreadsheet.
 51. `42-UAT-Evidence-Defect-Triage-and-Signoff.md` — bài lab UAT-11 với execution log, worked example giả lập, defect/change triage và ba gate UAT → release readiness → benefit review.
 52. `43-Capstone-BA-End-to-End-Practice.md` — capstone tự làm từ discovery tới decision, requirements, tool practice, change impact và portfolio pitch.
@@ -92,7 +92,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 - Không coi nội dung giả lập trong hồ sơ là sự thật đã được stakeholder xác nhận.
 - Mỗi quyết định phải truy được về mục tiêu, stakeholder hoặc bằng chứng.
 - Học công cụ theo nhiệm vụ BA: đầu vào là gì, thao tác nào cần làm, đầu ra dùng cho ai.
-- Jira/Confluence hiện chưa kết nối tài khoản. Mock API Postman đang chạy tại `http://127.0.0.1:3000` trong phiên học này; chỉ dùng dữ liệu giả lập và không dùng dữ liệu khách thật. Import collection/chạy request trong Postman cần thao tác thủ công trong app ở phiên này.
+- Jira/Confluence hiện chưa kết nối tài khoản. Postman Desktop v12 đang mở và Local Files hiển thị thư mục `postman-v3`; Postman CLI 1.93 đã chạy `GET /api/health` trên mock local với telemetry tắt: HTTP 200, 2 assertions pass, 17 ms. Đây là lần chạy do trợ lý thực hiện, không phải evidence kỹ năng người học; request builder UI chưa được mở và chưa có request gửi từ Desktop.
 - Board FigJam dự án mẫu: [BA Practice Project — Restaurant Reservation](https://www.figma.com/board/J2aymYBMv2bJEzn75EET23), tạo trong team Cody empire theo lựa chọn của người dùng; đã kiểm tra ảnh render và chỉnh chiều cao khung để nội dung không tràn. Board là tài liệu học do trợ lý soạn, không phải evidence kỹ năng người học.
 
 ## Tiến độ

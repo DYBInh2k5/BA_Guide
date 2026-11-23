@@ -17,8 +17,21 @@ Gửi request thật trong Postman, đọc status code/body, chạy assertions, 
    ```powershell
    node .\practice-api\server.js
    ```
-4. Giữ cửa sổ server mở. Trong Postman Desktop v12, collection v3 ở `postman-v3/` dùng `baseUrl=http://127.0.0.1:3000`. Trước khi mở/import, kiểm tra workspace đang chọn và repo đang gắn trong **Local Files**. Nếu hiện thông báo workspace đã kết nối với repo khác, đừng chọn **Connect Current Folder** trừ khi bạn chủ ý đổi liên kết repo. Import collection vào workspace Postman sẽ lưu collection trong workspace đó; nếu đang ở Cloud View, collection có thể được đồng bộ lên Postman Cloud. Tách workspace/destination trước khi thực hành. Xem [hướng dẫn Postman về import dữ liệu và repo local](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data) và [Local Files/Native Git](https://learning.postman.com/docs/use/native-git/sync).
-5. Mở request `00 - Health check` rồi gửi `GET {{baseUrl}}/api/health`. Kết quả dự kiến theo mock server là `200`, `status: ok`, `mode: training-mock`, `persistence: in-memory`. Ghi kết quả thực tế bạn nhận được; chưa chạy thì không đánh dấu Pass.
+4. Giữ cửa sổ server mở. Bản local có environment không chứa secret tại `postman-v3/postman/environments/BA Local.environment.yaml`, với `baseUrl=http://127.0.0.1:3000`. Trong Postman Desktop v12, trước khi mở request hãy kiểm tra workspace và thư mục trong **Local Files**. Nếu thấy repo này trong Local Files, dùng Local View; không chọn **Push to Postman Cloud** nếu bạn chỉ muốn làm local. Import collection vào workspace cloud có thể lưu/sync tài nguyên lên Postman Cloud. Xem [Postman Local Files/Native Git](https://learning.postman.com/docs/use/native-git/sync).
+5. Mở request `00 - Health check`, chọn environment `BA Local`, rồi gửi `GET {{baseUrl}}/api/health`. Kết quả dự kiến theo mock server là `200`, `status: ok`, `mode: training-mock`, `persistence: in-memory`. Ghi status/body/thời gian và test result thực tế; chưa chạy thì không đánh dấu Pass.
+
+### Chạy request file bằng Postman CLI (local)
+
+Nếu Local Files đang hiển thị YAML nhưng Postman Desktop chưa mở được Request Builder, Postman CLI có thể chạy trực tiếp một `*.request.yaml` cùng local environment file. Từ thư mục `postman-v3/`, chạy:
+
+```powershell
+postman environment lint ".\postman\environments\BA Local.environment.yaml"
+postman request ".\00 - Health check.request.yaml" --environment ".\postman\environments\BA Local.environment.yaml" --report-events=false
+```
+
+`--report-events=false` tắt gửi sự kiện request vào Postman API Catalog/Application Inventory. Lệnh chỉ gọi endpoint local nêu trong request file; không push request/environment lên Postman Cloud. Không dùng URL `localhost` production hay secret thật trong bài này. Xem [Postman CLI request](https://learning.postman.com/docs/postman-cli/postman-cli-requests/) và [Postman CLI environment](https://learning.postman.com/docs/postman-cli/postman-cli-environments/).
+
+**Ví dụ chạy bởi trợ lý — không phải bằng chứng người học:** Postman CLI 1.93 chạy health request một lần vào 2026-11-23; actual `200 OK`, body có `status=ok`, `mode=training-mock`, `persistence=in-memory`; 2 assertions qua; thời gian CLI báo 17 ms. Đây chỉ là health check trên mock local, không kiểm chứng capacity, UAT policy hoặc nghiệp vụ đặt bàn. Người học cần tự chạy và lưu execution log riêng để được review năng lực.
 
 `Postman-Collection.json` vẫn được giữ làm bản interchange v2.1. Postman v12 Local Mode dùng collection v3 YAML, nên dự án có thêm bản chuyển đổi ở `postman-v3/`. Có thể tái tạo sau khi cập nhật collection bằng Postman CLI:
 
