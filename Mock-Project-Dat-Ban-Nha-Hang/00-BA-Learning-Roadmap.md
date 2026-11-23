@@ -26,6 +26,19 @@ Case xuyên suốt là đặt bàn nhà hàng trực tuyến. Đây là mô ph�
 
 ## Bản đồ công cụ theo ảnh
 
+### Đối chiếu bốn giai đoạn trong ảnh
+
+| Giai đoạn trong ảnh | Chủ đề | Bài tương ứng trong repo | Công cụ được nêu |
+|---|---|---|---|
+| 1. Nền tảng và tư duy nghiệp vụ | Vai trò BA, loại dự án CNTT, SDLC, Waterfall và Agile/Scrum, phối hợp trong dự án | `01`, `08`, `10`, `23`, `35`, `45` | Scrum.org; logo thứ hai trong ảnh không đủ rõ để nhận diện chắc chắn |
+| 2. Khảo sát và phân tích hệ thống | BABOK, elicitation, BPMN, Use Case, sitemap, function list, kiểm soát scope | `02`, `06`, `08`, `09`, `29`, `32`, `37`, `38`, `41` | Miro hoặc FigJam; draw.io |
+| 3. Thiết kế chi tiết và tài liệu | UI/UX, đặc tả chức năng, UML, API, ERD/DFD, URD/SRS | `12`, `13`, `14`, `34`, `36`, `39`, `44` | Figma, Postman, Visual Paradigm hoặc draw.io |
+| 4. Delivery, AI và nghề nghiệp | AI cho BA, change request, Scrum, backlog, user story, acceptance criteria, capstone và phỏng vấn | `11`, `17`, `20`, `30`, `43`, `45`, `48`, `49`, `50`, `51` | Jira, ChatGPT và Claude |
+
+Ảnh giới thiệu khóa học còn nêu PMBOK/Advanced ISTQB, giảng viên có kinh nghiệm, dự án thực tế và cam kết giới thiệu việc làm. Repo có bài so sánh BABOK/PMBOK/Scrum/ISTQB để học cách áp dụng framework; đây là case mô phỏng, không xác minh nội dung lớp học, kinh nghiệm giảng viên hay cam kết tuyển dụng của đơn vị quảng bá. Logo ứng dụng trong ảnh giúp định hướng nhóm công cụ, không phải bằng chứng cần thành thạo mọi phiên bản/sản phẩm trên thị trường.
+
+### Năng lực thực hành theo công cụ
+
 | Nhóm công cụ được nêu | Nhiệm vụ BA cần tự làm | Bằng chứng thành thạo có thể review |
 |---|---|---|
 | Scrum.org / Jira | Hiểu cách team quản lý backlog; tạo/sửa issue, refine, link và theo dõi trạng thái | Một backlog slice có priority rationale, AC, dependencies, source/trace links và filter phù hợp |
