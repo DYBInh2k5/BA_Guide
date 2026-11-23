@@ -7,18 +7,17 @@ Tài liệu này là **storyboard** để luyện trình bày case study khi ph�
 **Đối tượng:** người phỏng vấn BA/BA Lead. **Thời lượng:** 5 phút trình bày + phần hỏi đáp. **Mục tiêu:** thể hiện cách tư duy, truy vết và nhận diện giới hạn, không tuyên bố kết quả kinh doanh.
 
 
-## B?i th?c h?nh Figma: s?a deck v? t? QA
+## Bài thực hành Figma: sửa deck và tự QA
 
-D?ng deck Figma Slides ? tr?n l?m **b?n tham kh?o do tr? l? t?o**. T?o m?t b?n sao trong workspace c?a b?n ?? th?c h?nh; kh?ng ghi nh?n b?n g?c l? s?n ph?m c? nh?n.
+Dùng deck Figma Slides ở trên làm **bản tham khảo do trợ lý tạo**. Tạo một bản sao trong workspace của bạn để thực hành; không ghi nhận bản gốc là sản phẩm cá nhân.
 
-1. X?a slide 9 ?ang ?? tr?ng; gi? l?i 8 slide c? n?i dung.
-2. S?a ch? ph? tr?n slide 2, 3 v? 7: t?ng c? ch? v? ?? t??ng ph?n ?? ??c ???c khi tr?nh chi?u. Gi? n?i dung trung th?c, kh?ng bi?n gi? thuy?t th?nh d? ki?n.
-3. C? nh?n h?a ?t nh?t m?t slide b?ng artifact ho?c ph?n t?ch do ch?nh b?n l?m. G?n nh?n d? li?u gi? l?p v? ghi r? quy?t ??nh n?o c?n m?.
-4. Tr?nh chi?u l?i to?n deck v? ki?m tra: ?? 8 slide, kh?ng c?n trang tr?ng, kh?ng tr?n/c?t ch?, th? b?c ti?u ?? nh?t qu?n, ch? ph? ??c ???c ? ch? ?? tr?nh chi?u ho?c m?c zoom 35%.
-5. L?u li?n k?t b?n sao ho?c file export, ?nh ch?p tr??c/sau, v? ghi 3?5 d?ng v? thay ??i c?ng l? do thi?t k?.
+1. Xóa slide 9 đang để trắng; giữ lại 8 slide có nội dung.
+2. Sửa chữ phụ trên slide 2, 3 và 7: tăng cỡ chữ và độ tương phản để đọc được khi trình chiếu. Giữ nội dung trung thực, không biến giả thuyết thành dữ kiện.
+3. Cá nhân hóa ít nhất một slide bằng artifact hoặc phân tích do chính bạn làm. Gắn nhãn dữ liệu giả lập và ghi rõ quyết định nào còn mở.
+4. Trình chiếu lại toàn deck và kiểm tra: đủ 8 slide, không còn trang trắng, không tràn/cắt chữ, thứ bậc tiêu đề nhất quán, chữ phụ đọc được ở chế độ trình chiếu hoặc mức zoom 35%.
+5. Lưu liên kết bản sao hoặc file export, ảnh chụp trước/sau, và ghi 3–5 dòng về thay đổi cùng lý do thiết kế.
 
-**Ti?u ch? ho?n t?t:** ng??i kh?c m? ???c b?n c?a b?n, ??c ???c n?i dung, th?y r? ??u l? gi? l?p, v? b?n c? th? gi?i th?ch ?t nh?t m?t trade-off. Ch? t? ch?m k? n?ng sau khi artifact c? nh?n ?? ???c t?o; khi g?i l?i, m?nh s? review theo checklist n?y.
-
+**Tiêu chí hoàn tất:** người khác mở được bản của bạn, đọc được nội dung, thấy rõ đâu là giả lập, và bạn có thể giải thích ít nhất một trade-off. Chỉ tự chấm kỹ năng sau khi artifact cá nhân đã được tạo; khi gửi lại, mình sẽ review theo checklist này.
 ## Slide 1 — Case study đặt bàn nhà hàng
 
 **Thời lượng:** 20 giây
