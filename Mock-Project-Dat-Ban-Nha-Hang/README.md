@@ -137,3 +137,6 @@ Bài tiếp theo sau BPMN: [từ quy trình đến yêu cầu có thể kiểm c
 
 
 
+## Bài tiếp theo
+
+- [49 — Backlog refinement và chẻ User Story](./49-Backlog-Refinement-va-Story-Splitting-Lab.md): chẻ epic, viết AC, làm rõ dependency và kiểm tra độ sẵn sàng.
