@@ -57,3 +57,14 @@ Sau khi tự chạy, viết 4–6 câu, dùng số liệu của bạn:
 > Tôi chuẩn bị và chạy ___ API test cases bằng Postman trên mock local version ___. Tôi đối chiếu status/body với test basis và lưu ___ bằng chứng đã làm sạch. Case ___ có kết quả ___. UAT-05 hiện ___ vì quyết định DEC-01 ___. Giới hạn kết quả: ___; bước tiếp theo là xác nhận ___ với ___ .
 
 Không ghi worksheet của trợ lý là bằng chứng cá nhân. Khi hoàn thành, có thể đưa bản đã ẩn dữ liệu vào portfolio; không đưa secret, dữ liệu thật hay thông tin riêng tư.
+
+## Mini lab — Không tìm thấy mã đặt bàn
+
+Phân biệt **không có kết quả trong một danh sách** với **không tồn tại một tài nguyên được yêu cầu trực tiếp**. Hai API có thể có contract khác nhau.
+
+1. Trong Postman, tạo request `GET {{baseUrl}}/api/reservations?code=RSV-NOT-FOUND` và header `X-Training-Staff: demo`.
+2. Gửi request sau khi mock server chạy. Source hiện tại lọc danh sách theo mã, rồi trả list; vì vậy dự đoán theo implementation là HTTP `200` với `items: []` và `total: 0`. Ghi response thực tế, không ghi dự đoán như lần chạy đã hoàn thành.
+3. So sánh với `GET {{baseUrl}}/api/reservations/RSV-NOT-FOUND/history`: mock trả HTTP `404` và `RESERVATION_NOT_FOUND` cho resource history không tồn tại.
+4. Hỏi Product/Engineering xem lookup theo mã được định nghĩa là filter collection hay đọc một resource cụ thể, và thống nhất API contract. Không lấy status của endpoint history làm expected cho endpoint list.
+
+**Ghi nhận:** `200 + []`/`404` ở đây là implementation hiện tại của mock, chưa tự nó chứng minh contract sản phẩm đã được phê duyệt. Dùng `X-Training-Staff: demo` chỉ để diễn tập header; không phải kiểm tra bảo mật.
