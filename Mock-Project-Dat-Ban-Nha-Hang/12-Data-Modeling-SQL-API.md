@@ -48,6 +48,8 @@ Một Reservation thuộc một slot, còn một slot có thể có nhiều rese
 
 Mở [Reservation-Practice.sql](./Reservation-Practice.sql) để xem schema SQLite, khóa, ràng buộc, index, view tính sức chứa và dữ liệu hoàn toàn giả lập. Quy tắc mẫu đang tính cả PENDING và CONFIRMED vào số chỗ đã dùng; cần xác nhận với stakeholder. Với cơ sở dữ liệu thực, cần xử lý cập nhật sức chứa nguyên tử khi có nhiều yêu cầu đồng thời.
 
+Luyện KPI và kiểm tra cohort trong [lab SQL tỷ lệ khách đến](./58-Attendance-Rate-SQL-Practice.md) với fixture riêng; schema reservation gốc chưa lưu outcome check-in.
+
 Worked example có kết quả fixture, hai cách tính sức chứa, câu hỏi policy và giới hạn evidence: [Capacity policy sensitivity](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md).
 
 ## 2. Truy vấn SQL để BA kiểm tra dữ liệu

@@ -54,6 +54,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 36. `31-Concurrency-Idempotency-va-Test-Design.md` — phân tích tranh chỗ đồng thời, retry sau timeout, acceptance criteria và test evidence.
 37. `32-Stakeholder-Interview-Roleplay.md` — role-play elicitation, khung ghi chép, evidence plan và rubric tự đánh giá.
 38. [Bài 57 — Attendance Rate bằng Excel](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx) — cohort, denominator, unknown outcome, outcome coverage và caveat KPI.
+39. [Bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và `Attendance-Rate-Analysis-Lab.sql` — chuyển metric Excel thành CTE/query SQLite, đối soát unknown và phân đoạn theo kênh.
 38. `32-Discovery-Interview-Workshop.drawio` — canvas chỉnh sửa được cho problem/evidence/assumption/open question/action.
 39. `33-Portfolio-Presentation-Storyboard.md` — storyboard portfolio 5 phút, lời nói, Q&A và cách trình bày evidence; [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ) do trợ lý tạo để học viên cá nhân hóa (8 slide dự kiến, chưa visual QA, có thể còn slide trống cuối).
 40. `34-URD-SRS-va-Functional-Specification.md` — ranh giới URD/SRS/functional spec, ví dụ đặc tả và trace sang process/API/data/UAT; tên gọi tùy quy ước tổ chức.
