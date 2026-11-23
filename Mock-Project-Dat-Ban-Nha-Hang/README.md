@@ -40,7 +40,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 22. `19-Strategic-Analysis-va-Business-Case.md` — options analysis, feasibility, benefits map, kinh tế dự án và recommendation có điều kiện.
 23. `20-Agile-Discovery-Delivery-va-Story-Mapping.md` và `20-Reservation-Story-Map.drawio` — story map, slicing, refinement, Scrum collaboration, quality gates và tool lab.
 24. `21-NFR-Quality-Attributes-va-Operational-Readiness.md` — quality scenarios, NFR catalog, traceability, verification và readiness trước pilot/release.
-25. `22-Traceability-va-Impact-Analysis.md` và `outputs/ba-rtm-empty-state-update-20261121/Requirements-Traceability-and-Impact-Analysis.xlsx` — trace hai chiều, dashboard gap/status và impact analysis mẫu cho CR-01; bổ sung AC-US02-04/UAT-11 ở trạng thái draft.
+25. `22-Traceability-va-Impact-Analysis.md` và `outputs/ba-rtm-empty-state-update-20261121/Requirements-Traceability-and-Impact-Analysis.xlsx` — trace hai chiều, dashboard gap/status và impact analysis mẫu cho CR-01; [workbook thực hành CR-02](./outputs/cr02-impact-practice-20261123/CR02-Impact-Analysis-Practice.xlsx) có sheet Worked Example và sheet bài tập còn trống; bổ sung AC-US02-04/UAT-11 ở trạng thái draft.
 26. `23-BA-Planning-va-Governance.md` — BA approach/work plan, decision rights, information management, collaboration và cải tiến cách làm BA.
 27. `24-BA-Tool-Mastery-Tracker.md` — scorecard năng lực người học, bài lab theo tool và điều kiện đánh giá bằng evidence.
 28. `25-Root-Cause-Analysis-va-Problem-Validation.md` và `25-Reservation-Fishbone.drawio` — fishbone, 5 Whys, evidence plan và thử nghiệm giả thuyết nguyên nhân.

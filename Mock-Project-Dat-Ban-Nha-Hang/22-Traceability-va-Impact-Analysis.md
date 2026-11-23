@@ -153,5 +153,4 @@ Một traceability matrix có status/owner/evidence link, impact map cho một c
 
 ### Workbook thực hành CR-02
 
-Dùng workbook [CR02-Impact-Analysis-Practice.xlsx](outputs/cr02-impact-practice-20261123/CR02-Impact-Analysis-Practice.xlsx) để thực hành impact register, evidence log, decision authority và traceability. Các dữ kiện vận hành đều ghi chưa thu thập; workbook không chứng minh năng lực của học viên cho đến khi bạn tự hoàn thành và được review.
-
+Dùng workbook [CR02-Impact-Analysis-Practice.xlsx](outputs/cr02-impact-practice-20261123/CR02-Impact-Analysis-Practice.xlsx) để thực hành impact register, evidence log, decision authority và traceability. Sheet `Worked Example` minh họa owner/reviewer/authority, phép thử N+1 và cách ghi caveat; các sheet thực hành vẫn để học viên tự điền. Các dữ kiện vận hành đều ghi chưa thu thập; workbook không chứng minh năng lực của học viên cho đến khi bạn tự hoàn thành và được review.
