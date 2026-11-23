@@ -52,6 +52,36 @@ Chưa có complaint log, call volume, chi phí tin nhắn, consent policy, basel
 
 > Cả câu trả lời stakeholder và cách tóm tắt trên chỉ là minh họa. Trong role-play thực tế, không lấy chúng làm evidence dự án.
 
+## Nhánh nâng cao: đề xuất tự xác nhận khi còn chỗ
+
+**Stakeholder mô phỏng:** “Cứ tự động xác nhận nếu còn chỗ là sẽ hết chậm trễ. Gửi thêm SMS cho khách nữa.” Đây là proposal; mục tiêu phỏng vấn là làm rõ quy tắc và outcome, không ghi proposal thành feature đã duyệt.
+
+Giả sử stakeholder nói: “Quản lý ca thường quyết định.” Câu hỏi follow-up trung lập có thể là:
+
+1. “Anh/chị mô tả lần gần nhất quản lý ca quyết định một request được không? Họ xem những thông tin nào và ở đâu?”
+2. “Nếu quản lý chưa sẵn sàng khi có request mới, ai theo dõi request đó và khách được biết trạng thái gì?”
+3. “Nếu capacity thay đổi trước lúc quyết định, rule nào giúp người xử lý chọn outcome?”
+
+**Câu trả lời tiếp theo — mô phỏng:** quản lý thường xem sổ và lịch; khách walk-in có thể làm thay đổi chỗ còn trống; chưa có policy viết thành văn về `PENDING`, thứ tự ưu tiên hoặc message gửi khách.
+
+| Phân loại | Ghi nhận | Không được suy ra |
+|---|---|---|
+| Stakeholder-reported process | Quản lý thường xem sổ và lịch | Đây là quy trình chuẩn, áp dụng mọi ca |
+| Reported exception | Walk-in có thể làm đổi capacity | Tần suất, mức thiệt hại hoặc mọi slot đều bị ảnh hưởng |
+| Open policy | Chưa có rule về `PENDING`/ưu tiên | BA tự chọn giữ chỗ, auto-confirm hay first-come-first-served |
+| Solution proposal | Auto-confirm + SMS | Sponsor đã phê duyệt scope, consent, provider hoặc trigger |
+| Evidence gap | Chưa thấy policy, log hoặc owner capacity source | Capacity trên lịch phản ánh tức thời mọi kênh |
+
+### Synthesis sang discovery item
+
+**Title:** Xác nhận policy capacity và owner cho yêu cầu đặt bàn đang chờ.
+
+**Mục tiêu:** xác định capacity unit/source, điều kiện `PENDING` giữ chỗ hay không, ai được quyết định, cách xử lý khi capacity thay đổi, cùng nội dung trạng thái khách cần thấy.
+
+**Điều kiện hoàn tất discovery:** business decision owner được xác định; các lựa chọn và trade-off được ghi; source/evidence và ngoại lệ được nêu; decision log có trạng thái `Approved` kèm approver/effective date hoặc giữ rõ `Open` với owner và ngày review. Đây là đầu ra discovery, **không phải acceptance criteria cho feature auto-confirm**.
+
+Khi rule được duyệt, BA mới nối rule tới backlog, API contract, prototype và UAT. SMS cần phân tích riêng về consent, provider, retry/failure, chi phí và vận hành. Mọi câu trả lời trong nhánh này đều giả lập, không phải evidence nhà hàng thật.
+
 ## Phân loại đầu ra của ví dụ
 
 | Statement | Phân loại đúng | Việc tiếp theo |
