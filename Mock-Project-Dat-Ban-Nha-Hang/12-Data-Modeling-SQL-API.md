@@ -126,6 +126,42 @@ Trong Postman:
 
 ## 4. Ánh xạ yêu cầu → dữ liệu/API → UAT
 
+### SQL lab — đối soát trạng thái hiện tại với history
+
+Trên fixture SQLite giả lập trong `Reservation-Practice.sql`, có thể so trạng thái hiện tại của từng reservation với event mới nhất:
+
+```sql
+WITH latest_history AS (
+    SELECT
+        reservation_id,
+        new_status,
+        changed_at,
+        ROW_NUMBER() OVER (
+            PARTITION BY reservation_id
+            ORDER BY changed_at DESC, history_id DESC
+        ) AS rn
+    FROM reservation_status_history
+)
+SELECT
+    r.reservation_code,
+    r.status AS current_status,
+    h.new_status AS latest_history_status,
+    CASE
+        WHEN h.reservation_id IS NULL THEN 'MISSING_HISTORY'
+        WHEN r.status <> h.new_status THEN 'STATUS_MISMATCH'
+        ELSE 'MATCH'
+    END AS reconciliation
+FROM reservation r
+LEFT JOIN latest_history h
+    ON h.reservation_id = r.reservation_id
+   AND h.rn = 1
+ORDER BY r.reservation_code;
+```
+
+Trên seed hiện có, ba record trả về `MATCH`. Đây là kết quả phân tích fixture, không phải test sản phẩm hay bằng chứng history production đầy đủ. Query chỉ so state cuối; không chứng minh transition hợp lệ, không có event thiếu ở giữa, actor được phép, hay event đến đúng thứ tự nghiệp vụ. Fixture dùng timestamp cùng định dạng/múi giờ; với nguồn thật cần chuẩn hóa thời gian/offset và một sequence có thẩm quyền để xử lý event trùng timestamp, thay vì giả định ID luôn là thứ tự nghiệp vụ.
+
+**Bài tự làm:** copy database vào memory/test DB, thêm một reservation không có history, rồi xem query đánh dấu `MISSING_HISTORY`. Sau đó tạo một history cuối khác `reservation.status`; ghi output và giải thích đây là data-quality signal cần điều tra, chưa tự kết luận bản ghi nào đúng. Không sửa source fixture dùng chung.
+
 | Mục tiêu/AC | Dữ liệu/API cần quan sát | Kiểm tra nghiệp vụ |
 |---|---|---|
 | Tạo yêu cầu hợp lệ | reservationCode, status, slot_id, party_size | Có đúng một mã, trạng thái PENDING, sức chứa không vượt |
