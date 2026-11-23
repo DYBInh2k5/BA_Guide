@@ -75,6 +75,11 @@
         "url": "{{baseUrl}}/api/reservations",
         "body": { "mode": "raw", "raw": "{\n  \"customerName\": \"UAT-05 Sample Guest\",\n  \"phone\": \"0900000005\",\n  \"partySize\": 5,\n  \"startAt\": \"2026-12-05T19:00:00+07:00\"\n}" }
       }
+    },
+    {
+      "name": "11 - Staff - code not found",
+      "request": { "method": "GET", "header": [{ "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations?code=RSV-NOT-FOUND" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('mock list endpoint returns 200', function () { pm.response.to.have.status(200); });", "const body = pm.response.json();", "pm.test('missing code has no list items', function () { pm.expect(body.items).to.eql([]); });", "pm.test('missing code returns zero total', function () { pm.expect(body.total).to.eql(0); });"] } }]
     }
   ],
   "variable": [{ "key": "baseUrl", "value": "http://127.0.0.1:3000" }]

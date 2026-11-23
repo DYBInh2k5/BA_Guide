@@ -64,7 +64,7 @@ Trạng thái hiện tại của người học chưa được đánh giá khi c
 
 ## Trạng thái kết nối và phương án tiếp tục
 
-Trạng thái công cụ phụ thuộc vào phiên, cần kiểm tra lại trước mỗi lab. ClickUp chưa có workspace được cấp quyền; Jira/Confluence chưa kết nối. Postman Desktop v12 đã mở và Local Files hiển thị các request YAML trong `postman-v3`; CLI 1.93 đã thực hiện health check và UAT-05 trên mock local với telemetry tắt. Đây là các lần chạy của trợ lý, không được tính là evidence người học thực hành; Desktop Request Builder chưa chạy request. UAT-05 khớp nhánh mock/no-insert, nhưng policy vẫn Blocked khi DEC-01 Open. Môi trường local `BA Local` chỉ chứa `baseUrl`, không có secret. Miro và Visual Paradigm có thể thay bằng FigJam/draw.io để luyện kỹ năng chuyển giao; không ghi là đã dùng ứng dụng gốc nếu chưa thao tác.
+Trạng thái công cụ phụ thuộc vào phiên, cần kiểm tra lại trước mỗi lab. ClickUp chưa có workspace được cấp quyền; Jira/Confluence chưa kết nối. Postman Desktop v12 đã mở và Local Files hiển thị các request YAML trong `postman-v3`; CLI 1.93 đã thực hiện health check, UAT-05 và request code không tồn tại trên mock local với telemetry tắt; request code không tồn tại có 3 assertions pass. Đây là các lần chạy của trợ lý, không được tính là evidence người học thực hành; Desktop Request Builder chưa chạy request. UAT-05 khớp nhánh mock/no-insert, nhưng policy vẫn Blocked khi DEC-01 Open. Môi trường local `BA Local` chỉ chứa `baseUrl`, không có secret. Miro và Visual Paradigm có thể thay bằng FigJam/draw.io để luyện kỹ năng chuyển giao; không ghi là đã dùng ứng dụng gốc nếu chưa thao tác.
 
 ## Điểm bắt đầu của người học
 

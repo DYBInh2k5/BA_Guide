@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations?code=RSV-NOT-FOUND"
+method: GET
+headers:
+  X-Training-Staff: demo
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('mock list endpoint returns 200', function () { pm.response.to.have.status(200); });
+      const body = pm.response.json();
+      pm.test('missing code has no list items', function () { pm.expect(body.items).to.eql([]); });
+      pm.test('missing code returns zero total', function () { pm.expect(body.total).to.eql(0); });
+    language: text/javascript
+order: 11000

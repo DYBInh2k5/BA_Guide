@@ -100,3 +100,15 @@ Cho đến khi mock hỗ trợ contract này, đánh dấu các test trên là *
 ## Giới hạn và câu hỏi tiếp nối
 Mock không lưu bền, không chống gọi đồng thời qua nhiều process, chưa triển khai idempotency/retry, không có auth thật, không áp dụng retention, không gửi email, và không thay thế review bảo mật. Các giới hạn này là cơ hội BA để hỏi NFR, vận hành, retry, audit và môi trường UAT. Collection/API là hợp đồng học tập; nhóm dự án thật phải thống nhất contract trước khi dùng.
 
+
+## Request 11 — assertion cho mã không khớp
+
+Request `11 - Staff - code not found` kiểm tra implementation mock cho filter `?code=RSV-NOT-FOUND`: HTTP `200`, `items` là mảng rỗng, `total` bằng 0. Ba `pm.test` là ba assertion riêng: status, cấu trúc/kết quả list và tổng số bản ghi. Đây là assertion về mock hiện tại, chưa phải contract nghiệp vụ được stakeholder duyệt.
+
+Chạy bằng Postman CLI từ thư mục repo:
+
+```powershell
+postman request ".\postman-v3\11 - Staff - code not found.request.yaml" --environment ".\postman-v3\postman\environments\BA Local.environment.yaml" --report-events=false
+```
+
+Nếu server chưa chạy, CLI không thể lấy response. Hãy khởi động mock theo hướng dẫn đầu bài trước. Lần chạy mẫu của trợ lý được ghi riêng trong worksheet; cần chạy lại để lưu evidence cá nhân. Bản v2.1 JSON và Local Mode v3 YAML đều có request này.
