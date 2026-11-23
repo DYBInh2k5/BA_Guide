@@ -1,6 +1,10 @@
-﻿# 08 — Stakeholder Map, RACI & Engagement Plan
+# 08 — Stakeholder Map, RACI & Engagement Plan
 
 > **Bản mẫu giả lập.** Các mức ảnh hưởng và vai trò quyết định dưới đây là giả định để luyện tập; cần xác nhận trong dự án thật.
+
+## Bản đồ trực quan draw.io
+
+Mở [08-Stakeholder-Map.drawio](./08-Stakeholder-Map.drawio) để xem quan hệ giữa nhóm liên quan và thay đổi đề xuất. Hãy lưu bản copy rồi sửa nhãn vai trò, mối quan tâm và đường liên kết theo thông tin bạn thu thập được. Tất cả vai trò hiện tại là giả lập; đường “phê duyệt?” chủ ý để mở.
 
 ## Bài học: stakeholder là ai?
 Stakeholder là cá nhân/nhóm có thể ảnh hưởng, bị ảnh hưởng, sử dụng, vận hành, phê duyệt hoặc chịu rủi ro từ thay đổi. Đừng chỉ liệt kê người đặt yêu cầu: người trực tiếp làm quy trình và người dùng cuối thường nắm các ngoại lệ quan trọng.
