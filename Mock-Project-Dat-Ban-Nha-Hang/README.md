@@ -1,7 +1,11 @@
 # Dự án mẫu BA: Đặt bàn nhà hàng trực tuyến
 
 ## Mục tiêu học tập
+
 Thực hành vòng đời BA từ khám phá vấn đề đến đặc tả, mô hình hóa, backlog và UAT. Đây là case study giả lập; mọi số liệu bên dưới là giả định để học.
+
+## Học theo lộ trình
+Bắt đầu tại [Lộ trình BA từ nền tảng đến portfolio](./00-BA-Learning-Roadmap.md), sau đó cập nhật [BA Tool Mastery Tracker](./24-BA-Tool-Mastery-Tracker.md).
 
 ## Giả thuyết bối cảnh để luyện tập
 Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và mạng xã hội, có thể ghi chép thủ công. Trùng bàn, bỏ lỡ yêu cầu và thiếu dữ liệu là giả thuyết cần kiểm chứng; chưa có nhà hàng, stakeholder hay dữ liệu vận hành thật.
