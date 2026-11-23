@@ -67,6 +67,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 53. `44-Lab-Chuyen-Cong-Cu-Visual-Paradigm-Miro-FigJam.md` — dựng cùng mô hình UML trên draw.io/Visual Paradigm và chạy workshop evidence-to-decision trên Miro/FigJam.
 54. `45-Frameworks-BA-PMBOK-Scrum-ISTQB-Lab.md` — áp dụng BABOK, PMBOK, Scrum và ISTQB vào cùng CR SMS; map quyết định, role, test basis và trace.
 55. `outputs/cr-sms-framework-practice-20261123/CR-SMS-Options-Impact-Traceability.xlsx` — workbook Excel thực hành decision matrix, sensitivity, change impact và trace Need→Test; có sheet ví dụ minh họa và sheet thực hành để trống.
+56. `46-Need-Requirement-AC-Test-Oracle.md` — phân biệt need, requirement, design decision, AC, test case và oracle bằng CR-SMS; có worked example, bài phân loại và vertical slice.
 
 ## Lộ trình học trong case study
 
