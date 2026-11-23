@@ -56,7 +56,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 - [BA planning và governance](./23-BA-Planning-va-Governance.md)
 - [BA tool mastery tracker](./24-BA-Tool-Mastery-Tracker.md)
 - [Capstone thực hành end-to-end](./43-Capstone-BA-End-to-End-Practice.md) — worksheet tự làm và rubric review; chưa phải bằng chứng cá nhân cho đến khi bạn hoàn thành.
-- [Portfolio presentation storyboard 5 phút](./33-Portfolio-Presentation-Storyboard.md) và [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ) — deck do trợ lý tạo, dùng làm khung học tập; chưa được visual QA và không phải bằng chứng năng lực cá nhân.
+- [Portfolio presentation storyboard 5 phút](./33-Portfolio-Presentation-Storyboard.md) và [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ) — deck do trợ lý tạo; viewer đã kiểm tra: slide 9 trắng, chữ phụ thiếu tương phản ở slide 2/3/7. Cần sửa trước khi trình bày; deck mẫu không phải bằng chứng năng lực cá nhân.
 - [Root cause/problem validation](./25-Root-Cause-Analysis-va-Problem-Validation.md) và [fishbone draw.io](./25-Reservation-Fishbone.drawio)
 - [Business rules/decision tables](./26-Business-Rules-va-Decision-Tables.md) và [workbook Excel](./outputs/decision-table-lab/Business-Rules-Decision-Table-Lab.xlsx)
 - [Functional decomposition/Sitemap/Function List](./29-Functional-Decomposition-Sitemap-Function-List.md) và [AI/framework practice](./30-AI-BA-va-Ban-do-Frameworks.md)

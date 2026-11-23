@@ -53,10 +53,8 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 35. `30-AI-BA-va-Ban-do-Frameworks.md` — AI human review lab và bản đồ BABOK/PMBOK/ISTQB/Scrum nối với các chủ đề trong ảnh gốc.
 36. `31-Concurrency-Idempotency-va-Test-Design.md` — phân tích tranh chỗ đồng thời, retry sau timeout, acceptance criteria và test evidence.
 37. `32-Stakeholder-Interview-Roleplay.md` — role-play elicitation, khung ghi chép, evidence plan và rubric tự đánh giá.
-38. [Bài 57 — Attendance Rate bằng Excel](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx) — cohort, denominator, unknown outcome, outcome coverage và caveat KPI.
-39. [Bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và `Attendance-Rate-Analysis-Lab.sql` — chuyển metric Excel thành CTE/query SQLite, đối soát unknown và phân đoạn theo kênh.
 38. `32-Discovery-Interview-Workshop.drawio` — canvas chỉnh sửa được cho problem/evidence/assumption/open question/action.
-39. `33-Portfolio-Presentation-Storyboard.md` — storyboard portfolio 5 phút, lời nói, Q&A và cách trình bày evidence; [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ) do trợ lý tạo để học viên cá nhân hóa (8 slide dự kiến, chưa visual QA, có thể còn slide trống cuối).
+39. `33-Portfolio-Presentation-Storyboard.md` — storyboard portfolio 5 phút, lời nói, Q&A và cách trình bày evidence; [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ) do trợ lý tạo; viewer đã được kiểm tra: slide 9 trắng, chữ phụ thiếu tương phản ở slide 2/3/7, cần sửa trước khi trình bày.
 40. `34-URD-SRS-va-Functional-Specification.md` — ranh giới URD/SRS/functional spec, ví dụ đặc tả và trace sang process/API/data/UAT; tên gọi tùy quy ước tổ chức.
 41. `35-Systems-Thinking-SDLC-va-Approach-Selection.md` — system boundary, lifecycle, loại dự án IT, predictive/adaptive/hybrid và bài chọn approach theo evidence.
 42. `35-Reservation-System-Context.drawio` và `35-Reservation-System-Context.svg` — sơ đồ ngữ cảnh hệ thống draft có thể chỉnh sửa và bản xem nhanh.
@@ -76,6 +74,8 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 56. `46-Need-Requirement-AC-Test-Oracle.md` — phân biệt need, requirement, design decision, AC, test case và oracle bằng CR-SMS; có worked example, bài phân loại và vertical slice.
 57. `47-API-Timeout-Retry-Reconciliation-Lab.md` — mô hình hóa timeout ambiguity, retry/idempotency policy, bài chạy mock Postman và giới hạn evidence.
 58. `48-Stakeholder-Interview-Change-Request-Practice.md` — worked role-play sponsor đề xuất SMS, cách hỏi need/evidence/outcome/authority và rubric phỏng vấn.
+59. [Bài 57 — Attendance Rate bằng Excel](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx) — cohort, denominator, unknown outcome, outcome coverage và caveat KPI.
+60. [Bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và `Attendance-Rate-Analysis-Lab.sql` — chuyển metric Excel thành CTE/query SQLite, đối soát unknown và phân đoạn theo kênh.
 
 ## Lộ trình học trong case study
 

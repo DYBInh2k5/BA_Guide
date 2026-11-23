@@ -2,7 +2,7 @@
 
 ## Mục đích và giới hạn
 
-Tài liệu này là **storyboard** để luyện trình bày case study khi phỏng vấn. Đã có [deck Figma Slides bản nháp 8 slide](https://www.figma.com/slides/krV104F5r4J0nAtzKvZUXZ), do trợ lý tạo; bản xem trước chưa được kiểm tra trực quan và có thể còn một slide trống cuối do giới hạn Figma MCP. Mọi stakeholder, vấn đề, dữ liệu và quyết định trong dự án đặt bàn đều là giả lập; các file đã được trợ lý chuẩn bị cũng chưa chứng minh người học tự thực hiện. Trước khi dùng khi ứng tuyển, thay ví dụ bằng artifact bạn đã tự sửa, tự chạy và có thể giải thích.
+Tài liệu này là **storyboard** để luyện trình bày case study khi phỏng vấn. Đã có [deck Figma Slides bản nháp](https://www.figma.com/slides/krV104F5r4J0nAtzKvZ), do trợ lý tạo. Viewer được kiểm tra trực quan ngày 23-11-2026: có 9 slide, slide 9 đang trắng; một số chữ phụ ở slide 2, 3 và 7 có tương phản thấp ở mức zoom 35%. Cần xóa slide trắng và tăng độ tương phản/cỡ chữ trước khi dùng deck; chưa thể sửa trực tiếp khi Figma edit connection chưa được xác nhận. Mọi stakeholder, vấn đề, dữ liệu và quyết định trong dự án đặt bàn đều là giả lập; deck do trợ lý chuẩn bị không chứng minh người học tự thực hiện. Trước khi dùng khi ứng tuyển, thay ví dụ bằng artifact bạn đã tự sửa, tự chạy và có thể giải thích.
 
 **Đối tượng:** người phỏng vấn BA/BA Lead. **Thời lượng:** 5 phút trình bày + phần hỏi đáp. **Mục tiêu:** thể hiện cách tư duy, truy vết và nhận diện giới hạn, không tuyên bố kết quả kinh doanh.
 
