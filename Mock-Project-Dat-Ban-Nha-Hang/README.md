@@ -148,3 +148,5 @@ Bài tiếp theo sau BPMN: [từ quy trình đến yêu cầu có thể kiểm c
 - [51 — Chuẩn bị backlog để nhập vào Jira](./51-Jira-CSV-Backlog-Staging-Lab.md): kiểm tra CSV staging, map field và xác minh parent/dependency sau import.
 - [CSV backlog staging](./Jira-Backlog-Import-Staging.csv): 1 Epic + 5 Story giả lập; chưa được nhập vào Jira.
 - [52 — Confluence: trang chuẩn và decision log](./52-Confluence-Decision-Log-and-Canonical-Page.md): giữ một nguồn chuẩn, trace quyết định tới Jira và test, ghi rõ draft/approved.
+- [53 — Thực hành ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md): tự lập luận priority cho C-02, ghi dependency/evidence/authority và thử cập nhật khi policy thay đổi.
+- [Workbook thực hành C-02](./outputs/priority-practice-20261123/Backlog-Priority-Practice.xlsx): bản mẫu còn trống để người học tự điền.
