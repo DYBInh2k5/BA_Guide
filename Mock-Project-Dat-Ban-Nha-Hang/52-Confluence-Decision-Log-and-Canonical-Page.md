@@ -68,6 +68,8 @@ Sensitivity: [public/internal/confidential; theo policy công ty]
 
 ## Bản nháp minh họa cho DEC-01
 
+Để luyện một trang cụ thể thay vì chỉ dùng template, mở [DEC-01 — PENDING occupancy policy](./DEC-01-Capacity-Policy-Draft.md). Đây là bản Confluence-ready ở trạng thái Open; chưa phải policy được phê duyệt hay trang đã tạo trong Confluence.
+
 | Trường | Giá trị minh họa |
 |---|---|
 | ID | DEC-01 |
