@@ -9,7 +9,7 @@ Một booking `PENDING` có giữ chỗ trong khi chờ nhân viên xử lý kh�
 ## Nguồn và cách chạy
 
 - Nguồn: [`Reservation-Practice.sql`](../../Reservation-Practice.sql), seed data và view `slot_utilization`.
-- Môi trường: Node.js 24.22.1 `node:sqlite`, database `:memory:`; source script chạy trong bộ nhớ, không ghi vào database của tổ chức.
+- Môi trường lần xác minh hiện tại: Node.js 22.20.0 `node:sqlite` (experimental), database `:memory:`; source script chạy trong bộ nhớ, không ghi vào database của tổ chức.
 - View hiện tại tính `PENDING` và `CONFIRMED` là chỗ đang dùng; `REJECTED`/`CANCELLED` không tính.
 - Truy vấn đối chứng chỉ tính `CONFIRMED` là một kịch bản giả định khác, không phải rule đã chọn.
 
