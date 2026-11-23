@@ -53,6 +53,10 @@ Trạng thái hiện tại của người học chưa được đánh giá khi c
 
 Trạng thái công cụ phụ thuộc vào phiên, cần kiểm tra lại trước mỗi lab. Đã có repo GitHub và workbook/file mẫu; FigJam có board dự án mẫu. Trong lần kiểm tra gần nhất, ClickUp không có workspace được cấp quyền, Jira/Confluence chưa hoạt động qua integration, Postman app không xuất hiện trong danh sách cửa sổ đang mở. Mock API local có thể dùng với Postman khi app khả dụng. Miro và Visual Paradigm có thể thay bằng FigJam/draw.io để luyện kỹ năng chuyển giao; không ghi là đã dùng ứng dụng gốc nếu chưa thao tác.
 
-## Bắt đầu ngay
+## Tiếp tục bài đang học
+
+Đang ở chặng backlog và quyết định release. Mở [bài 53 — Thực hành ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md), lưu một bản sao của [workbook C-02](./outputs/priority-practice-20261123/Backlog-Priority-Practice.xlsx), rồi tự điền các ô vàng. Sau khi nhận review, chuyển một discovery item và story đã refinement sang CSV staging ở [bài 51](./51-Jira-CSV-Backlog-Staging-Lab.md); chỉ import khi workspace Jira được kết nối và đã xác nhận đúng project/field mapping. Năng lực chỉ được đánh giá từ artifact do người học tự làm.
+
+## Bắt đầu từ nền tảng
 
 Làm [bài 22 — Traceability và Impact Analysis](./22-Traceability-va-Impact-Analysis.md) cùng workbook [CR-02 Impact Analysis Practice](./outputs/cr02-impact-practice-20261123/CR02-Impact-Analysis-Practice.xlsx). Chọn I-02, điền Evidence Log cho một phép thử concurrency bằng biến N, rồi ghi điều kiện nào cần authority quyết định. Tiếp theo dùng [bài 47 — API timeout/retry/reconciliation](./47-API-Timeout-Retry-Reconciliation-Lab.md) để nối requirement tới request, actual response và giới hạn mock. Gửi artifact do bạn tự điền để nhận review; đến khi đó trạng thái năng lực vẫn là `Chưa đánh giá`.
