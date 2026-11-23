@@ -28,7 +28,7 @@ So sánh ít nhất ba phương án:
 - B: thêm thông báo SMS sau khi có trạng thái đủ tin cậy;
 - C: pilot thủ công có kiểm soát để đo nguyên nhân và nhu cầu trước khi chọn giải pháp.
 
-Tạo decision matrix với tiêu chí, trọng số, thang điểm, evidence hoặc nhãn `assumption` cho từng điểm. Thêm một điều kiện must-have có thể loại phương án. Làm sensitivity check bằng cách thay đổi một trọng số hoặc một giả định và ghi xem thứ hạng có đổi không. Không đưa ra ROI giả lập nếu chưa có chi phí/lợi ích có nguồn.
+Tạo decision matrix với tiêu chí, trọng số, thang điểm, evidence hoặc nhãn `assumption` cho từng điểm. Định nghĩa gate must-have riêng với điểm có trọng số; chỉ coi consent, nguồn dữ liệu hay constraint khác là gate khi authority xác nhận. Không chấm cùng một yếu tố vừa như tiêu chí vừa như gate, và không để điểm cao bù cho gate chưa đạt. Làm sensitivity check bằng cách thay đổi một trọng số hoặc một giả định và ghi xem thứ hạng có đổi không. Không đưa ra ROI giả lập nếu chưa có chi phí/lợi ích có nguồn.
 
 Kết thúc bằng một decision brief ngắn: quyết định cần có, khuyến nghị tạm thời, evidence còn thiếu, trade-off, người có thẩm quyền và điều kiện quay lại quyết định.
 

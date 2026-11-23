@@ -74,7 +74,7 @@ Tạo tối thiểu các condition sau ở mức khái niệm: opt-in/opt-out, t
 
 ## Tổng hợp một trang
 
-Luyện trực tiếp trên [workbook CR-SMS Options, Impact and Traceability](./outputs/cr-sms-framework-practice-20261123/CR-SMS-Options-Impact-Traceability.xlsx). Sheet `Decision Matrix` để trống trọng số và điểm cho bạn tự phân tích. Sheet `Worked Example` dùng điểm giả định để minh họa việc đổi trọng số làm thứ hạng đổi; không phải recommendation. Ví dụ trace được gắn nhãn giả lập, `Draft/Not run`.
+Luyện trực tiếp trên [workbook CR-SMS Options, Impact and Traceability](./outputs/cr-sms-framework-practice-20261123/CR-SMS-Options-Impact-Traceability.xlsx). Sheet `Decision Matrix` để trống trọng số và điểm cho bạn tự phân tích. Sheet `Worked Example` dùng điểm giả định để minh họa việc đổi trọng số làm thứ hạng đổi; không phải recommendation. Gate must-have (ví dụ consent/opt-out hoặc nguồn trạng thái) phải có authority xác nhận, đánh giá Pass/Fail/Unknown riêng, và không tính lại cùng yếu tố trong score. Ví dụ trace được gắn nhãn giả lập, `Draft/Not run`.
 
 Nộp một trang `CR-SMS Framework Map` gồm:
 
