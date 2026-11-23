@@ -82,6 +82,8 @@ Giả sử stakeholder nói: “Quản lý ca thường quyết định.” Câu
 
 Khi rule được duyệt, BA mới nối rule tới backlog, API contract, prototype và UAT. SMS cần phân tích riêng về consent, provider, retry/failure, chi phí và vận hành. Mọi câu trả lời trong nhánh này đều giả lập, không phải evidence nhà hàng thật.
 
+**Bước impact analysis tiếp theo:** đọc phần CR-02 trong [traceability và impact analysis](./22-Traceability-va-Impact-Analysis.md); giữ SMS thành CR-01 riêng.
+
 ## Phân loại đầu ra của ví dụ
 
 | Statement | Phân loại đúng | Việc tiếp theo |

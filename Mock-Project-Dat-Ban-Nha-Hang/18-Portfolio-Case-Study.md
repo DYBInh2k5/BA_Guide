@@ -11,7 +11,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 - **Vai trò mô phỏng:** Business Analyst cá nhân trong bài tập end-to-end; không có sponsor/nhóm delivery thật.
 - **Cách tiếp cận:** ghi rõ giả định/câu hỏi mở; tách need, yêu cầu và giải pháp; giữ traceability từ mục tiêu tới nghiệm thu; cân nhắc tác động nghiệp vụ và vận hành.
 - **Phạm vi MVP giả định:** gửi yêu cầu; kiểm tra giờ/sức chứa; nhân viên xem, tra cứu, xác nhận/từ chối; lưu trạng thái và gửi email.
-- **Ngoài phạm vi:** thanh toán/đặt cọc, tối ưu nhiều chi nhánh, tích hợp POS, SMS và hủy tự phục vụ khi chưa thống nhất chính sách.
+- **Ngoài phạm vi:** thanh toán/đặt cọc, tự xác nhận, tối ưu nhiều chi nhánh, tích hợp POS, SMS và hủy tự phục vụ khi chưa thống nhất chính sách.
 
 > **Trạng thái evidence người học:** Bộ hồ sơ trong workspace là tài liệu mẫu do trợ lý chuẩn bị. Chưa có bằng chứng bạn tự thao tác/review, nên scorecard cá nhân vẫn `Chưa đánh giá`. Các phần giới thiệu, STAR và CV bên dưới chỉ là khung tham khảo; chỉ chuyển thành tuyên bố cá nhân sau khi thay bằng việc bạn thực sự làm và evidence mở được.
 
@@ -32,7 +32,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 5. Tạo prototype Figma ba trạng thái: form khách, đã gửi `PENDING`, queue lễ tân.
 6. Chuẩn bị collection Postman và mock API local; viết SQL thực hành với dữ liệu giả lập.
 7. Lập kế hoạch đo lợi ích và dashboard Excel; nêu giới hạn so sánh trước/sau.
-8. Phân tích change request CR-01 (thêm SMS) và risk register; chưa giả định yêu cầu này được duyệt.
+8. Phân tích CR-01 (thêm SMS), candidate CR-02 (tự xác nhận khi còn chỗ) và risk register; chưa giả định các change này được duyệt.
 
 ## Đầu ra và bằng chứng
 

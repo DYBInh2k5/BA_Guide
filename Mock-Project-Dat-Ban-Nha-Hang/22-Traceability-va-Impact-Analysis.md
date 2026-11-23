@@ -62,6 +62,28 @@ Không tự gắn SMS vào BR vì nhu cầu/giá trị cần xác thực trướ
 
 CR-01 không phải một dòng “gửi SMS” đơn giản. Nó chạm business case, consent/data, provider, API, prototype, test, chi phí, vận hành và KPI. Quyết định phù hợp hiện tại: **Deferred/under discovery** cho tới khi xác minh khách có bỏ lỡ email, sponsor chốt outcome, privacy/security kiểm tra chính sách và có estimate/provider. Người phê duyệt change phải là role được governance chỉ định; chức danh không tự quyết định quyền phê duyệt.
 
+### Impact analysis candidate CR-02 — tự xác nhận khi còn chỗ
+
+Sponsor đề xuất: “Nếu còn chỗ thì tự xác nhận ngay; thêm SMS cho khách.” Để tách phạm vi, CR-02 ở đây phân tích **auto-confirm**; SMS là CR-01 và vẫn cần consent/provider/chi phí riêng. Hai đề xuất chưa được duyệt và chưa có evidence vận hành.
+
+| Vùng | Tác động/unknown nếu auto-confirm được xem xét | Owner cần tham gia |
+|---|---|---|
+| Outcome/business case | Mục tiêu có thể là giảm thời gian chờ hoặc cuộc gọi hỏi lại; chưa có baseline, tần suất, denominator hay outcome target được duyệt | Product + Operations + Data owner |
+| Business rules | BRULE-01/02/03/08: giờ nhận đặt, đơn vị capacity, `PENDING` có giữ chỗ, thời điểm chuyển `CONFIRMED`, walk-in và ngoại lệ | Business owner + Operations |
+| Process/roles | Ai xử lý ngoại lệ, slot conflict hoặc khách cần chỉnh request? Hệ thống được quyền xác nhận đến đâu; khi nào chuyển cho nhân viên? | Product + ca trưởng + lễ tân |
+| Backlog/scope | US-01/US-02 và dependency; cần phân biệt nhận request, kiểm tra capacity, và cam kết confirmed; có thể cần tách lát cắt thay vì gộp SMS vào CR-02 | Product Owner + BA |
+| State/data/audit | State transition do system hay nhân viên; audit actor, event/time, capacity snapshot và nguồn authoritative cần rõ | Operations + data owner + Engineering |
+| API/concurrency | Đọc còn chỗ rồi ghi booking có bị tranh chấp khi hai request đồng thời hoặc walk-in cập nhật không? Cần invariant và outcome conflict được duyệt; cơ chế kỹ thuật do Engineering thiết kế | Architecture/Engineering + QA |
+| UI/prototype | Copy phải phân biệt “đã tiếp nhận”, “đang chờ” và “đã xác nhận”; state unavailable/conflict/fallback cần được review | Product/Design + Operations |
+| Notification | SMS không tự động thuộc scope CR-02; cần kiểm tra consent, số sai, provider failure, retry/duplicate, cost và support trước khi quyết định CR-01 | Privacy/Security + Engineering + Support |
+| Test/UAT | Bao phủ capacity vừa đủ, thiếu, thay đổi sau khi hiển thị, hai request cạnh tranh, retry, staff override/failure; test oracle phụ thuộc rule đã duyệt | QA + Operations + Engineering |
+| Operations/metrics | Ai theo dõi confirm sai hoặc conflict? Cần đo thời gian nhận→quyết định, conflict rate và contact hỏi lại bằng source/denominator đã chốt | Operations + Support + Data owner |
+| Schedule/cost/risk | Chưa estimate cho policy, đồng bộ nguồn capacity, concurrency, integration hay training; không gán story point/đưa sprint trước refinement | Delivery team + Finance/PO |
+
+**Kết luận hiện tại:** giữ CR-02 `Under discovery`; chưa đưa auto-confirm vào baseline. Trước mắt, xác minh policy capacity, nguồn dữ liệu đa kênh và decision authority. So sánh ít nhất ba option — staff-confirmed, conditional auto-confirm theo rule được duyệt, hoặc chỉ tiếp nhận request và thông báo đang chờ — với outcome/risk/evidence rõ. Không giả định SMS được phê duyệt cùng CR-02.
+
+**Điều có thể cập nhật ngay:** change log ở trạng thái New/Under Analysis, decision log `DEC-01`/`BRULE-02` ở Open, câu hỏi discovery và impact links. **Chỉ cập nhật sau decision approval:** baseline business rule, product AC, API/state model, prototype final, UAT expected outcomes, release commitment và KPI target.
+
 ## 4. Workflow impact analysis khi thay đổi
 
 1. Ghi change/defect ID, requester, ngày, lý do, bằng chứng và trạng thái.
