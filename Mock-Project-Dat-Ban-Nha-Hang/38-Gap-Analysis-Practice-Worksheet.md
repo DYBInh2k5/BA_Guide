@@ -78,6 +78,20 @@ AC cần quan sát được, ví dụ: “Given request hợp lệ ở trạng t
 
 Test case phải chỉ rõ setup, dữ liệu giả lập, thao tác, expected result và nơi lấy evidence. Không đánh dấu Pass nếu chưa chạy; policy chưa duyệt thì đánh dấu Blocked/Open, không tự giả lập kết quả như sự thật.
 
+### Ví dụ có hướng dẫn — vertical slice có điều kiện
+
+Ví dụ này nối `DISC-03` và `DISC-04` từ role-play sang một lát cắt nhỏ. Đây là **draft giả lập do tài liệu chuẩn bị**, không phải quan sát nhà hàng, quyết định chọn option B, policy đã duyệt, hay bằng chứng năng lực của người học. Chỉ dùng nếu người có thẩm quyền chọn phương án chuẩn hóa handoff; nếu không, giữ các dòng dưới ở trạng thái đề xuất.
+
+**Need giả thuyết:** nhân viên ca sau cần nhận ra yêu cầu nào chưa được xử lý và biết bước tiếp theo. Cần xác minh qua mẫu sổ/tin nhắn và hỏi nhân viên ở nhiều ca; lời kể hiện tại chưa chứng minh mọi ca đều gặp vấn đề.
+
+**To-Be giả thuyết:** khi bàn giao, người phụ trách ghi một mã tham chiếu không chứa PII, trạng thái hiện tại, lần cập nhật gần nhất và hành động tiếp theo; ca sau tra cứu và xác nhận nhận bàn giao. Chưa xác định danh sách trạng thái, thời hạn, quyền sửa, kênh lưu hay người phê duyệt.
+
+| Need / pain point | To-Be change | Requirement/Story ID | Business rule/open dependency | Acceptance criterion (draft) | Test case/evidence (chưa chạy) |
+|---|---|---|---|---|---|
+| DISC-03: trạng thái xử lý giữa hai ca có thể khó nhận diện; DISC-04: sổ thiếu giờ/người phụ trách theo lời kể | Đề xuất ghi nhận và bàn giao thông tin xử lý tối thiểu | `US-HO-01` (ID cục bộ cho ví dụ) | Chủ quy trình phải xác nhận trạng thái, trường bắt buộc, quyền xem/sửa và cách xử lý khi chưa có người nhận | Given một mục bàn giao hợp lệ có mã tham chiếu, trạng thái và người phụ trách, when nhân viên ca sau mở mục đó, then họ thấy trạng thái và hành động tiếp theo đã ghi; nếu thiếu trường bắt buộc thì mục được báo là chưa đủ thông tin. Quy tắc “hợp lệ” và quyền truy cập cần được xác nhận trước khi chốt AC. | Setup: tạo 2 bản ghi dữ liệu tổng hợp, một đủ trường và một thiếu trạng thái; không dùng PII thật. Thao tác: nhân viên ca sau mở từng mục. Expected: bản đủ hiển thị thông tin bàn giao; bản thiếu được nhận diện là chưa đủ. Evidence: ảnh chụp màn hình đã khử định danh và log kết quả. **Blocked/Open** cho đến khi chọn công cụ, duyệt policy và xác nhận role/field; chưa chạy nên không có Pass. |
+
+**Câu hỏi refinement:** “Ai được phép đổi trạng thái?”, “Khi nào một yêu cầu được xem là đã xử lý?”, “Nếu ca sau chưa nhận bàn giao thì ai theo dõi?”, “Thông tin nào được phép lưu và trong bao lâu?”. Trả lời bằng nguồn và authority; không tự điền quy tắc vào story.
+
 ## Review rubric (12 điểm)
 
 | Tiêu chí | Điểm |
