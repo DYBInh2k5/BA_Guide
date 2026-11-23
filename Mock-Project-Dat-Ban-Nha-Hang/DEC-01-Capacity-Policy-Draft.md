@@ -38,10 +38,15 @@ Các trade-off là giả thuyết cần kiểm chứng: không giữ có thể t
 
 - Discovery source: [Role-play DISC-03/04](./32-Stakeholder-Interview-Roleplay.md)
 - Business rule: [BRULE-02 và decision table](./26-Business-Rules-va-Decision-Tables.md)
+- Impact analysis: [CR-02 impact analysis](./22-Traceability-va-Impact-Analysis.md) and [BRULE-02 decision brief](./28-Decision-Brief-BRULE-02.md); reuse those impact artifacts rather than copying a second matrix here.
 - Backlog story: [CSV staging — C-02](./Jira-Backlog-Import-Staging.csv), chưa import; `RES-02` là ID nội bộ.
 - Discovery work item: [Task xác nhận capacity trong CSV staging](./Jira-Backlog-Import-Staging.csv), chưa import; chưa có Jira key thật.
 - API/UAT: [UAT-05](./05-API-and-UAT.md); mock expected result chỉ theo fixture hiện tại, cần đối chiếu lại sau khi rule được duyệt.
 - Concurrency: `AC-CONC-01` / `T-CONC-03/04` trong [lab test design](./31-Concurrency-Idempotency-va-Test-Design.md); chưa chạy.
+
+## Change impact gate
+
+Khi DEC-01 còn Open, giữ BRULE-02/FR-03 và expected result capacity ở trạng thái Draft/TBD. Sau khi authority duyệt, review story C-02, capacity/API behavior, UAT-05, concurrency expectations và occupancy metric cùng các owner liên quan; ghi version liên kết trước khi baseline. Phân tích chi tiết và role/evidence matrix nằm trong các impact references ở trên.
 
 ## Quy trình thay đổi trang
 
