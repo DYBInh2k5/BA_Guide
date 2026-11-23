@@ -88,7 +88,7 @@
         <mxCell id="messageReply" edge="1" parent="1" source="replyCustomer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4;startArrow=oval;startFill=0;endArrow=triangle;endFill=0;" target="receiveReply" value="Kết quả xử lý">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="note" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=15;" value="Ví dụ giả lập. Xác minh quy trình tin nhắn ngoài giờ và cách kiểm tra sức chứa với nhân viên trước khi coi đây là As-Is thật." vertex="1">
+        <mxCell id="note" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=15;" value="Nguồn: bài 07, phỏng vấn mô phỏng. Chủ nhà hàng kể lễ tân kiểm tra sổ và hỏi quản lý ca; điều kiện rẽ nhánh chưa được làm rõ hoặc xác minh. Gateway chỉ là nhánh được stakeholder báo cáo, không phải policy đã duyệt. Không gộp với role-play bài 32, nơi ownership/handoff vẫn là câu hỏi mở." vertex="1">
           <mxGeometry height="70" width="920" x="80" y="690" as="geometry" />
         </mxCell>
       </root>

@@ -1,4 +1,4 @@
-﻿# 09 — Mô hình hóa quy trình bằng BPMN 2.0
+# 09 — Mô hình hóa quy trình bằng BPMN 2.0
 
 ## Đáp án mẫu: chính sách giữ bàn 15 phút
 
@@ -33,14 +33,14 @@ BPMN có nhiều loại event và gateway hơn bảng này. Bài đầu chỉ d�
 
 ## Bài thực hành: vẽ As-Is trong draw.io
 
-Dùng nội dung giả lập trong [ví dụ phỏng vấn](./07-Minh-hoa-Phong-van-va-Phan-tich.md). Đây là sơ đồ để học, không phải quy trình thực tế đã được xác minh.
+Dùng nội dung giả lập trong [ví dụ phỏng vấn 07](./07-Minh-hoa-Phong-van-va-Phan-tich.md). Sơ đồ hiện tại lấy từ kịch bản này, không phải quy trình thực tế đã xác minh. [Role-play 32](./32-Stakeholder-Interview-Roleplay.md) là một kịch bản khác: trong đó ownership/handoff còn mở. Không gộp lời kể của hai scenario thành một As-Is duy nhất.
 
 ### Cấu trúc đề xuất
 
 - **Pool 1: Khách hàng** — gửi yêu cầu; chờ phản hồi; đến nhà hàng.
 - **Pool 2: Nhà hàng**, có lanes **Lễ tân** và **Quản lý ca**.
 - Trong lane Lễ tân: nhận yêu cầu; ghi vào sổ; kiểm tra sổ; phản hồi khách.
-- Dùng XOR gateway: “Cần quản lý ca hỗ trợ?”; gắn nhãn Có/Không trên hai nhánh.
+- Trong scenario bài 07, có thể giữ XOR gateway “Cần quản lý ca hỗ trợ?” như nhánh do chủ nhà hàng báo cáo, nhưng gắn chú thích `Reported in mock interview 07; condition not verified`. Tiêu chí rẽ nhánh vẫn là open question. Nếu dùng dữ liệu bài 32, dừng luồng ở điểm ownership chưa rõ và không thêm gateway này.
 - Nhánh Có đi qua task “Hỏi quản lý ca”, rồi quay lại bước phản hồi.
 - Nhánh tin nhắn ngoài giờ: khi sang ca sau thì đọc tin; ghi chú “thời gian xử lý cần xác minh”.
 - Vẽ message flow giữa pool Khách hàng và Nhà hàng; sequence flow chỉ đi bên trong từng pool.
@@ -94,12 +94,12 @@ Mở `09-Reservation-As-Is.drawio` trong diagrams.net. Đây là draft do trợ 
 ### Những điểm sơ đồ đang thể hiện
 - Hai pool là **Khách hàng** và **Nhà hàng**; trong pool Nhà hàng có lane **Lễ tân** và **Quản lý ca**.
 - Sequence flow nối hoạt động trong từng pool; message flow nét đứt biểu diễn yêu cầu và kết quả trao đổi qua ranh giới hai pool.
-- Gateway XOR “Cần quản lý hỗ trợ?” có hai nhánh Có/Không; nhánh Có đi qua quản lý ca rồi quay lại bước phản hồi.
+- Với nguồn bài 07, sơ đồ giữ lời kể rằng lễ tân đôi khi hỏi quản lý ca. Gateway XOR “Cần quản lý hỗ trợ?” là nhánh reported để luyện đọc ký pháp; tiêu chí Có/Không chưa xác minh. Kịch bản bài 32 không xác nhận handoff này.
 
 ### Những điều chưa nên kết luận từ sơ đồ
 - Không có luồng chi tiết cho tin nhắn Facebook được ghi vào Excel cuối ca. Lời kể chỉ nói việc này *có thể* xảy ra; cần hỏi ai làm, khi nào, mọi yêu cầu hay chỉ một số trường hợp.
 - Chưa mô hình hóa đầy đủ các ngoại lệ như hết chỗ, khách đổi giờ, hủy hoặc đến trễ.
-- Gateway “Cần quản lý hỗ trợ?” là cách tạm nhóm luồng để luyện ký pháp; điều kiện và quyền quyết định cần được xác minh với nhân viên.
+- Điều kiện gateway “Cần quản lý hỗ trợ?” chưa được xác minh. Hãy hỏi nhân viên điều kiện nào kích hoạt, ai quyết định và có ngoại lệ gì; không mô tả gateway như business rule đã được duyệt.
 
 ### Bài lab sửa draft
 1. Mở sơ đồ và giữ nguyên bản gốc; lưu bản sao có hậu tố `-practice`.
