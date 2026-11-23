@@ -50,6 +50,8 @@ UAT-08 có walkthrough về tiền điều kiện, expected result riêng cho bo
 
 **Điều kiện của seed mock khi server vừa khởi động:** slot `2026-12-05T19:00:00+07:00` có capacity 10 ghế; seed có 4 `PENDING` và 2 `CONFIRMED`; mock tính cả hai trạng thái vào occupancy nên còn 4 ghế. Đây là giả định trong code mẫu, không phải policy production.
 
+**Liên hệ quyết định:** UAT-05 là scenario phân biệt được hai giả định của [DEC-01](./DEC-01-Capacity-Policy-Draft.md). Nếu chỉ `CONFIRMED` giữ chỗ thì fixture counterfactual còn 8 ghế và request 5 người có thể đi tiếp; nếu `PENDING` cũng giữ chỗ thì còn 4 và request bị từ chối. Vì DEC-01 vẫn `Open`, walkthrough bên dưới chỉ kiểm tra nhánh của mock hiện tại; nó không chứng minh policy nghiệp vụ đúng hay đã được phê duyệt. Phép tính đối chứng được ghi ở [capacity sensitivity fixture](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md).
+
 **Request:**
 
 ```http
