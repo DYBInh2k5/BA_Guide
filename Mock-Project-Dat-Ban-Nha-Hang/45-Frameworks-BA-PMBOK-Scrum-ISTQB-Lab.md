@@ -74,6 +74,8 @@ Tạo tối thiểu các condition sau ở mức khái niệm: opt-in/opt-out, t
 
 ## Tổng hợp một trang
 
+Luyện trực tiếp trên [workbook CR-SMS Options, Impact and Traceability](./outputs/cr-sms-framework-practice-20261123/CR-SMS-Options-Impact-Traceability.xlsx). Workbook để trống trọng số và điểm để bạn tự phân tích; ví dụ trace duy nhất được gắn nhãn giả lập, `Draft/Not run`.
+
 Nộp một trang `CR-SMS Framework Map` gồm:
 
 1. một câu mô tả need chưa kiểm chứng;
