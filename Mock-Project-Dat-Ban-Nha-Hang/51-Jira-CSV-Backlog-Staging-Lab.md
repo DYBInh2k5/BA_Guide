@@ -31,6 +31,20 @@ Trong Jira Cloud importer hỗ trợ hierarchy, map ba cột `Work item ID`, `Wo
 6. `Parent` biểu diễn hierarchy (Epic chứa Story/Task). `blocks / is blocked by` biểu diễn dependency/sequence giữa hai work item; tạo link đó sau import khi có key thật và team xác nhận dependency.
 7. Lưu ảnh hoặc export sau nhập và ghi lại ngày, project học tập, số issue, mapping, lỗi import và cách xử lý. Không lưu token/API key hay PII vào portfolio.
 
+### Checklist QA sau import
+
+Import hoàn tất chỉ xác nhận bước tạo dữ liệu; hãy kiểm tra cấu trúc và nội dung trước khi gọi backlog usable.
+
+| Kiểm tra | Kỳ vọng với CSV mẫu | Nếu không khớp |
+|---|---|---|
+| Số work item | 7 dòng: 1 Epic, 5 Story, 1 Task | Đối chiếu import log và các item thực tế; không import lại mù quáng vì có thể tạo bản trùng |
+| Work type | Epic/Story/Task được map đúng theo destination | Xem lại mapping type; nhất là discovery Task không được âm thầm biến thành Story hoặc loại khác |
+| Parent hierarchy | 6 item con nằm dưới Epic được tạo từ Work item ID `1` | Kiểm tra đã map `Work item ID` / `Parent`, đúng thứ tự parent trước child và đúng field hierarchy |
+| Nội dung C-02/Task | `BRULE-02`, `DEC-01`, open question và Draft/TBD còn nguyên; không có Jira key giả | Sửa file copy/mapping rồi lập kế hoạch sửa dữ liệu import hiện hữu trước lần import khác |
+| Dependency | Quan hệ `blocks` chỉ xuất hiện khi team xác nhận; không suy ra từ `Parent=1` | Tạo link riêng bằng work item key thật sau khi import; rà lại dependency với owner |
+
+Jira cung cấp import log chi tiết để tìm mapping/lỗi. Lưu log đã khử thông tin nhạy cảm cùng checklist; không coi import log thay cho việc mở work item để xác nhận hierarchy và description.
+
 ## Ranh giới giữa dữ liệu mẫu và quyết định
 
 - Các priority là **đề xuất mô phỏng** trong một release giả định; cần Product Owner/team xác nhận.
