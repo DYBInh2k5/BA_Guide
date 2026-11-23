@@ -6,28 +6,29 @@ Thực hành chuyển backlog đã refinement thành dữ liệu có thể nhậ
 
 ## Tệp thực hành
 
-Mở [Jira-Backlog-Import-Staging.csv](./Jira-Backlog-Import-Staging.csv). Đây là dữ liệu giả lập có 1 Epic, 5 Story và 1 Task khám phá thuộc case đặt bàn. Tệp chưa được nhập vào Jira; chưa có project key, issue key, owner hay estimate thực.
+Mở [Jira-Backlog-Import-Staging.csv](./Jira-Backlog-Import-Staging.csv). Đây là dữ liệu giả lập có 1 Epic, 5 Story và 1 Task khám phá thuộc case đặt bàn. Tệp chưa được nhập vào Jira; chưa có Jira work item key, owner hay estimate thực. `Work item ID` chỉ là ID tạm trong file import.
 
 ## Cấu trúc CSV
 
 | Cột | Cách xử lý khi nhập |
 |---|---|
-| Issue Type | Ánh xạ tới issue type tương ứng trong project; kiểm tra project có Epic/Story không |
+| Work item ID | ID duy nhất trong file để tạo hierarchy; không phải Jira work item key |
+| Work type | Ánh xạ tới loại work item khả dụng trong destination; kiểm tra Epic/Story/Task |
 | Summary | Ánh xạ tới Summary |
 | Description | Ánh xạ tới Description; có thể gồm user story/AC hoặc mục đích/tiêu chí hoàn tất của discovery Task, source, dependency và open question |
 | Labels | Ánh xạ tới Labels nếu project cho phép; labels chỉ để tìm kiếm, không thay thế decision log |
-| Planned Parent (manual link) | Trường staging để người nhập biết story thuộc Epic nào; không ánh xạ vào field nếu importer không hỗ trợ đúng quan hệ parent |
+| Parent | ID `Work item ID` của parent trong cùng file; các Story/Task trong CSV trỏ tới Epic có ID `1` |
 
-Trước khi import, xác nhận quyền project, các issue type `Epic`, `Story`, `Task`, component/label convention và field bắt buộc. Nếu project không có `Task`, dừng để map sang loại work item được team cho phép; không âm thầm biến discovery item thành user story. Nếu importer không hỗ trợ parent-child trong cùng đợt, tạo Epic trước, nhập Stories/Task sau, rồi gắn đúng Epic bằng UI/API theo cấu hình project. Không đoán tên custom field hoặc issue key.
+Trong Jira Cloud importer hỗ trợ hierarchy, map ba cột `Work item ID`, `Work type`, `Parent` vào các field tương ứng. Parent phải đứng trước child và mỗi ID phải duy nhất. Mapping loại work item phụ thuộc destination. Atlassian phân biệt CSV External System Import với bulk “Create work items using CSV”: flow bulk không map quan hệ parent-child. Nếu chọn flow không hỗ trợ hierarchy, dùng importer hỗ trợ hierarchy hoặc nhập parent trước rồi gắn child theo cấu hình Jira. Không dùng `Parent` để thể hiện dependency.
 
 ## Quy trình luyện tập
 
 1. Mở CSV bằng Excel hoặc Sheets, kiểm tra delimiter, dấu tiếng Việt, dòng/column count và không có dữ liệu thật.
 2. Đọc từng Description; xác nhận có actor/value, AC quan sát được, requirement source, assumption và dependency.
 3. Tạo bản copy để sửa. Không ghi đè file mẫu; đặt tên có ngày và initials.
-4. Khi Jira/Atlassian được kết nối và đã chọn project phù hợp, nhập bản copy vào project học tập. Nếu chưa kết nối, mô phỏng bằng bảng CSV và đánh dấu bước external import là chưa thực hiện.
+4. Khi Jira được kết nối và đã chọn destination phù hợp, xác nhận quyền, importer và work type khả dụng; nhập bản copy vào project/space học tập. Nếu chưa kết nối, mô phỏng bằng bảng CSV và đánh dấu bước import là chưa thực hiện.
 5. Sau import, kiểm tra một Epic, một Story và discovery Task: issue type, Description, AC/tiêu chí hoàn tất, labels, encoding và parent association. Sửa mapping nếu nội dung bị cắt hoặc field sai.
-6. Link `blocks / is blocked by` chỉ sau khi xác nhận dependency thật. Trong tệp, dependency được ghi bằng requirement/decision ID, không phải issue key Jira đã tồn tại.
+6. `Parent` biểu diễn hierarchy (Epic chứa Story/Task). `blocks / is blocked by` biểu diễn dependency/sequence giữa hai work item; tạo link đó sau import khi có key thật và team xác nhận dependency.
 7. Lưu ảnh hoặc export sau nhập và ghi lại ngày, project học tập, số issue, mapping, lỗi import và cách xử lý. Không lưu token/API key hay PII vào portfolio.
 
 ## Ranh giới giữa dữ liệu mẫu và quyết định
@@ -42,9 +43,15 @@ Trước khi import, xác nhận quyền project, các issue type `Epic`, `Story
 
 Dòng `Task — Xác nhận quy tắc sức chứa để refinement C-02` trong CSV theo dõi công việc cần làm rõ. Nó có tiêu chí hoàn tất riêng: quyết định `DEC-01` phải ghi rule, evidence, authority và phiên bản đã duyệt. Story C-02 vẫn là work item mô tả giá trị khách hàng; chưa thể chốt AC capacity khi rule còn mở.
 
-`Planned Parent` chỉ giúp người học biết Epic dự kiến. Sau khi import, kiểm tra project hỗ trợ issue type `Task`, tạo quan hệ Epic đúng cấu hình, rồi link discovery Task `blocks` story C-02 nếu team xác nhận dependency. `BRULE-02`, `DEC-01` và `RES-02` là ID tài liệu cục bộ, không phải Jira key.
+`Parent=1` đặt Task dưới Epic trong hierarchy của file import. Sau khi import, kiểm tra destination hỗ trợ work type `Task` và quan hệ parent được tạo đúng; rồi link discovery Task `blocks` story C-02 nếu team xác nhận dependency. `BRULE-02`, `DEC-01`, `RES-02` và số trong `Work item ID` là ID tài liệu/file cục bộ, không phải Jira key.
 
 Nếu authority chưa đưa ra quyết định, Task vẫn Blocked với action owner và ngày review do team xác nhận. Không ghi một policy mới vào Description rồi gọi đó là decision; cập nhật nguồn chuẩn trước, sau đó refine requirement/test theo phiên bản đã duyệt.
+
+## Tài liệu Atlassian
+
+- [Import data from a CSV file](https://support.atlassian.com/jira-cloud-administration/docs/import-data-from-a-csv-file/) — `Work item ID` / `Work type` / `Parent` và parent đứng trước child.
+- [Map column data to work types](https://support.atlassian.com/jira-software-cloud/docs/map-column-data-to-issue-types/) — map loại work item và hierarchy trong trải nghiệm import mới.
+- [Create work items using the CSV importer](https://support.atlassian.com/jira-software-cloud/docs/create-issues-using-the-csv-importer/) — bulk importer không tạo hierarchy parent-child.
 
 ## Evidence để review mức thành thạo
 
