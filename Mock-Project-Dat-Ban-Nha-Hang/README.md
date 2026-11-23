@@ -151,3 +151,10 @@ Bài tiếp theo sau BPMN: [từ quy trình đến yêu cầu có thể kiểm c
 - [DEC-01 — PENDING occupancy policy](./DEC-01-Capacity-Policy-Draft.md): trang Confluence-ready, còn Open; chưa phải policy được duyệt hay nội dung đã tạo trong Confluence.
 - [53 — Thực hành ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md): tự lập luận priority cho C-02, ghi dependency/evidence/authority và thử cập nhật khi policy thay đổi.
 - [Workbook thực hành C-02](./outputs/priority-practice-20261123/Backlog-Priority-Practice.xlsx): bản mẫu còn trống để người học tự điền.
+
+### Thực hành analytics bằng Excel
+
+- [Bài 56 — định nghĩa tỷ lệ gửi email thất bại](./56-Email-Delivery-Metric-Excel-Practice.md)
+- [Workbook Practice và Answer Key](./outputs/notification-failure-rate-practice-20261123/Email-Delivery-Metric-Practice.xlsx)
+
+Workbook dùng event log giả lập để luyện numerator/denominator, dedup theo Message ID, retry, unknown outcome và giới hạn suy luận. Bản mẫu do trợ lý chuẩn bị không được tính là bằng chứng kỹ năng của người học.
