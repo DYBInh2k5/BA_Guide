@@ -150,3 +150,8 @@ Stakeholder evidence (cần xác minh)
 Một traceability matrix có status/owner/evidence link, impact map cho một change request, và một ví dụ truy ngược feature tới business need. Ghi rõ gap, open question và decision authority.
 
 
+
+### Workbook thực hành CR-02
+
+Dùng workbook [CR02-Impact-Analysis-Practice.xlsx](outputs/cr02-impact-practice-20261123/CR02-Impact-Analysis-Practice.xlsx) để thực hành impact register, evidence log, decision authority và traceability. Các dữ kiện vận hành đều ghi chưa thu thập; workbook không chứng minh năng lực của học viên cho đến khi bạn tự hoàn thành và được review.
+
