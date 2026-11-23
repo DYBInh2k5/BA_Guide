@@ -86,3 +86,7 @@ Bài kiểm tra nhanh: nếu quản lý nói “hãy làm app để khỏi trùn
 ### Bước kế tiếp trong dự án
 
 Sau khi hoàn thành ghi chú nền tảng, chuyển sang [bài 53 — ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md) và [hướng dẫn 54](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md). Sau đó mới thực hành nhập backlog vào Jira từ [bài 51](./51-Jira-CSV-Backlog-Staging-Lab.md), khi workspace và project đích đã được xác nhận. Gửi ghi chú hoặc bản workbook tự làm để review; khi chưa có artifact cá nhân, trạng thái năng lực vẫn là `Chưa đánh giá`.
+
+### Bài thực hành tiếp theo — tự chạy API test trong Postman
+
+Dùng [worksheet 55 — Postman UAT Execution](./55-Postman-UAT-Execution-Worksheet.md) để ghi execution log cá nhân. Worksheet nối bài [15 — Postman Practice Lab](./15-Postman-Practice-Lab.md) với test basis, actual response, evidence và verdict; chưa đánh dấu năng lực cho tới khi có artifact do người học tự chạy.
