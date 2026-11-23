@@ -140,6 +140,28 @@ Follow-up này không tự gán kết quả “khách mất doanh thu” hay “
 
 **Điều chưa được phép kết luận:** app sẽ giảm lỗi; vấn đề xảy ra thường xuyên; khách đã mất; nhân viên là nguyên nhân duy nhất; một kênh mới sẽ giải quyết handoff. Các claim này cần evidence và phân tích nguyên nhân.
 
+## Worked discovery register — từ role-play tới kế hoạch xác minh
+
+> Register dưới đây được trích từ transcript **mô phỏng** ở bài này. `Reported` nghĩa là stakeholder/nhân viên kể; chưa phải quan sát độc lập. `Open` nghĩa là chưa có quyết định hoặc bằng chứng đủ để đóng câu hỏi.
+
+| Ref/source trong bài role-play | Ghi nhận tạm | Phân loại/trạng thái | Người có thể cung cấp/kiểm tra | Bước xác minh và bằng chứng cần xin |
+|---|---|---|---|---|
+| Quản lý kể trường hợp tuần trước: khách đến trước khi xác nhận; ca làm hỏi các bàn để sắp xếp; quản lý không chắc khách cuối cùng có ngồi được không | Một case được kể, outcome chưa rõ | Stakeholder-reported; chưa đối chiếu | Quản lý có thể giúp định vị case; lễ tân ca đó có thể bổ sung; BA tổng hợp | Xin khoảng ngày/ca hoặc mã đã khử định danh; đối chiếu lịch bàn/trao đổi trong phạm vi được phép; ghi rõ nếu không truy được |
+| Quản lý ước lượng “vài lần trong tháng” | Tần suất là estimate, chưa có định nghĩa/denominator | Estimate; chưa đo | Quản lý + người giữ sổ/log | Chốt “sự cố” nghĩa là gì và kỳ đo; xem nguồn có sẵn; không biến “vài lần” thành tỷ lệ |
+| Nhân viên kể ca sau đọc tin nhắn và sổ; tin chưa trả lời có thể đã được người ca trước gọi | Cách xác định yêu cầu còn chờ có thể mơ hồ | Stakeholder-reported process; cần xem mẫu | Nhân viên nhiều ca; quản lý xác nhận cách làm | Quan sát bàn giao hoặc xem mẫu tin/sổ đã khử PII; hỏi cách phân biệt chưa gọi/đã gọi/chờ quyết định |
+| Nhân viên nói sổ không ghi giờ gọi hay người phụ trách | Thiếu field được báo cáo; chưa xem sổ thực tế | Reported; chưa xác minh artifact | Nhân viên quản lý sổ; owner vận hành | Xin xem biểu mẫu/trang mẫu được phép; ghi version và ngày; hỏi có kênh ghi khác không |
+| Sponsor/nhân vật đề xuất “làm app” | App là option, không phải requirement/approval | Proposal; decision còn mở | Sponsor/Product; người phê duyệt scope cần xác định | Xác minh need trước; so sánh no-change, quy trình bàn giao chuẩn hóa, queue/inbox và app; ghi owner cho quyết định |
+
+### Chuyển sang công cụ
+
+- **Excel:** một dòng cho mỗi claim; bật filter theo `classification`, `owner`, `status`; giữ quote/source riêng để truy ngược.
+- **FigJam/Miro:** nhóm theme (handoff, trạng thái, capacity, frequency) sau khi ghi nguồn; sticky note không tự biến thành fact.
+- **Jira:** nếu có workspace, tạo discovery item cho việc kiểm tra case/log; không tạo issue/key giả trong tài liệu local.
+- **Confluence:** chỉ chuyển nội dung thành policy chuẩn khi authority xác nhận; lưu version, decision, evidence và impacted artifacts.
+
+### Cách đóng một dòng register
+
+Không đóng vì đã hỏi xong. Chỉ cập nhật status khi có nguồn/evidence, reviewer, giới hạn dữ liệu và quyết định phù hợp. Nếu không thể lấy log, giữ `Open` và ghi lý do; có thể dùng phỏng vấn/quan sát để hiểu quy trình nhưng không suy ra tần suất định lượng.
 ## Bài luyện sau ví dụ
 
 Viết lại câu hỏi follow-up về impact bằng lời của bạn. Sau đó phân loại 3 câu sau: (1) “Ca trưởng không thấy tin nhắn”; (2) “Tháng trước có vài lần”; (3) “App sẽ giải quyết được việc này” thành **stakeholder-reported fact / estimate / solution hypothesis**, rồi đề xuất một nguồn xác minh cho mỗi câu. Khi role-play thực tế, thay kết quả ví dụ bằng câu trả lời mà stakeholder đưa ra.
