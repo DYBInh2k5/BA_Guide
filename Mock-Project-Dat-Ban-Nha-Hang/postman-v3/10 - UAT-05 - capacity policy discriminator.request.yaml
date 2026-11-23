@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "customerName": "UAT-05 Sample Guest",
+      "phone": "0900000005",
+      "partySize": 5,
+      "startAt": "2026-12-05T19:00:00+07:00"
+    }
+order: 11000

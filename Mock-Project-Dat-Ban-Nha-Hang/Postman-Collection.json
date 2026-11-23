@@ -67,6 +67,14 @@
       "name": "09 - Staff - reject a non-pending reservation",
       "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "X-Training-Staff", "value": "demo" }], "url": "{{baseUrl}}/api/reservations/{{reservationCode}}/decision", "body": { "mode": "raw", "raw": "{\n  \"decision\": \"REJECT\",\n  \"reason\": \"Duplicate action sample\"\n}" } },
       "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["pm.test('invalid status transition is blocked', function () { pm.response.to.have.status(409); });", "pm.test('conflict code is clear', function () { pm.expect(pm.response.json().code).to.eql('STATUS_CONFLICT'); });"] } }]
+    },
+    {
+      "name": "10 - UAT-05 - capacity policy discriminator (mock branch)",
+      "request": {
+        "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/reservations",
+        "body": { "mode": "raw", "raw": "{\n  \"customerName\": \"UAT-05 Sample Guest\",\n  \"phone\": \"0900000005\",\n  \"partySize\": 5,\n  \"startAt\": \"2026-12-05T19:00:00+07:00\"\n}" }
+      }
     }
   ],
   "variable": [{ "key": "baseUrl", "value": "http://127.0.0.1:3000" }]

@@ -44,7 +44,7 @@ Nếu chạy trong cửa sổ PowerShell thì dừng bằng Ctrl+C. Nếu servic
 | `GET /api/reservations/{code}/history` | `X-Training-Staff: demo` | `200` trạng thái history |
 | `PATCH /api/reservations/{code}/decision` | `X-Training-Staff: demo` | `200` decision, `400` validation, `404` missing, `409` invalid transition |
 
-Trong collection có ví dụ gửi hợp lệ, slot không đủ chỗ, validation, list, confirm/reject, kiểm tra history, và mô phỏng email lỗi. Header `X-Simulate-Email-Failure: true` chỉ thay đổi response mô phỏng; không gọi email provider. Source v2.1 JSON và bản Local Mode v3 YAML phải được giữ đồng bộ nếu sửa request.
+Trong collection có ví dụ gửi hợp lệ, slot không đủ chỗ, validation, list, confirm/reject, kiểm tra history, mô phỏng email lỗi và request thủ công `10 - UAT-05 - capacity policy discriminator`. Request 10 dùng party size 5 để quan sát nhánh mock hiện tại; nó không có assertion chọn policy. Header `X-Simulate-Email-Failure: true` chỉ thay đổi response mô phỏng; không gọi email provider. Source v2.1 JSON và bản Local Mode v3 YAML phải được giữ đồng bộ nếu sửa request.
 
 ## Đọc response như BA
 
@@ -73,10 +73,12 @@ Cho đến khi mock hỗ trợ contract này, đánh dấu các test trên là *
 1. Gửi request hợp lệ từ collection; ghi status, response body và test result.
 2. Xóa cả phone và email để tạo `400`; nêu lỗi field.
 3. Gửi 12 khách vào slot 19:00 để tạo `409`; giải thích vì sao không tạo reservation.
-4. Gửi `GET /api/reservations` không có header và có header; so kết quả.
-5. Xác nhận yêu cầu `RSV-DEMO-001`, rồi thử từ chối lại cùng mã; phân loại lỗi chuyển trạng thái.
-6. Gửi quyết định với `X-Simulate-Email-Failure: true`; kiểm tra reservation vẫn đổi trạng thái và email chỉ là mô phỏng.
-7. Dừng/restart server và ghi nhận dữ liệu memory được reset. Giải thích vì sao mock API này không thích hợp cho UAT dữ liệu thật.
+4. Restart server để reset seed, gửi request 10 với party size 5. Ghi status/body thực tế; theo mock hiện tại dự kiến `409`, `availableSeats: 4`, không có reservation code. Đây chỉ là hành vi fixture vì `PENDING` đang được tính vào occupancy.
+5. So sánh với giả định chỉ `CONFIRMED` giữ chỗ: fixture counterfactual có 8 ghế, nên request có thể trả `201 PENDING` nếu các rule khác hợp lệ. Nhánh này chưa được cài trong mock; không mong đợi Postman cho kết quả `201` từ server hiện tại và không ghi policy giả định thành oracle.
+6. Gửi `GET /api/reservations` không có header và có header; so kết quả.
+7. Xác nhận yêu cầu `RSV-DEMO-001`, rồi thử từ chối lại cùng mã; phân loại lỗi chuyển trạng thái.
+8. Gửi quyết định với `X-Simulate-Email-Failure: true`; kiểm tra reservation vẫn đổi trạng thái và email chỉ là mô phỏng.
+9. Dừng/restart server và ghi nhận dữ liệu memory được reset. Giải thích vì sao mock API này không thích hợp cho UAT dữ liệu thật.
 
 ## Giới hạn và câu hỏi tiếp nối
 Mock không lưu bền, không chống gọi đồng thời qua nhiều process, chưa triển khai idempotency/retry, không có auth thật, không áp dụng retention, không gửi email, và không thay thế review bảo mật. Các giới hạn này là cơ hội BA để hỏi NFR, vận hành, retry, audit và môi trường UAT. Collection/API là hợp đồng học tập; nhóm dự án thật phải thống nhất contract trước khi dùng.
