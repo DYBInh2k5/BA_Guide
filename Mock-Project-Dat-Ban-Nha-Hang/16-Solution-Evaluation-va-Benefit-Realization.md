@@ -18,6 +18,21 @@
 
 **Cần thống nhất trước khi đo:** định nghĩa “đã xử lý”, giờ hoạt động, một sự cố trùng lịch, booking đến hạn/no-show, nguồn dữ liệu chuẩn, múi giờ, cách loại dữ liệu thử nghiệm và người chịu trách nhiệm. Chỉ so sánh nhóm kênh và kỳ có cách ghi nhận tương đương.
 
+### Worked metric design — yêu cầu online bị ảnh hưởng bởi bản ghi trùng
+
+Đây là **định nghĩa ứng viên để discovery**, chưa được Product/Operations phê duyệt:
+
+| Thành phần | Định nghĩa ứng viên | Cần xác nhận |
+|---|---|---|
+| Câu hỏi | Trong các yêu cầu đặt bàn online đủ điều kiện, bao nhiêu phần trăm bị ảnh hưởng bởi bản ghi trùng đã xác minh? | Stakeholder muốn đo số incident hay số yêu cầu/khách bị ảnh hưởng? Hai câu hỏi cần numerator khác nhau. |
+| Grain | Một `request_id` duy nhất trong production; retry cùng logical request không tạo thêm đơn vị đếm nếu hệ thống có thể nhận diện. | Nguồn khóa ổn định và cách nối retry với request ban đầu. |
+| Tử số | Số `request_id` duy nhất được Operations xác nhận thuộc một nhóm bản ghi trùng trong kỳ. | Định nghĩa “trùng”: cùng khách/slot, duplicate do retry, hay booking vượt capacity? Không gộp các tình huống này nếu chúng có nguyên nhân khác nhau. |
+| Mẫu số | Tổng `request_id` online đủ điều kiện nhận trong cùng kỳ và cùng phạm vi vận hành. | Có tính request invalid, bị hủy hoặc không tạo booking không? Loại test/spam theo rule nào? |
+| Unknown | Request đang điều tra hoặc thiếu liên kết incident được báo riêng; không tự gắn là trùng hay sạch. | Owner, thời hạn phân loại và cách báo classification coverage. |
+| Nguồn / owner | Reservation/request ledger nối với incident log; Operations xác nhận incident, Product/business owner duyệt định nghĩa và cách dùng metric. | Nguồn nào là canonical, timezone, timestamp chọn kỳ và version định nghĩa. |
+
+**Cảnh báo grain:** “số incident / số request” và “số request bị ảnh hưởng / tổng request” là hai metric khác nhau. Nếu một incident gồm ba request bị ảnh hưởng, metric theo incident đếm `1`, metric theo request bị ảnh hưởng đếm `3`. Chọn theo quyết định cần hỗ trợ, không theo dữ liệu nào dễ lấy hơn. Baseline và pilot phải dùng cùng định nghĩa, nguồn, kỳ và phạm vi trước khi so sánh.
+
 Hai KPI email trên trả lời câu hỏi **vận hành gửi thông báo**, không chứng minh khách đã đọc/thấy email hay lợi ích kinh doanh đã tăng. Khi retry tạo nhiều dòng log, tỷ lệ theo sự kiện có thể khác tỷ lệ theo từng thông báo; vì vậy phải ghi rõ grain (đơn vị đếm), quy tắc chọn trạng thái cuối và cách xử lý trạng thái chưa xác định. Bài thực hành Excel dùng Message ID duy nhất và tách `UNKNOWN_TIMEOUT`; xem [Bài 56 — Thực hành KPI email bằng Excel](56-Email-Delivery-Metric-Excel-Practice.md). Muốn đánh giá kết quả cho khách hàng/nhà hàng, cần đo thêm chỉ số riêng như tỷ lệ khách xác nhận sau nhắc lịch hoặc tỷ lệ khách đến; phải xác định nguồn, mẫu số, kỳ đo và yếu tố gây nhiễu trước khi kết luận.
 
 ### Đọc đúng mức thay đổi KPI
