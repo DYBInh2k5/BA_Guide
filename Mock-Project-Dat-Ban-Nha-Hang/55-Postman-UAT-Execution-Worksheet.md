@@ -25,8 +25,11 @@ Thực hành vòng kiểm thử API ở vai trò BA: chuẩn bị test basis, ch
 | API-03 Capacity | Fixture mock; executable | Reset server; 12 khách vào 19:00 | `409 SLOT_UNAVAILABLE`; không tạo booking | ___ | ___ | ___ |
 | UAT-05 Capacity policy | DEC-01 đang Open; policy verdict Blocked | Reset server; gửi request 10, party size 5 | Theo implementation mock: `409`; không có reference. Chưa có expected đã được business owner duyệt | ___ | ___ | ___ |
 | API-04 Staff access | Contract mock; executable | GET danh sách không header, sau đó có `X-Training-Staff: demo` | Không header: `401`; header demo: `200` | ___ | ___ | ___ |
+| AUTHZ-01 Staff thiếu quyền từ chối | Role/permission model chưa được mock hỗ trợ; Blocked | Tài khoản đã xác thực nhưng không có permission từ chối, gửi `PATCH`, rồi đọc lại trạng thái/history | Request bị từ chối; trạng thái vẫn `PENDING`, không có quyết định từ chối. HTTP code/message chờ API/security contract | N/A — mock hiện chỉ phân biệt header demo với thiếu header | ___ | Blocked — không đánh đồng `401` thiếu thông tin staff với authorization failure |
 
 **Quy ước verdict:** `Pass` chỉ khi actual đáp ứng expected đã được chấp thuận; `Fail` khi actual khác expected đó; `Blocked` khi thiếu quyết định/điều kiện cần; `Not Run` khi chưa thực thi. Với UAT-05, ghi riêng `mock branch matched` nếu actual giống implementation, và giữ policy verdict là `Blocked` cho tới khi DEC-01 được người có thẩm quyền quyết định.
+
+Với `AUTHZ-01`, mock không có cách tạo tài khoản đã xác thực nhưng thiếu permission. Không chạy request thiếu header rồi dùng kết quả `401` để kết luận đã kiểm thử authorization; ghi rõ coverage gap và owner cần chốt role model/API contract.
 
 ## Phân tích UAT-05
 

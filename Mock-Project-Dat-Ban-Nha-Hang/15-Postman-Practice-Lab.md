@@ -59,6 +59,12 @@ Nếu chạy trong cửa sổ PowerShell thì dừng bằng Ctrl+C. Nếu servic
 
 Trong collection có ví dụ gửi hợp lệ, slot không đủ chỗ, validation, list, confirm/reject, kiểm tra history, mô phỏng email lỗi và request thủ công `10 - UAT-05 - capacity policy discriminator`. Request 10 dùng party size 5 để quan sát nhánh mock hiện tại; nó không có assertion chọn policy. Header `X-Simulate-Email-Failure: true` chỉ thay đổi response mô phỏng; không gọi email provider. Source v2.1 JSON và bản Local Mode v3 YAML phải được giữ đồng bộ nếu sửa request.
 
+### Ranh giới kiểm thử quyền truy cập
+
+Mock chỉ kiểm tra header `X-Training-Staff: demo`: không có/khác giá trị này thì thao tác staff trả `401`; có giá trị `demo` thì được gán cùng một staff ID. Mock **không mô hình hóa người dùng đã xác thực nhưng thiếu quyền cụ thể**, role khác nhau hoặc policy ai được từ chối. Vì vậy, request không header chỉ kiểm tra nhánh thiếu thông tin staff; nó không chứng minh AC “nhân viên không có quyền không thể đổi trạng thái”.
+
+Để kiểm chứng AC phân quyền đầy đủ, test basis cần một role model đã được authority xác nhận, ví dụ tài khoản staff không có permission xử lý; sau đó thử `PATCH` và truy vấn lại trạng thái/history để xác nhận không có quyết định từ chối được ghi. HTTP status/message chính xác phải theo security/API contract đã duyệt. Trong mock hiện tại, ghi case này là `Blocked — role/permission model chưa được mô hình hóa`, không báo `Pass` chỉ vì request thiếu header trả `401`.
+
 ## Đọc response như BA
 
 - **Không nhận được HTTP response**: kiểm tra server đã chạy, URL/port đúng, proxy/firewall, rồi phân loại đây là lỗi kết nối chứ chưa phải lỗi API.
