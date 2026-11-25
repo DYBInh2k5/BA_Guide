@@ -98,3 +98,7 @@ Dùng [bài 56 — Email Delivery Metric](./56-Email-Delivery-Metric-Excel-Pract
 Tiếp tục với [bài 57 — Attendance Rate](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx): xác định cohort booking đến hạn, tách outcome chưa rõ khỏi no-show, tính tỷ lệ khách đến và outcome coverage. Chỉ số và dữ liệu đều giả lập; tự hoàn thành bản copy rồi gửi lại để được review.
 
 Sau đó chuyển cùng metric sang [bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và [script SQLite](./Attendance-Rate-Analysis-Lab.sql). Giữ nguyên định nghĩa Excel, chạy query, phân đoạn theo kênh và liệt kê unknown để đối soát; chỉ so kết quả sau khi tự viết query.
+
+### Bài 59 — Từ need tới metric specification
+
+Đọc [metric specification acknowledgement latency](./59-Acknowledgement-Latency-Metric-Spec.md). Bài này tiếp tục role-play sponsor ở bài 48: chọn đúng event kết thúc, định nghĩa cohort/grain/coverage, tách thời gian hệ thống nhận request khỏi thời gian staff ra quyết định, và lập danh sách event cần instrument. Tự tạo bản copy, điền bài tập và dùng rubric tự review. Metric/brief mẫu vẫn là giả lập; chưa chấm mastery cho tới khi có artifact cá nhân.
