@@ -87,6 +87,21 @@ Giữ hai luồng có liên quan nhưng khác nhau: **trạng thái chức năng
 | TC-ACK-01/02 | UAT cases | Một case lưu thành công; một case lỗi lưu. Ghi expected, actual, build, evidence, verdict | UAT tester dùng build và test data được chỉ định |
 | MET-ACK-01 | Measurement spec | Đo `request_received_at` → candidate `status_rendered_at` hoặc delivery event đúng nghĩa; report coverage | Engineering/Data xác nhận event, grain và khả năng nối request |
 
+### Worked UAT-ACK-02 — lỗi lưu request hợp lệ
+
+**AC-ACK-02 — bản nháp:** Given request hợp lệ nhưng persistence thất bại, when khách gửi request, then giao diện không hiển thị trạng thái “Đã nhận yêu cầu” như thành công, hiển thị thông báo lỗi đã được Product duyệt, và hệ thống không tạo reservation thành công. Product còn phải duyệt wording/retry behavior; Engineering phải cung cấp cách kích hoạt lỗi trong môi trường UAT.
+
+| Trường execution log | Giá trị cần ghi |
+|---|---|
+| Test ID / trace | `TC-ACK-02`; `N-ACK → R-ACK-01 → AC-ACK-02` |
+| Preconditions | Build/environment được chỉ định; request test hợp lệ; phương thức fault injection được Engineering phê duyệt; không dùng dữ liệu khách thật |
+| Steps | Gửi request; kích hoạt persistence failure theo hướng dẫn môi trường; ghi thời gian và mã correlation nếu có |
+| Expected | Không xuất hiện success/received state; error copy khớp bản Product duyệt; không có reservation thành công; response/API expectation theo contract đã duyệt |
+| Actual/evidence | Ghi UI copy thực tế, HTTP/body nếu scope có API, correlation ID, build, environment, timestamp và kết quả đối chiếu persistence |
+| Verdict | `Pass` chỉ khi expected oracle đã duyệt và đủ evidence; `Fail` nếu chạy được và actual mâu thuẫn baseline; `Blocked/Not run` nếu chưa có build, oracle, fault injection hoặc quyền kiểm tra cần thiết |
+
+Không đặt status code hoặc thông báo cụ thể khi API contract/copy chưa được duyệt. Không gọi là defect chỉ vì stakeholder chưa quyết định error behavior; nếu case đã chạy theo baseline duyệt và actual lệch, mới mở defect với bước tái hiện và evidence. Nếu request đã lưu nhưng response timeout làm kết quả không rõ, đó là trạng thái ambiguous cần reconciliation/idempotency analysis, không được giả định “không tạo reservation”.
+
 `status_rendered_at` chỉ chứng minh client render trạng thái nếu event thực sự được instrument; không chứng minh người dùng đọc hoặc hiểu. Nếu chỉ có provider event thì metric phải đổi tên thành `time_to_provider_acceptance`. Không gắn target trước khi event, cohort, timezone và baseline được duyệt.
 
 ### Dùng công cụ để tạo evidence cá nhân
