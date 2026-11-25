@@ -31,6 +31,20 @@ Thực hành vòng kiểm thử API ở vai trò BA: chuẩn bị test basis, ch
 
 Với `AUTHZ-01`, mock không có cách tạo tài khoản đã xác thực nhưng thiếu permission. Không chạy request thiếu header rồi dùng kết quả `401` để kết luận đã kiểm thử authorization; ghi rõ coverage gap và owner cần chốt role model/API contract.
 
+### Workshop discovery — ma trận quyền truy cập
+
+Điền ma trận này cùng Product/Operations/Security trước khi chốt `AUTHZ-01`. `TBD` là câu hỏi cần quyết định, không có nghĩa mặc định là Deny hay Allow. Xác định rõ cả **actor**, **dữ liệu/phạm vi**, và **hành động**; không gộp quyền xem với quyền thay đổi trạng thái.
+
+| Actor / trạng thái đăng nhập | Dữ liệu/phạm vi | Xem queue | Xem lịch sử | Confirm | Reject | Nguồn / người có thẩm quyền |
+|---|---|---|---|---|---|---|
+| Khách chưa đăng nhập | Queue nội bộ | TBD | TBD | TBD | TBD | ___ |
+| Khách đặt bàn | Yêu cầu của chính mình | TBD | TBD | TBD | TBD | ___ |
+| Nhân viên đã xác thực | Yêu cầu trong phạm vi nhà hàng | TBD | TBD | TBD | TBD | ___ |
+| Nhân viên đã xác thực nhưng thiếu quyền quyết định | Yêu cầu đang `PENDING` | TBD | TBD | TBD | TBD | ___ |
+| Quản lý | Yêu cầu/lịch sử trong phạm vi quản lý | TBD | TBD | TBD | TBD | ___ |
+
+Sau khi authority xác nhận ma trận, mỗi ô liên quan thành test scenario: role/permission, dữ liệu đầu vào, request, expected response theo API contract, rồi truy vấn trạng thái/history để kiểm tra hậu điều kiện. Chọn mã `401` hay `403` là quyết định contract/API; không suy ra mã chỉ từ nhãn “không có quyền”.
+
 ## Phân tích UAT-05
 
 1. Ghi status, response `code`, `availableSeats` và có/không `reservationCode`.
