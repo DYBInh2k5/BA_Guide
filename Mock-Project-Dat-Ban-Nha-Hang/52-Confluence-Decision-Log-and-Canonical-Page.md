@@ -82,6 +82,23 @@ Sensitivity: [public/internal/confidential; theo policy công ty]
 
 Không chọn option chỉ vì dễ implement. Hãy ghi cost/risk của từng lựa chọn, ai chịu hậu quả và điều kiện review sau pilot. Nếu stakeholder chọn một option trong workshop, kiểm tra lại quyền quyết định và xác nhận bằng kênh/project record đã thống nhất trước khi đổi status sang Approved.
 
+### Bản nháp minh họa DEC-02 — quyền xử lý yêu cầu
+
+Mục này là nội dung Confluence-ready trong repo, **chưa được tạo thành trang Confluence và chưa có policy được phê duyệt**.
+
+| Trường | Giá trị minh họa |
+|---|---|
+| ID | DEC-02 |
+| Question | Role nào được xem queue/history, xác nhận hoặc từ chối yêu cầu? Khi actor đã đăng nhập nhưng thiếu quyền, hệ thống cần từ chối và lưu audit ra sao? |
+| Status | Open — role/permission model chưa được xác nhận |
+| Options considered | A: một quyền chung cho mọi thao tác staff; B: tách quyền xem, xác nhận và từ chối; C: phân quyền theo vai trò/phạm vi nhà hàng. Đây là lựa chọn discovery, chưa phải đề xuất đã duyệt. |
+| Evidence needed | Danh sách role thực tế; quy trình phân ca/ủy quyền; rủi ro thay đổi trạng thái sai; yêu cầu truy vết/audit; review của Product/Operations và Security/System Owner |
+| Decision authority | Product/business owner cùng Security/System Owner — cần xác định người cụ thể và cách phê duyệt |
+| Impacted items | US-02, FR-07, access-control/API contract, `AUTHZ-01`, Postman mock/test basis, reservation status/history |
+| Next action | Xác nhận role, hành động, phạm vi dữ liệu và behavior khi bị từ chối; sau đó cập nhật decision version và mở lại `AUTHZ-01` để refinement |
+
+Không chuyển `AUTHZ-01` sang Pass chỉ vì request thiếu `X-Training-Staff` nhận `401`: đó là nhánh thiếu identity giả lập, không phải test một staff đã đăng nhập nhưng thiếu quyền. Mã HTTP và audit event cụ thể chỉ được chốt sau khi API/security authority xác nhận contract.
+
 ## Chuyển kết quả workshop thành nguồn chuẩn
 
 1. Thu thập lời nói, ảnh board, số liệu và artifacts; đánh dấu fact, report, assumption, proposal.
