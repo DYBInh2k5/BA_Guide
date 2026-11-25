@@ -1,4 +1,4 @@
-﻿# 26 — Business Rules và Decision Tables
+# 26 — Business Rules và Decision Tables
 
 ## Mục tiêu
 
@@ -40,6 +40,9 @@ Rule tốt: một nghĩa, phạm vi rõ, không tự mâu thuẫn, chỉ rõ eff
 `—` nghĩa điều kiện không cần xét sau khi rule trước đã chặn. R4 chưa hoàn toàn implementable vì cách giữ capacity khi PENDING còn mơ hồ; phải chốt before baseline. Cũng cần xác định validation order khi request vừa invalid vừa slot closed, để UI/API trả lỗi nhất quán.
 
 ## 3. Capacity decision — lỗ hổng cần quyết định
+
+Dùng [workbook sensitivity Excel](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Capacity-Policy-Sensitivity.xlsx) để thay đổi capacity, CONFIRMED/PENDING occupancy và party size. Kết quả là conditional calculation, không phê duyệt policy.
+
 
 Nếu capacity khả dụng = `capacity - occupancy`, business phải định nghĩa `occupancy`:
 

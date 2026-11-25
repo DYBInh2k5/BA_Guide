@@ -27,7 +27,7 @@ Các trade-off là giả thuyết cần kiểm chứng: không giữ có thể t
 
 ### Walkthrough tác động trên fixture (không phải policy)
 
-[SQLite sensitivity fixture](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md) có slot 19:00 với capacity 10, gồm 2 `CONFIRMED` và 4 `PENDING`. Giả sử request mới cần 5 ghế và các điều kiện khác hợp lệ:
+[SQLite sensitivity fixture](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md) và [workbook Excel sensitivity](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Capacity-Policy-Sensitivity.xlsx) có slot 19:00 với capacity 10, gồm 2 `CONFIRMED` và 4 `PENDING`. Giả sử request mới cần 5 ghế và các điều kiện khác hợp lệ:
 
 | Kịch bản giả định | Occupancy dùng trong phép tính | Remaining | Kết quả capacity cho request 5 ghế |
 |---|---:|---:|---|
