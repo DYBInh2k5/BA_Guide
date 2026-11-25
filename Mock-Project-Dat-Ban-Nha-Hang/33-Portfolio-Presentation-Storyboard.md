@@ -111,7 +111,7 @@ Need (draft): nhân viên nhận biết request cần follow-up
 
 **Lời nói:** “Tôi dùng acceptance criteria để mô tả outcome; Engineering/QA chọn cơ chế và thiết kế concurrency test. Tôi ghi trade-off và người có quyền quyết định thay vì tự chốt policy hoặc ngưỡng NFR.”
 
-Nếu dùng metric ACK, nói rõ đây là phép tính trên fixture synthetic, chưa có SQL execution log hay dữ liệu thật. Không trình bày nó như business result hoặc thành tích cá nhân.
+Nếu dùng metric ACK, nói rõ đây là fixture synthetic và output in-memory do trợ lý chạy bằng SQLite 3.50.4/Node.js 22.20.0; chưa có execution log do người học tạo hay dữ liệu thật. Không trình bày nó như business result hoặc thành tích cá nhân.
 
 ## Slide 7 — Kết luận trung thực và bài học
 

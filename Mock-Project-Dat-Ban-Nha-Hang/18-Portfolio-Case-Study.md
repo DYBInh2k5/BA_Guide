@@ -78,7 +78,7 @@ Workbook tạo 56 ngày baseline và 56 ngày pilot giả lập. Công thức ch
 
 ### Lát cắt bổ sung — chất lượng metric xác nhận đã nhận
 
-Trong fixture SQL acknowledgement latency, cohort có 9 request giả lập; 7 có đủ timestamp nhưng chỉ 6 có latency hợp lệ. Valid coverage là 60% ở WEB và 75% ở PHONE. Đây là phép đếm từ fixture trong [bài 60](./60-Acknowledgement-Latency-SQL-Practice.md), chưa phải execution output từ SQLite hay dữ liệu vận hành. Cách BA diễn giải là **chưa đủ căn cứ so sánh channel hoặc đặt SLA**; trước tiên cần Product/Engineering/Data duyệt event semantics, dedup/cohort/timezone và instrumentation owner. Bản [metric spec](./59-Acknowledgement-Latency-Metric-Spec.md) nối need → requirement → AC → UAT → metric; execution log mẫu vẫn ở trạng thái Not run.
+Trong fixture SQL acknowledgement latency, cohort có 9 request giả lập; 7 có đủ timestamp nhưng chỉ 6 có latency hợp lệ. Valid coverage là 60% ở WEB và 75% ở PHONE. Query đã được trợ lý chạy in-memory trên SQLite 3.50.4/Node.js 22.20.0 để đối chiếu; đây không phải execution evidence do người học tạo và không phải dữ liệu vận hành. Cách BA diễn giải là **chưa đủ căn cứ so sánh channel hoặc đặt SLA**; trước tiên cần Product/Engineering/Data duyệt event semantics, dedup/cohort/timezone và instrumentation owner. Bản [metric spec](./59-Acknowledgement-Latency-Metric-Spec.md) nối need → requirement → AC → UAT → metric; execution log mẫu của người học vẫn ở trạng thái Not run.
 
 ## Khuyến nghị bước triển khai giả định
 

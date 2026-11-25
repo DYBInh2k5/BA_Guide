@@ -27,7 +27,7 @@ Trong dự án thật, cohort, timezone, grain/dedup, event semantics và exclus
 
 ## Tự đối chiếu từ các dòng fixture
 
-Các số dưới đây được đếm/tính trực tiếp từ dữ liệu mẫu để giúp rà query; đây **không phải execution log hay kết quả đã chạy SQLite**.
+Các số dưới đây đã được trợ lý chạy để đối chiếu trên fixture in-memory bằng SQLite 3.50.4 qua Node.js v22.20.0. Đây không phải execution evidence do người học tạo và không phải dữ liệu vận hành.
 
 | Channel | Eligible | Đủ 2 timestamp | Latency hợp lệ | Missing | Invalid | Timestamp completeness | Valid coverage | Median | Nearest-rank p90 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
