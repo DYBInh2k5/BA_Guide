@@ -81,6 +81,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 63. [59 — Metric specification: acknowledgement latency](./59-Acknowledgement-Latency-Metric-Spec.md) — nối need “khách biết request đã được nhận” với event, cohort, coverage, instrumentation, privacy và giới hạn suy luận; toàn bộ case là mô phỏng.
 64. [Jira ACK backlog staging](./Jira-ACK-Backlog-Staging.csv) — mini backlog 1 Epic + 1 Story draft + 1 discovery Task để luyện CSV/hierarchy; chưa import vào Jira.
 65. [ACK UAT execution log template](./ACK-UAT-Execution-Log-Template.csv) — bốn hàng TC-ACK-01..04 để người học tự ghi expected/actual/oracle/evidence; trạng thái khởi đầu Not run.
+66. [60 — Acknowledgement latency bằng SQL](./60-Acknowledgement-Latency-SQL-Practice.md) và [fixture/query SQLite](./Acknowledgement-Latency-Analysis-Lab.sql) — luyện latency, median/p90, timestamp completeness, valid coverage và phân biệt missing/invalid; dữ liệu synthetic.
 
 ## Lộ trình học trong case study
 
