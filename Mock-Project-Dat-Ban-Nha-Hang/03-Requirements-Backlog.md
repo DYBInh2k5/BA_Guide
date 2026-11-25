@@ -66,12 +66,15 @@ Acceptance criteria:
 As a lễ tân, I want xem và xác nhận/từ chối yêu cầu, so that danh sách đặt bàn phản ánh quyết định của nhà hàng.
 
 Acceptance criteria:
-- Given tôi là nhân viên đã đăng nhập và yêu cầu đang chờ, when tôi xác nhận, then trạng thái đổi thành “Đã xác nhận” và ghi người/thời điểm.
-- Given yêu cầu bị từ chối, when tôi nhập lý do và xác nhận từ chối, then trạng thái đổi thành “Từ chối” và lý do được lưu.
-- Given trạng thái đã kết thúc, when tôi thử xác nhận lần nữa, then hệ thống không tạo chuyển trạng thái không hợp lệ.
+- Given tôi là nhân viên được ủy quyền theo role model đã duyệt và yêu cầu đang `PENDING`, when tôi xác nhận, then trạng thái đổi thành `CONFIRMED` và ghi actor/thời điểm.
+- Given tôi là nhân viên được ủy quyền và yêu cầu đang `PENDING`, when tôi từ chối theo policy đã duyệt, then trạng thái đổi thành `REJECTED` và lý do được lưu theo policy.
+- Given tôi không có quyền xử lý yêu cầu, when tôi thử đổi trạng thái, then trạng thái không thay đổi và hệ thống trả kết quả từ chối theo API/access contract đã duyệt.
+- Given yêu cầu không còn `PENDING`, when tôi thử xác nhận hoặc từ chối, then hệ thống không tạo chuyển trạng thái không hợp lệ và giữ nguyên trạng thái hiện tại.
 - **AC-US02-04 — không có yêu cầu chờ (draft; nếu dùng queue):** Given nhân viên có quyền mở hàng đợi và không có yêu cầu nào khớp phạm vi/lọc hiện tại, when hàng đợi được tải, then không hiển thị dòng yêu cầu và hiển thị empty state theo nội dung UX đã duyệt; exact copy và hành động tiếp theo còn `TBD`.
 
-Phân biệt hàng đợi thực sự không có yêu cầu chờ với trường hợp bộ lọc không tìm thấy kết quả nếu người dùng cần thông điệp/hành động khác nhau. AC này là draft phụ thuộc phương án queue và review UX; không phải policy đã duyệt.
+**Open questions cho US-02:** role model và quyền chuyển trạng thái; transition policy; lý do từ chối bắt buộc hay tùy chọn, cùng dữ liệu nào được lưu; response khi bị từ chối theo API/access contract. Không coi các câu trả lời này là đã duyệt chỉ từ AC mẫu.
+
+Phân biệt hàng đợi thực sự không có yêu cầu chờ với trường hợp bộ lọc không tìm thấy kết quả nếu người dùng cần thông điệp/hành động khác nhau. AC empty state là draft phụ thuộc phương án queue và review UX; không phải policy đã duyệt.
 
 ### US-03 — Nhận kết quả qua email (Should)
 As a khách hàng, I want nhận email khi yêu cầu được xác nhận hoặc từ chối, so that tôi biết có thể đến nhà hàng hay không.
