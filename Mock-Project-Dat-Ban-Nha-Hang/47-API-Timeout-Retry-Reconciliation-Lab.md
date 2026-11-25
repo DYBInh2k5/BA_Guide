@@ -74,6 +74,9 @@ Nếu bạn chưa tự chạy, ghi `Not run`. Không dùng row mẫu hoặc sour
 
 ## Execution log của người học
 
+Dùng [workbook Postman/SQL](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Postman-SQL-Execution-Log.xlsx) để ghi actual, response/query evidence và giới hạn. Template để trống không chứng minh đã chạy; chỉ điền sau khi bạn tự thực hiện trong môi trường mock local.
+
+
 ```text
 Ngày/giờ, build/commit:
 Local environment / seed:
