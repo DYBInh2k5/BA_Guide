@@ -1,0 +1,5 @@
+Test ID,Requirement/AC,Environment,Build,Preconditions,Steps,Expected result,Oracle source,Actual result,Verdict,Evidence link,Correlation ID,Tester,Execution date,Notes/limitations
+TC-ACK-01,R-ACK-01 / AC-ACK-01,,,,,"One reservation reference; approved received/pending copy; no false confirmed claim",,,Not run,,,,,
+TC-ACK-02,R-ACK-01 / AC-ACK-02,,,,,"No success state or successful reservation; approved error behavior",,,Not run,,,,,
+TC-ACK-03,MET-ACK-01 / retry contract,,,,,"Reconcile outcome; retry same intent per approved contract; no duplicate effect",,,Not run,,,,,
+TC-ACK-04,R-ACK-01 / duplicate-submit policy,,,,,"Behavior follows approved same-intent/dedup policy; no blind duplicate effect",,,Not run,,,,,

@@ -159,6 +159,8 @@ Không gán sprint, assignee, due date hoặc story point khi team chưa xác nh
 
 Trong test log, `Fail` chỉ có nghĩa actual lệch oracle đã duyệt. Nếu thao tác chưa chạy, dùng `Not run`; nếu muốn chạy nhưng thiếu build, oracle, permission hoặc môi trường, ghi blocker và `Blocked`. Không thay actual bằng expected để bảng trông hoàn chỉnh.
 
+Có thể tạo bản copy của [ACK-UAT-Execution-Log-Template.csv](./ACK-UAT-Execution-Log-Template.csv) để nhập actual và evidence. Template đặt verdict ban đầu là Not run; chỉ đổi sau khi test thực sự chạy và oracle đã được xác nhận.
+
 ## Bài tập của người học
 
 Tạo bản copy và tự điền:
