@@ -107,8 +107,11 @@ Need (draft): nhân viên nhận biết request cần follow-up
 - Retry sau timeout: cần phân tích duplicate/idempotency.
 - CR thêm SMS: đánh giá value, cost, privacy, operations, dependencies.
 - Decision brief: options, evidence gap, owner, ngày review, điều kiện dừng.
+- Metric ACK giả lập: 9 request trong cohort, valid coverage 60% WEB / 75% PHONE; chưa so sánh channel hay đặt SLA. Xin quyết định về event semantics, dedup/cohort/timezone và instrumentation owner trước baseline.
 
 **Lời nói:** “Tôi dùng acceptance criteria để mô tả outcome; Engineering/QA chọn cơ chế và thiết kế concurrency test. Tôi ghi trade-off và người có quyền quyết định thay vì tự chốt policy hoặc ngưỡng NFR.”
+
+Nếu dùng metric ACK, nói rõ đây là phép tính trên fixture synthetic, chưa có SQL execution log hay dữ liệu thật. Không trình bày nó như business result hoặc thành tích cá nhân.
 
 ## Slide 7 — Kết luận trung thực và bài học
 

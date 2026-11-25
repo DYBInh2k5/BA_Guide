@@ -76,6 +76,10 @@ Khi biến case study thành hồ sơ ứng tuyển, chỉ ghi “tôi đã làm
 
 Workbook tạo 56 ngày baseline và 56 ngày pilot giả lập. Công thức cho kết quả SLA 83,3% → 92,6%; duplicate incident rate 3,05% → 1,52% (giảm tương đối khoảng 50,1%); show-up 78,5% → 80,5%. Đây **chỉ là minh họa cách tính**, không chứng minh sản phẩm đạt lợi ích. Trước khi kết luận thực tế cần dữ liệu đã xác thực, định nghĩa nhất quán, kiểm tra chất lượng và xem xét mùa vụ/nhân sự/kênh.
 
+### Lát cắt bổ sung — chất lượng metric xác nhận đã nhận
+
+Trong fixture SQL acknowledgement latency, cohort có 9 request giả lập; 7 có đủ timestamp nhưng chỉ 6 có latency hợp lệ. Valid coverage là 60% ở WEB và 75% ở PHONE. Đây là phép đếm từ fixture trong [bài 60](./60-Acknowledgement-Latency-SQL-Practice.md), chưa phải execution output từ SQLite hay dữ liệu vận hành. Cách BA diễn giải là **chưa đủ căn cứ so sánh channel hoặc đặt SLA**; trước tiên cần Product/Engineering/Data duyệt event semantics, dedup/cohort/timezone và instrumentation owner. Bản [metric spec](./59-Acknowledgement-Latency-Metric-Spec.md) nối need → requirement → AC → UAT → metric; execution log mẫu vẫn ở trạng thái Not run.
+
 ## Khuyến nghị bước triển khai giả định
 
 1. Phỏng vấn sponsor, quản lý và lễ tân; quan sát ca làm và thu baseline hiện tại.
