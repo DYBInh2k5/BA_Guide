@@ -146,6 +146,19 @@ Không gán sprint, assignee, due date hoặc story point khi team chưa xác nh
 
 **Thao tác draw.io:** tạo hai diagram riêng, dùng tên state rõ và gắn guard/trigger trên mũi tên; thêm legend `Draft / Approved / Open`. Trace mỗi transition đến requirement/AC/test ID. Không thêm arrow chỉ vì muốn “hoàn thành sơ đồ”; trước hết phải có source/authority. Nếu dùng FigJam/Figma chưa có edit access, tự lưu bản draw.io/Markdown cá nhân và ghi tool thay thế.
 
+### Test matrix theo transition coverage
+
+Đây là test design draft, không phải execution result. Test oracle phải đến từ requirement/API contract đã duyệt.
+
+| Test ID | Transition/điều kiện | Expected result cần được duyệt | Evidence khi thực thi | Nếu oracle còn mở |
+|---|---|---|---|---|
+| TC-ACK-01 | `Editing → Submitting → Success`; request hợp lệ và persistence thành công | Có đúng một reservation reference; UI hiển thị copy đã duyệt; không gọi là Confirmed nếu chỉ mới nhận | Request/correlation ID, UI capture, response/body theo contract, đối soát record, build/environment | `Blocked/Not run` tới khi state/copy và persistence oracle được duyệt |
+| TC-ACK-02 | `Submitting → Error`; persistence failure được xác nhận | Không có reservation thành công; không xuất hiện received/success state; error copy khớp baseline | Fault injection log, UI capture, correlation ID, API/database evidence phù hợp | `Blocked/Not run` nếu chưa có fault injection/copy/oracle |
+| TC-ACK-03 | `Submitting → Outcome unknown`; response timeout sau khả năng commit | Tra cứu/reconcile theo request identity; chỉ retry cùng thao tác theo contract; không nhân đôi effect | Fault injection chứng minh timeout point, idempotency key, response, reservation count/history | `Blocked/Not run`; chỉ ghi actual timeout không đủ để pass |
+| TC-ACK-04 | Double submit cùng intent trong khi đang `Submitting` | Một request identity/effect theo UX/API policy đã duyệt; UI không khuyến khích tạo thao tác mới mù quáng | Hai request/correlation IDs, record count, UI states, contract rule | Chưa biết same-intent/dedup rule thì giữ Open; không dedup bằng payload giống nhau theo suy đoán |
+
+Trong test log, `Fail` chỉ có nghĩa actual lệch oracle đã duyệt. Nếu thao tác chưa chạy, dùng `Not run`; nếu muốn chạy nhưng thiếu build, oracle, permission hoặc môi trường, ghi blocker và `Blocked`. Không thay actual bằng expected để bảng trông hoàn chỉnh.
+
 ## Bài tập của người học
 
 Tạo bản copy và tự điền:
@@ -158,6 +171,7 @@ Tạo bản copy và tự điền:
 6. Viết một đoạn diễn giải cho lãnh đạo gồm metric, coverage, giới hạn và quyết định kế tiếp. Không đặt target nếu chưa có baseline/authority.
 7. Tạo trace slice ID riêng cho need → requirement → AC → UAT → metric; ghi tool/file, trạng thái draft/approved, owner và evidence. Nếu dùng artifact mẫu, hãy tự tạo bản copy và chỉnh nội dung để có bằng chứng do bạn làm.
 8. Vẽ riêng state diagram nghiệp vụ và UI; gắn guard cho `Submitting → Success`, `Submitting → Error`, `Submitting → Outcome unknown`, rồi đánh dấu source/owner cho từng transition.
+9. Tự chuyển test matrix TC-ACK-01..04 vào workbook/log của bạn; thêm cột actual, verdict, evidence link và oracle source. Để trống actual cho tới khi tự chạy.
 
 ### Rubric tự review (0–2 mỗi tiêu chí)
 
