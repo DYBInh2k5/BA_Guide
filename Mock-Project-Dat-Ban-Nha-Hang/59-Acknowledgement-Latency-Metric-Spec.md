@@ -74,6 +74,33 @@ Không gộp bốn metric thành một “response time”. Chúng có event, ow
 4. Ghi decision log về cohort, timezone, event kết thúc, unknown, retry và owner; giữ `Open` cho tới khi người có thẩm quyền duyệt.
 5. Chỉ sau khi có baseline/coverage đủ dùng mới đề xuất target và so sánh option như UI status, email hoặc SMS.
 
+## Trace slice: need → requirement → AC → UAT → metric
+
+Giữ hai luồng có liên quan nhưng khác nhau: **trạng thái chức năng cho khách** và **đo hiệu năng thông báo trạng thái**. Một metric latency tốt không tự chứng minh UI đúng; UI đúng cũng không tự chứng minh khách đã đọc.
+
+| ID | Artifact | Nội dung nháp | Điều kiện trước khi baseline |
+|---|---|---|---|
+| N-ACK | Need | Khách cần biết hệ thống đã nhận yêu cầu, không hiểu nhầm là bàn đã được xác nhận | Product/Operations xác nhận need và wording |
+| R-ACK-01 | Functional requirement | Sau khi lưu request thành công, trang kết quả hiển thị trạng thái đã nhận và đang chờ staff decision | Product duyệt state/copy; Engineering xác nhận behavior |
+| AC-ACK-01 | Acceptance criterion | Request lưu thành công → hiển thị copy được duyệt; copy không khẳng định reservation đã confirmed | Baseline state model và copy được duyệt |
+| AC-ACK-02 | Acceptance criterion | Request không lưu thành công → không hiển thị trạng thái “đã nhận” như thành công | Product duyệt error behavior |
+| TC-ACK-01/02 | UAT cases | Một case lưu thành công; một case lỗi lưu. Ghi expected, actual, build, evidence, verdict | UAT tester dùng build và test data được chỉ định |
+| MET-ACK-01 | Measurement spec | Đo `request_received_at` → candidate `status_rendered_at` hoặc delivery event đúng nghĩa; report coverage | Engineering/Data xác nhận event, grain và khả năng nối request |
+
+`status_rendered_at` chỉ chứng minh client render trạng thái nếu event thực sự được instrument; không chứng minh người dùng đọc hoặc hiểu. Nếu chỉ có provider event thì metric phải đổi tên thành `time_to_provider_acceptance`. Không gắn target trước khi event, cohort, timezone và baseline được duyệt.
+
+### Dùng công cụ để tạo evidence cá nhân
+
+| Công cụ | Thao tác luyện tập | Artifact để review |
+|---|---|---|
+| Jira hoặc CSV backlog cá nhân | Tạo story R-ACK-01; gắn AC, priority rationale, source N-ACK, dependency và trạng thái draft | Issue/story có ID, owner/reviewer và link trace |
+| FigJam/Miro | Vẽ state flow `Submitted → Received/Pending → Confirmed/Rejected`; đánh dấu lỗi/unknown và câu hỏi policy | Board có legend cho reported/assumption/decision/open item |
+| Figma | Vẽ success/error state với copy giả lập đã dán nhãn draft; không thiết kế “confirmed” khi request chỉ mới nhận | Prototype hoặc wireframe, nối state với AC |
+| Postman | Chỉ khi API có response contract tương ứng: gửi success/error request, lưu status/body và đối chiếu oracle được duyệt | Collection/run log; mock không được ghi là production behavior |
+| SQL/Excel | Nếu event fixture tồn tại, tính latency và coverage; đối soát unknown, duplicate, retry trước khi diễn giải | Query/workbook cá nhân, định nghĩa metric và caveat |
+
+Không giả vờ rằng hiện tại có Jira project, quyền chỉnh Figma, API event hay dữ liệu sản phẩm phù hợp. Nếu tool/access không có, dùng CSV, draw.io, Markdown hoặc fixture và ghi rõ mức mô phỏng.
+
 ## Bài tập của người học
 
 Tạo bản copy và tự điền:
@@ -84,6 +111,7 @@ Tạo bản copy và tự điền:
 4. Viết ba câu hỏi phỏng vấn Operations/Engineering có thể làm thay đổi metric design.
 5. Đề xuất bảng event tối thiểu; chỉ rõ field nào đang có, field nào cần instrument, owner và privacy review.
 6. Viết một đoạn diễn giải cho lãnh đạo gồm metric, coverage, giới hạn và quyết định kế tiếp. Không đặt target nếu chưa có baseline/authority.
+7. Tạo trace slice ID riêng cho need → requirement → AC → UAT → metric; ghi tool/file, trạng thái draft/approved, owner và evidence. Nếu dùng artifact mẫu, hãy tự tạo bản copy và chỉnh nội dung để có bằng chứng do bạn làm.
 
 ### Rubric tự review (0–2 mỗi tiêu chí)
 
