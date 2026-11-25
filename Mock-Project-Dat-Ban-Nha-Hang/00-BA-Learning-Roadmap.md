@@ -64,7 +64,7 @@ Trạng thái hiện tại của người học chưa được đánh giá khi c
 
 ## Trạng thái kết nối và phương án tiếp tục
 
-Trạng thái công cụ phụ thuộc vào phiên, cần kiểm tra lại trước mỗi lab. ClickUp chưa có workspace được cấp quyền; Jira/Confluence chưa kết nối. Trong phiên kiểm tra 25-11-2026, Postman Desktop không xuất hiện trong app inventory nên UI/Local Files chưa xác nhận; `postman --version` là `1.93.0`, Node.js là `v22.20.0`. Các lần CLI chạy health check, UAT-05 và request not-found trước đây do trợ lý thực hiện, không phải evidence người học thực hành; request history not-found trả HTTP 404 với 3 assertions pass và CLI exit code 1 vì status 4xx. UAT-05 khớp nhánh mock/no-insert, nhưng policy vẫn Blocked khi DEC-01 Open. Môi trường `BA Local` chỉ chứa `baseUrl`, không có secret. Miro và Visual Paradigm có thể thay bằng FigJam/draw.io để luyện kỹ năng chuyển giao; không ghi là đã dùng ứng dụng gốc nếu chưa thao tác.
+Trạng thái công cụ phụ thuộc vào phiên, cần kiểm tra lại trước mỗi lab. Trong phiên kiểm tra 25-11-2026, tài khoản Figma đã xác thực; deck Slides portfolio hiện không cấp quyền edit cho phiên này. Tài khoản Atlassian có quyền đọc/ghi Jira và Confluence trên một site. Danh sách Jira project truy cập được chưa có project BA practice riêng; chưa tạo issue/page vì chưa xác định sandbox đích. GitHub đã kết nối. ClickUp chưa có workspace được cấp quyền. Postman Desktop không xuất hiện trong app inventory nên UI/Local Files chưa xác nhận; `postman --version` là `1.93.0`, Node.js là `v22.20.0`. Các lần CLI chạy health check, UAT-05 và request not-found trước đây do trợ lý thực hiện, không phải evidence người học thực hành; request history not-found trả HTTP 404 với 3 assertions pass và CLI exit code 1 vì status 4xx. UAT-05 khớp nhánh mock/no-insert, nhưng policy vẫn Blocked khi DEC-01 Open. Môi trường `BA Local` chỉ chứa `baseUrl`, không có secret. Chưa xác nhận Miro connector; FigJam/draw.io là phương án tương đương để luyện kỹ năng chuyển giao. Không ghi là đã dùng ứng dụng gốc nếu chưa thao tác.
 
 ## Điểm bắt đầu của người học
 
@@ -85,7 +85,7 @@ Bài kiểm tra nhanh: nếu quản lý nói “hãy làm app để khỏi trùn
 
 ### Bước kế tiếp trong dự án
 
-Sau khi hoàn thành ghi chú nền tảng, chuyển sang [bài 53 — ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md) và [hướng dẫn 54](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md). Sau đó mới thực hành nhập backlog vào Jira từ [bài 51](./51-Jira-CSV-Backlog-Staging-Lab.md), khi workspace và project đích đã được xác nhận. Gửi ghi chú hoặc bản workbook tự làm để review; khi chưa có artifact cá nhân, trạng thái năng lực vẫn là `Chưa đánh giá`.
+Sau khi hoàn thành ghi chú nền tảng, chuyển sang [bài 53 — ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md) và [hướng dẫn 54](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md). Sau đó thực hành nhập backlog vào Jira từ [bài 51](./51-Jira-CSV-Backlog-Staging-Lab.md) trong một project sandbox riêng; quyền kết nối đã có nhưng hiện chưa thấy project đích phù hợp. Gửi ghi chú hoặc bản workbook tự làm để review; khi chưa có artifact cá nhân, trạng thái năng lực vẫn là `Chưa đánh giá`.
 
 ### Bài thực hành tiếp theo — tự chạy API test trong Postman
 
