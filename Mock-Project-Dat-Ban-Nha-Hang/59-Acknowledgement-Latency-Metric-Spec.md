@@ -116,6 +116,18 @@ Không đặt status code hoặc thông báo cụ thể khi API contract/copy ch
 
 Không giả vờ rằng hiện tại có Jira project, quyền chỉnh Figma, API event hay dữ liệu sản phẩm phù hợp. Nếu tool/access không có, dùng CSV, draw.io, Markdown hoặc fixture và ghi rõ mức mô phỏng.
 
+### Jira mini-lab — stage backlog bằng CSV
+
+File [Jira-ACK-Backlog-Staging.csv](./Jira-ACK-Backlog-Staging.csv) có một Epic, một Story draft và một discovery Task. Đây là dữ liệu thực hành riêng, không làm thay đổi backlog gốc. `Work item ID` trong CSV là ID để map hierarchy lúc import, không phải Jira key. Mọi scope/priority còn là đề xuất.
+
+1. Mở file bằng Excel/LibreOffice/Google Sheets hoặc import vào Jira sandbox do bạn/team chỉ định; không dùng project công việc không liên quan.
+2. Kiểm tra encoding, dấu phẩy/quote, Work type, parent đứng trước child và Description giữ đủ AC/open questions.
+3. Nếu sandbox không sẵn có, review CSV offline: xác nhận có 3 rows gồm 1 Epic, 1 Story, 1 Task và cả hai item con parent ID `1`.
+4. Nếu import thật, chụp import mapping/log đã khử thông tin nhạy cảm; mở từng item, kiểm tra hierarchy/copy/IDs trước khi gọi backlog usable.
+5. Dependency Task `blocks` Story chỉ tạo thành issue link riêng sau khi người phụ trách refinement xác nhận. `Parent=1` chỉ thể hiện Epic hierarchy, không biểu diễn dependency.
+
+Không gán sprint, assignee, due date hoặc story point khi team chưa xác nhận. Nếu không có quyền/sandbox, đánh dấu `Not imported`; việc mở CSV không được tính là thực hành Jira đã hoàn tất.
+
 ## Bài tập của người học
 
 Tạo bản copy và tự điền:

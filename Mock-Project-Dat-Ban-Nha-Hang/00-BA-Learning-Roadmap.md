@@ -101,6 +101,6 @@ Sau đó chuyển cùng metric sang [bài 58 — Attendance Rate bằng SQL](./5
 
 ### Bài 59 — Từ need tới metric specification
 
-Đọc [metric specification acknowledgement latency](./59-Acknowledgement-Latency-Metric-Spec.md). Bài này tiếp tục role-play sponsor ở bài 48: chọn đúng event kết thúc, định nghĩa cohort/grain/coverage, tách thời gian hệ thống nhận request khỏi thời gian staff ra quyết định, và lập danh sách event cần instrument. Tự tạo bản copy, điền bài tập và dùng rubric tự review. Metric/brief mẫu vẫn là giả lập; chưa chấm mastery cho tới khi có artifact cá nhân.
+Đọc [metric specification acknowledgement latency](./59-Acknowledgement-Latency-Metric-Spec.md). Bài này tiếp tục role-play sponsor ở bài 48: chọn đúng event kết thúc, định nghĩa cohort/grain/coverage, tách thời gian hệ thống nhận request khỏi thời gian staff ra quyết định, và lập danh sách event cần instrument. Tự tạo bản copy, điền bài tập và dùng rubric tự review. Mini backlog [Jira-ACK-Backlog-Staging.csv](./Jira-ACK-Backlog-Staging.csv) cho phép luyện import/hierarchy offline hoặc trong Jira sandbox; hiện chưa import vào Jira. Metric/brief mẫu vẫn là giả lập; chưa chấm mastery cho tới khi có artifact cá nhân.
 
 Trong cùng bài, thực hành trace slice `Need → Requirement → AC → UAT → Metric`; chọn một công cụ sẵn có để làm artifact riêng (CSV/Markdown/draw.io nếu Jira hoặc Figma không có quyền phù hợp). Ghi rõ trạng thái draft/approved, owner, evidence và giới hạn mock.
