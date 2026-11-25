@@ -36,6 +36,18 @@ Các số dưới đây được đếm/tính trực tiếp từ dữ liệu m�
 
 Trong toàn cohort có 9 request; 7 có đủ timestamp, nhưng chỉ 6 có latency hợp lệ. Vì vậy completeness là 7/9 = 77,8%, valid coverage là 6/9 = 66,7%. Bản ghi có timestamp âm vẫn đủ hai timestamp nên góp vào completeness, nhưng không góp vào valid coverage hoặc percentile. Kết quả per-channel chỉ mô tả fixture nhỏ, không đủ kết luận channel nào tốt hơn.
 
+## One-slide readout cho sponsor (mẫu giả lập)
+
+**Finding:** fixture có 9 request; chỉ 6 request có latency hợp lệ. Valid coverage là 60% ở WEB và 75% ở PHONE.
+
+**Ý nghĩa:** chưa đủ căn cứ so sánh thời gian giữa hai channel; thiếu/sai timestamp có thể làm metric lệch. Median/p90 mô tả fixture, không phải baseline production.
+
+**Recommendation:** xác nhận event status_rendered_at đo đúng điều gì, giao owner instrumentation và xem coverage trong pilot trước khi đặt target.
+
+**Decision request:** Product/Engineering/Data duyệt event definition, timezone, grain/dedup, owner và điều kiện baseline đủ tin cậy. Chỉ sau đó mới so sánh phương án như status page, email hoặc SMS.
+
+**Không kết luận:** dữ liệu này không chứng minh SMS làm giảm cuộc gọi, không tạo SLA và không đại diện khách hàng thật.
+
 ## Câu hỏi BA trước khi dùng kết quả
 
 - Event status_rendered_at có thực sự đo browser render trạng thái đã duyệt? Có request nào không mở trang kết quả?
