@@ -128,6 +128,24 @@ File [Jira-ACK-Backlog-Staging.csv](./Jira-ACK-Backlog-Staging.csv) có một Ep
 
 Không gán sprint, assignee, due date hoặc story point khi team chưa xác nhận. Nếu không có quyền/sandbox, đánh dấu `Not imported`; việc mở CSV không được tính là thực hành Jira đã hoàn tất.
 
+### State modeling lab — business state khác UI state
+
+Đừng vẽ trạng thái reservation cùng một máy trạng thái với trạng thái submit trên trình duyệt. Reservation mô tả lifecycle nghiệp vụ; UI mô tả điều client quan sát trong một lần tương tác. Diagram dưới đây là hypothesis để review, không phải policy được duyệt.
+
+| Model | Transition candidate | Guard/evidence trước transition | Open decision |
+|---|---|---|---|
+| Reservation | `Submitted → Pending` | Persistence thành công; có request ID | `PENDING` giữ capacity không? status có tạo khi notification/UI lỗi không? |
+| Reservation | `Pending → Confirmed` | Actor có quyền; quyết định được ghi nhận | Role/authority và capacity rule nào cho phép confirm? |
+| Reservation | `Pending → Rejected` | Actor có quyền; outcome được lưu | Reason bắt buộc/tùy chọn và rule thông báo? |
+| UI interaction | `Editing → Submitting` | Khách submit; client khóa thao tác theo UX policy | Double click / submit đồng thời được xử lý thế nào? |
+| UI interaction | `Submitting → Success` | Có response/evidence persistence thành công | Nội dung copy nào đã được Product duyệt? |
+| UI interaction | `Submitting → Error` | Hệ thống xác nhận request không được lưu | Error copy, giữ form, retry behavior là gì? |
+| UI interaction | `Submitting → Outcome unknown` | Timeout/mất response; commit chưa xác định | Cách tra cứu/reconcile và retry cùng ý định theo API contract? |
+
+**UAT trace:** `TC-ACK-01` kiểm tra thành công chỉ sau khi persistence được xác nhận; `TC-ACK-02` kiểm tra lỗi đã xác nhận và không có reservation thành công; `TC-ACK-03` kiểm tra timeout ambiguity theo idempotency/reconciliation contract ở [bài 47](./47-API-Timeout-Retry-Reconciliation-Lab.md). Nếu chưa có oracle/fault injection, `TC-ACK-03` là `Blocked/Not run`, không tự ghi `Fail` hay `Pass`.
+
+**Thao tác draw.io:** tạo hai diagram riêng, dùng tên state rõ và gắn guard/trigger trên mũi tên; thêm legend `Draft / Approved / Open`. Trace mỗi transition đến requirement/AC/test ID. Không thêm arrow chỉ vì muốn “hoàn thành sơ đồ”; trước hết phải có source/authority. Nếu dùng FigJam/Figma chưa có edit access, tự lưu bản draw.io/Markdown cá nhân và ghi tool thay thế.
+
 ## Bài tập của người học
 
 Tạo bản copy và tự điền:
@@ -139,6 +157,7 @@ Tạo bản copy và tự điền:
 5. Đề xuất bảng event tối thiểu; chỉ rõ field nào đang có, field nào cần instrument, owner và privacy review.
 6. Viết một đoạn diễn giải cho lãnh đạo gồm metric, coverage, giới hạn và quyết định kế tiếp. Không đặt target nếu chưa có baseline/authority.
 7. Tạo trace slice ID riêng cho need → requirement → AC → UAT → metric; ghi tool/file, trạng thái draft/approved, owner và evidence. Nếu dùng artifact mẫu, hãy tự tạo bản copy và chỉnh nội dung để có bằng chứng do bạn làm.
+8. Vẽ riêng state diagram nghiệp vụ và UI; gắn guard cho `Submitting → Success`, `Submitting → Error`, `Submitting → Outcome unknown`, rồi đánh dấu source/owner cho từng transition.
 
 ### Rubric tự review (0–2 mỗi tiêu chí)
 
