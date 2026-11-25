@@ -99,6 +99,23 @@ Mục này là nội dung Confluence-ready trong repo, **chưa được tạo th
 
 Không chuyển `AUTHZ-01` sang Pass chỉ vì request thiếu `X-Training-Staff` nhận `401`: đó là nhánh thiếu identity giả lập, không phải test một staff đã đăng nhập nhưng thiếu quyền. Mã HTTP và audit event cụ thể chỉ được chốt sau khi API/security authority xác nhận contract.
 
+### Bản nháp minh họa DEC-03 — khách tự tra cứu trạng thái
+
+Mục này nối với `FN-07` trong Function List. `BR-01` nói chung về khả năng theo dõi trạng thái, nhưng backlog hiện chưa có FR/story được duyệt cho khách quay lại tự tra cứu. Đây là quyết định scope cần sponsor xác nhận, không phải yêu cầu đã cam kết.
+
+| Trường | Giá trị minh họa |
+|---|---|
+| ID | DEC-03 |
+| Question | Sau khi gửi yêu cầu, khách chỉ xem mã/trạng thái ban đầu và nhận email khi có kết quả, hay cần tự quay lại tra cứu trạng thái? |
+| Status | Open — cần xác nhận outcome, scope và access policy |
+| Options considered | A: chỉ hiển thị mã/`PENDING` sau khi gửi và gửi email khi quyết định; B: bổ sung self-service lookup theo access method được duyệt; C: khách liên hệ nhà hàng để hỏi, nhân viên tra cứu qua queue. Đây là các lựa chọn để thảo luận, không phải khuyến nghị. |
+| Evidence needed | Phỏng vấn khách về cách họ kiểm tra kết quả; inquiry volume và email delivery issues nếu có; review dữ liệu khách được phép hiển thị và access/retention policy |
+| Decision authority | Product/business owner; Security/Privacy review cho phương án có self-service access — cần xác định người cụ thể |
+| Impacted items | `FN-07`, sitemap, FR/US/UC nếu được duyệt, access/API contract, notification scope, UAT và privacy review |
+| Next action | So sánh nhu cầu, chi phí vận hành, rủi ro lộ dữ liệu và cách đo outcome; ghi người duyệt, rationale, ngày/version trước khi đổi scope |
+
+Không mặc định dùng mã đặt bàn làm thông tin xác thực hoặc cho phép xem dữ liệu liên hệ đầy đủ. Cách truy cập, expiry, rate limit, fields hiển thị và hành vi khi mã sai cần được xác nhận với Product/Security/Privacy rồi mới viết AC/test.
+
 ## Chuyển kết quả workshop thành nguồn chuẩn
 
 1. Thu thập lời nói, ảnh board, số liệu và artifacts; đánh dấu fact, report, assumption, proposal.
