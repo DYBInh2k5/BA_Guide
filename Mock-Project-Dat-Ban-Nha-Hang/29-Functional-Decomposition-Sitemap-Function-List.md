@@ -64,11 +64,11 @@ Node “Kết quả gửi request — PENDING/chờ xác nhận” trong sitemap
 | FN-04 | Tạo request `PENDING` | System | Request hợp lệ, capacity check | Mã request và trạng thái chờ staff | BRULE-03 | Auto-confirm có thuộc scope không? |
 | FN-05 | Xử lý hàng đợi | Staff | Request mới hoặc filter | Xem chi tiết/trạng thái/lịch sử | US-02, BRULE-04/05 | Role, filter và SLA vận hành? |
 | FN-06 | Gửi thông báo trạng thái | System | State transition đã lưu | Khách nhận thông tin phù hợp | FR-06, BRULE-06 | Kênh, retry, failure display? |
-| FN-07 — candidate | Khách tra cứu trạng thái sau lần gửi | Customer | Mã/link hoặc phương thức truy cập chưa chốt | Candidate: xem trạng thái của đúng yêu cầu; field và access scope TBD | BR-01 gợi ý nhu cầu theo dõi; chưa có FR/US/UC được duyệt | Khách cần tự tra cứu ngoài màn hình ban đầu/email không? Cách truy cập, thời hạn, dữ liệu hiển thị và authority còn mở |
+| FN-07 — candidate | Khách tra cứu trạng thái sau lần gửi | Customer | Mã/link hoặc phương thức truy cập chưa chốt | Candidate: xem trạng thái của đúng yêu cầu; field và access scope TBD | BR-01; Jira CSV staging item 5 là candidate chưa duyệt; chưa có FR/UC được duyệt | Khách cần tự tra cứu ngoài màn hình ban đầu/email không? Cách truy cập, thời hạn, dữ liệu hiển thị và authority còn mở; không map sang FR-08 vì FR-08 là hủy |
 
 Function IDs là nhãn mô phỏng để truy vết. Khi scope thay đổi, sửa source/owner/status và nối tới use case/story/AC/API/test; không chỉ đổi tên chức năng.
 
-`FN-07` được thêm để làm lộ câu hỏi scope/traceability, không phải cam kết MVP. `FR-04` chỉ nói hiển thị mã và `PENDING` sau khi gửi; `FR-06` nói email khi trạng thái đổi; `US-04` hiện là nhân viên tra cứu. Chỉ tạo use case/story cho khách tự tra cứu sau khi sponsor xác nhận outcome và quyết định access/security.
+`FN-07` được thêm để làm lộ câu hỏi scope/traceability, không phải cam kết MVP. `FR-04` chỉ nói hiển thị mã và `PENDING` sau khi gửi; `FR-06` nói email khi trạng thái đổi; `US-04` là nhân viên tra cứu. CSV staging item 5 có một candidate story cho khách tự tra cứu nhưng source cũ `FR-08` bị map sai: `FR-08` là hủy đặt bàn. Candidate này chỉ liên hệ tạm với `BR-01`; cần sponsor xác nhận outcome/scope và access/security trước khi tạo FR/UC được duyệt hoặc import vào Jira thật.
 
 ## 4. Nối sang Use Case, story và acceptance criteria
 
@@ -77,7 +77,7 @@ Function IDs là nhãn mô phỏng để truy vết. Khi scope thay đổi, sử
 | FN-01/02/03/04 | UC-01 Submit reservation request | US-01 Customer sends a request | UAT valid/invalid/closed/capacity/concurrent cases; response/status/data effect |
 | FN-05 | UC-02 Staff reviews request | US-02 Staff confirms or rejects | Authorized/unauthorized/invalid-transition cases and state history |
 | FN-06 | UC-03 Notify customer | US-03 Customer receives result | Success/failure after state commit; mock API only simulates email |
-| FN-07 — candidate | Use case chưa tạo | Chưa có story được duyệt | Cần quyết định self-service status lookup, identity/access method, data scope và expiry trước khi viết AC/UAT |
+| FN-07 — candidate | Use case chưa tạo | CSV staging item 5 là story candidate; chưa phải Jira issue/story được duyệt | Cần quyết định self-service status lookup, identity/access method, data scope và expiry trước khi chốt AC/UAT |
 
 Story/AC cần xác định population, precondition, event, expected result và lỗi; tránh coi function name là yêu cầu đủ chi tiết. Trace tới [backlog](./03-Requirements-Backlog.md), [Use Case/UAT](./13-Use-Case-Data-Flow-UAT.md) và [API/Postman lab](./15-Postman-Practice-Lab.md).
 

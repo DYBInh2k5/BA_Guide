@@ -32,7 +32,7 @@ Giả định dùng trong ví dụ: khách chọn ngày, giờ, số người; h
 | Gửi yêu cầu | Nhập tên và số liên hệ | Gửi yêu cầu đặt bàn với thông tin bắt buộc |
 | Nhận kết quả | Thấy mã yêu cầu và trạng thái | Nhận thông báo đã tiếp nhận, không nhầm với xác nhận bàn |
 | Xử lý | Nhân viên xem yêu cầu mới | Nhân viên xác nhận hoặc từ chối và lưu lý do |
-| Theo dõi | Khách kiểm tra kết quả | Khách xem trạng thái theo mã/đường dẫn an toàn |
+| Theo dõi — candidate, DEC-03 Open | Khách có thể kiểm tra kết quả sau lần gửi | Khách xem trạng thái theo mã/đường dẫn an toàn; chưa được duyệt scope, access method hay dữ liệu hiển thị |
 
 MVP có thể giới hạn ở gửi yêu cầu và xử lý thủ công. Tự động phân bổ bàn, thanh toán đặt cọc, tích hợp CRM hoặc tối ưu bàn là các lựa chọn cần business case riêng, không tự thêm chỉ vì dễ hình dung.
 

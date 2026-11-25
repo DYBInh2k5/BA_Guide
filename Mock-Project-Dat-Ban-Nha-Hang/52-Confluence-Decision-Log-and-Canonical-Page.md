@@ -101,7 +101,7 @@ Không chuyển `AUTHZ-01` sang Pass chỉ vì request thiếu `X-Training-Staff
 
 ### Bản nháp minh họa DEC-03 — khách tự tra cứu trạng thái
 
-Mục này nối với `FN-07` trong Function List. `BR-01` nói chung về khả năng theo dõi trạng thái, nhưng backlog hiện chưa có FR/story được duyệt cho khách quay lại tự tra cứu. Đây là quyết định scope cần sponsor xác nhận, không phải yêu cầu đã cam kết.
+Mục này nối với `FN-07` trong Function List, story map ở bài 49 và candidate trong Jira CSV staging item 5. `BR-01` nói chung về khả năng theo dõi trạng thái, nhưng backlog hiện chưa có FR/story được duyệt cho khách quay lại tự tra cứu. Các candidate chỉ là đầu vào để sponsor xác nhận scope, không phải yêu cầu đã cam kết.
 
 | Trường | Giá trị minh họa |
 |---|---|
@@ -111,7 +111,7 @@ Mục này nối với `FN-07` trong Function List. `BR-01` nói chung về kh�
 | Options considered | A: chỉ hiển thị mã/`PENDING` sau khi gửi và gửi email khi quyết định; B: bổ sung self-service lookup theo access method được duyệt; C: khách liên hệ nhà hàng để hỏi, nhân viên tra cứu qua queue. Đây là các lựa chọn để thảo luận, không phải khuyến nghị. |
 | Evidence needed | Phỏng vấn khách về cách họ kiểm tra kết quả; inquiry volume và email delivery issues nếu có; review dữ liệu khách được phép hiển thị và access/retention policy |
 | Decision authority | Product/business owner; Security/Privacy review cho phương án có self-service access — cần xác định người cụ thể |
-| Impacted items | `FN-07`, sitemap, FR/US/UC nếu được duyệt, access/API contract, notification scope, UAT và privacy review |
+| Impacted items | `FN-07`, Jira CSV staging item 5 (candidate, không phải Jira issue thật), sitemap, FR/US/UC nếu được duyệt, access/API contract, notification scope, UAT và privacy review |
 | Next action | So sánh nhu cầu, chi phí vận hành, rủi ro lộ dữ liệu và cách đo outcome; ghi người duyệt, rationale, ngày/version trước khi đổi scope |
 
 Không mặc định dùng mã đặt bàn làm thông tin xác thực hoặc cho phép xem dữ liệu liên hệ đầy đủ. Cách truy cập, expiry, rate limit, fields hiển thị và hành vi khi mã sai cần được xác nhận với Product/Security/Privacy rồi mới viết AC/test.
