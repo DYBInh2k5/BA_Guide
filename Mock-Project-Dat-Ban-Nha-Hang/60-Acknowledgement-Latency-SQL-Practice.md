@@ -25,6 +25,17 @@ Trong dự án thật, cohort, timezone, grain/dedup, event semantics và exclus
 4. Đối chiếu với phần answer key trong SQL sau khi đã tự viết query.
 5. Tạo bản copy query cá nhân, ghi SQLite version, ngày chạy, result, source definition và giới hạn vào execution log. Chỉ bản tự chạy mới là evidence thực hành.
 
+## Tự đối chiếu từ các dòng fixture
+
+Các số dưới đây được đếm/tính trực tiếp từ dữ liệu mẫu để giúp rà query; đây **không phải execution log hay kết quả đã chạy SQLite**.
+
+| Channel | Eligible | Đủ 2 timestamp | Latency hợp lệ | Missing | Invalid | Timestamp completeness | Valid coverage | Median | Nearest-rank p90 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| WEB | 5 | 4 | 3 | 1 | 1 | 80% | 60% | 7 giây | 9 giây |
+| PHONE | 4 | 3 | 3 | 1 | 0 | 75% | 75% | 12 giây | 18 giây |
+
+Trong toàn cohort có 9 request; 7 có đủ timestamp, nhưng chỉ 6 có latency hợp lệ. Vì vậy completeness là 7/9 = 77,8%, valid coverage là 6/9 = 66,7%. Bản ghi có timestamp âm vẫn đủ hai timestamp nên góp vào completeness, nhưng không góp vào valid coverage hoặc percentile. Kết quả per-channel chỉ mô tả fixture nhỏ, không đủ kết luận channel nào tốt hơn.
+
 ## Câu hỏi BA trước khi dùng kết quả
 
 - Event status_rendered_at có thực sự đo browser render trạng thái đã duyệt? Có request nào không mở trang kết quả?
