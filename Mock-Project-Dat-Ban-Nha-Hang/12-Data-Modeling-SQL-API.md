@@ -111,6 +111,12 @@ Trước khi dùng kết quả báo “còn chỗ”, xác minh ít nhất: capa
 
 Collection [Postman-Collection.json](./Postman-Collection.json) có hai request minh họa cho API giả định `POST /api/reservations`: tạo thành công và slot không khả dụng. Collection không tự khởi động backend. Có thể dùng mock cục bộ [practice-api/server.js](./practice-api/server.js); hướng dẫn chạy nằm trong [Bài 15](./15-Postman-Practice-Lab.md).
 
+### Candidate FN-07 — khách tra cứu trạng thái
+
+`FN-07`/`DEC-03` đang là candidate; backlog chưa có FR/UC được duyệt cho khách quay lại tự tra cứu. API collection và mock hiện không có endpoint tra cứu trạng thái của khách. ERD mẫu chỉ có `RESERVATION` và `RESERVATION_STATUS_HISTORY`, không có mô hình credential/access grant cho customer lookup. `reservation_code` là mã định danh; chưa có quyết định rằng chỉ biết mã đó đủ để được quyền xem.
+
+Trước khi thêm endpoint, entity hay Postman request, hãy đóng `DEC-03`: self-service có thuộc scope không; access method và expiry là gì; response được phép lộ những field nào; hành vi khi mã sai/hết hạn; rate limit, audit và retention theo policy nào. Nếu được duyệt, cập nhật FR/Use Case/API/data model/UAT cùng traceability; tới lúc đó giữ `FN-07` ở trạng thái candidate và không coi mã đặt bàn là thông tin xác thực.
+
 Trong Postman:
 1. Chọn **Import**, kéo thả collection JSON trong thư mục này.
 2. Chọn collection, mở tab **Variables** hoặc **Environments**, đặt `baseUrl` thành URL của backend/mock server mà đội cung cấp.
