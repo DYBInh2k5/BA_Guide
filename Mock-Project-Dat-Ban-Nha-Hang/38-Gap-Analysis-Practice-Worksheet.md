@@ -59,6 +59,8 @@ Trước khi điền options ở Phần B, viết brief ngắn để phân biệ
 
 Đây là decision brief discovery cho scenario giả lập, không phải quyết định vận hành. Không chấm điểm hoặc xếp hạng option trước khi stakeholder thống nhất tiêu chí và các input cần thiết. Sau khi điền Phần A, cập nhật lại brief bằng source/evidence mới; nếu chưa có dữ liệu, giữ nguyên `Unknown`.
 
+Luyện chuyển câu hỏi này thành công việc trong backlog tại [CSV staging — Task ID 8](./Jira-Backlog-Import-Staging.csv). Đây là discovery task để thu thập/đánh giá evidence, chưa phải Jira issue, story triển khai hay quyết định được duyệt.
+
 ## Phần A — Evidence trước, solution sau
 
 Điền cho **một** pain point. Không bắt đầu bằng “cần làm app”.
