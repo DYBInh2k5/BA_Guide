@@ -81,9 +81,9 @@ Dùng [Status-Inquiry-Coding-Practice.csv](./Status-Inquiry-Coding-Practice.csv)
 <details>
 <summary>Gợi ý tự đối chiếu (không phải đáp án duy nhất)</summary>
 
-H1 candidate: CALL-SIM-01. H2 candidate: CALL-SIM-02, 05, 08. H3 candidate: CALL-SIM-04, 06, 09, 11, 12. Unknown/ambiguous: CALL-SIM-03, 07, 10. Các dòng 03/10 gợi ý vấn đề submit/technical state; chưa đủ bằng chứng xác định persistence. Dòng 07/11 thiếu thông tin để nối tới một request cụ thể. Có thể chọn Unknown thay vì áp nhãn H1/H2 nếu câu chữ chưa làm rõ intent; giải thích coding rule và follow-up.
+H1 candidate: CALL-SIM-01. H2 candidate: CALL-SIM-02, 08. H3 candidate: CALL-SIM-04, 06, 11, 12. Unknown/ambiguous: CALL-SIM-03, 05, 07, 09, 10. Câu 05 nói về thiếu tin nhắn nhưng chưa rõ khách muốn biết request đã được nhận hay quyết định booking; câu 09 “email xác nhận” cũng chưa nêu xác nhận tiếp nhận hay xác nhận bàn. Câu 03/10 gợi ý vấn đề submit/technical state nhưng chưa xác định persistence. Câu 07 không đủ nội dung để biết nhu cầu. Câu 11 là câu hỏi availability chung, không gắn request; có thể xếp H3 nếu coding guide cho phép ngoài-scope status inquiry hoặc đánh dấu out-of-scope riêng. Hãy ghi coding rule của bạn và follow-up thay vì coi đây là đáp án duy nhất.
 
-Dataset có 12 case, 9 case có request reference (75% linkage coverage). Tỷ lệ này chỉ mô tả fixture 12 dòng; không gọi là coverage của khách hàng thật.
+Dataset có 12 case, 10 case có request reference (83,3% linkage coverage). CALL-SIM-07 và CALL-SIM-11 không có reference; “Unknown” về lý do và “unlinked” về reference là hai chiều phân loại khác nhau. Tỷ lệ này chỉ mô tả fixture 12 dòng; không gọi là coverage của khách hàng thật.
 
 </details>
 
