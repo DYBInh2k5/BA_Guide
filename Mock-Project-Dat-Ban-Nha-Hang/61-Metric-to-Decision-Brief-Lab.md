@@ -19,6 +19,53 @@ Có nên đưa SMS vào MVP để giảm việc khách gọi hỏi tình trạng
 - Fixture không đo repeat inquiry, delivery, khách đọc/thấy trạng thái hoặc staff decision time.
 - Event semantics, dedup/cohort/timezone, consent, provider, chi phí và owner vận hành còn mở.
 
+## Discovery worksheet — phân biệt lý do khách hỏi trạng thái
+
+### Giả thuyết cần kiểm tra
+
+- **H1:** khách gọi vì không biết hệ thống đã nhận yêu cầu chưa.
+- **H2:** khách gọi vì chưa biết yêu cầu đã được nhà hàng xác nhận bàn chưa.
+- **H3:** khách gọi vì một nguyên nhân khác (ví dụ cần đổi thông tin, hỏi chính sách, hoặc staff chưa có thông tin để trả lời).
+
+Các giả thuyết có thể cùng đúng. Mỗi cuộc gọi cần được phân loại theo điều khách hỏi đầu tiên và nội dung thực tế; không ép vào H1/H2 nếu chưa đủ dữ liệu.
+
+### Câu hỏi phỏng vấn trung lập
+
+**Với Operations/lễ tân**
+
+1. “Trong lần gần nhất khách hỏi trạng thái, khách dùng từ nào hoặc hỏi điều gì đầu tiên?”
+2. “Request khi đó đang ở trạng thái nào, được gửi lúc nào, ai đang xử lý?”
+3. “Nhân viên đã trả lời/tra cứu bằng nguồn nào? Có workaround nào?”
+4. “Có log hoặc mã request để đối chiếu không? Những trường hợp nào không được ghi?”
+
+**Với khách hàng (nếu có research được duyệt)**
+
+1. “Sau khi gửi yêu cầu, anh/chị mong điều gì xảy ra tiếp theo?”
+2. “Thông tin nào lúc đó còn chưa rõ?”
+3. “Anh/chị đã làm gì để tìm câu trả lời?”
+4. “Điều gì khiến anh/chị biết việc đặt bàn đã được xác nhận?”
+
+Tránh mở đầu bằng “Anh/chị có muốn nhận SMS không?” vì câu hỏi này mặc định giải pháp trước khi hiểu need.
+
+### Call review log mẫu
+
+| Case ID giả danh | Nguồn/ngày | Request state tại lúc gọi | Câu hỏi đầu tiên (đã khử định danh) | Phân loại | Evidence quality | Follow-up |
+|---|---|---|---|---|---|---|
+| CALL-SIM-01 | Role-play giả lập | Pending | “Nhà hàng đã nhận yêu cầu của tôi chưa?” | H1 candidate | Simulated, không phải customer evidence | Hỏi thời điểm gửi; đối chiếu state/timestamp |
+| CALL-SIM-02 | Role-play giả lập | Pending | “Bàn đã được xác nhận chưa?” | H2 candidate | Simulated, không phải customer evidence | Hỏi staff approval delay và cách khách được báo |
+
+Trong nghiên cứu thật, dùng ID giả danh, tuân thủ quyền truy cập/consent/retention của tổ chức, không lưu tên/số điện thoại vào portfolio. Nếu call log không có request ID, ghi rõ không thể nối case với lifecycle event.
+
+### Cách tổng hợp mà không suy rộng quá mức
+
+1. Chốt coding guide H1/H2/H3 và lựa chọn “không rõ/khác”; người review thứ hai kiểm tra một phần mẫu nếu phù hợp.
+2. Ghi cohort, khoảng thời gian, channel, số cuộc gọi đủ điều kiện, số không phân loại được và tỷ lệ log có thể nối với request.
+3. Báo counts và coverage trước; không gọi mẫu thuận tiện là đại diện toàn bộ khách.
+4. Nếu cả H1/H2 vẫn chưa phân biệt được, quan sát thêm hoặc cải thiện logging; không chọn SMS chỉ vì sponsor đã đề xuất.
+5. Chỉ sau khi need và outcome rõ mới so sánh status page, staff queue, email/SMS và quy trình/no-change.
+
+**Ví dụ diễn giải giả lập:** “Trong 12 case được review trong một pilot nhỏ, 5 được phân loại H1, 4 H2, 2 H3 và 1 chưa rõ; 8/12 có thể nối với request record. Đây là mô tả mẫu pilot, không đại diện khách hàng và chưa chứng minh giải pháp nào hiệu quả.” Các số này chỉ minh họa cách viết, không thuộc fixture thật.
+
 ### Khuyến nghị BA
 
 **Chưa nên phê duyệt SMS như giải pháp đã chứng minh hiệu quả.** Trước tiên, Product/Operations xác nhận need và cách capture call inquiry; Engineering/Data xác nhận event, coverage và khả năng instrument; Privacy/Operations rà consent, retention, failure handling. Có thể so sánh SMS với status page/email sau khi có mục tiêu, tiêu chí lựa chọn và evidence đủ tin cậy.
@@ -75,6 +122,7 @@ Tạo bản copy decision brief và:
 4. Viết primary outcome và một guardrail cho pilot; ghi owner cần duyệt định nghĩa.
 5. Điền DEC-ACK-01 với status Open, decision owner, evidence gap và review trigger.
 6. Tạo một slide readout có finding → limitation → recommendation → decision request.
+7. Soạn coding guide H1/H2/H3 và ghi cách xử lý cuộc gọi không rõ/không nối được với request.
 
 ### Rubric (0–2)
 

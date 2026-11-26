@@ -108,3 +108,5 @@ Trong cùng bài, thực hành trace slice `Need → Requirement → AC → UAT 
 Chuyển definition sang [bài 60 — acknowledgement latency bằng SQL](./60-Acknowledgement-Latency-SQL-Practice.md) và [script fixture SQLite](./Acknowledgement-Latency-Analysis-Lab.sql). Tự viết query trước khi mở answer key; báo timestamp completeness và valid-latency coverage riêng, kèm missing/invalid và sample caveat. Không dùng fixture để tuyên bố KPI thật.
 
 Sau khi có metric analysis, làm [bài 61 — từ metric tới decision brief](./61-Metric-to-Decision-Brief-Lab.md): so sánh discovery/status/email/SMS; ghi DEC-ACK-01 ở trạng thái Open; xác định evidence gap, pilot outcome/guardrail và người có thẩm quyền. Không đặt target hoặc tuyên bố SMS gây giảm cuộc gọi từ fixture mô phỏng.
+
+Bài 61 cũng có worksheet phỏng vấn/coding H1 (chưa biết đã nhận), H2 (chưa được xác nhận bàn) và H3 (lý do khác); thực hành ghi nguồn, coverage, unknown và cách kiểm tra giả thuyết trước khi khuyến nghị option.
