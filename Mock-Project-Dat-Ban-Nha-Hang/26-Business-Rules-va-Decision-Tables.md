@@ -56,6 +56,19 @@ Nếu capacity khả dụng = `capacity - occupancy`, business phải định ng
 
 Công thức chỉ đúng nếu slot size, buffer, party size, table-combination và cập nhật đồng thời được định nghĩa. Trong mock SQL hiện tại, PENDING và CONFIRMED được tính vào occupancy như giả định; không coi đó là policy đã duyệt.
 
+### Chọn test phân biệt được các policy
+
+Với fixture slot 19:00 có capacity 10, gồm 4 ghế `PENDING` và 2 ghế `CONFIRMED`, hai policy còn tạo ra số ghế khả dụng khác nhau:
+
+| Policy giả định | Ghế khả dụng | Request 12 khách | Request 5 khách |
+|---|---:|---|---|
+| PENDING giữ chỗ | 4 | Reject | Reject |
+| Chỉ CONFIRMED giữ chỗ | 8 | Reject | Accept theo capacity |
+
+Request 12 khách là test tốt cho nhánh **capacity không đủ**, nhưng không phân biệt được hai policy vì cả hai đều reject. Request 5 khách là test phân biệt (`discriminator`): expected khác nhau giữa hai option. Mock hiện tính PENDING vào occupancy nên Postman trả `409` cho request 5; nếu DEC-01 được duyệt theo policy khác thì expected phải được xem lại.
+
+Khi thiết kế test cho business rule còn tranh luận, hãy chọn dữ liệu ở vùng mà các option cho kết quả khác nhau. Ghi rõ request 5 là **test theo implementation hiện tại**, chưa phải oracle UAT đã được duyệt; giữ verdict policy ở `Blocked/Open` tới khi decision owner chốt DEC-01.
+
 ## 4. Decision table — xử lý request của nhân viên
 
 | Current state | Staff authorized? | Action | Reason supplied? | Expected result | Rule |
