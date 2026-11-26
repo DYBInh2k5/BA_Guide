@@ -21,6 +21,8 @@
 
 Ví dụ dưới đây chỉ dựa trên role-play trong chat; đây là lời kể giả lập, không phải sự cố hay dữ liệu nhà hàng thật.
 
+Sơ đồ editable đi kèm: [Double-Booking Incident Stakeholder/Evidence Map](./Double-Booking-Incident-Stakeholder-Evidence-Map.drawio). Đây là bản mẫu do trợ lý soạn để luyện stakeholder discovery, không phải bằng chứng cá nhân của người học.
+
 | ID | Claim / câu hỏi | Nguồn và loại | Trạng thái evidence | Bước xác minh tiếp |
 |---|---|---|---|---|
 | E-01 | Hai nhóm cùng nói họ đã đặt lúc 19:30 | Chị Lan trong role-play; lời nhớ lại | Reported, chưa đối chiếu | Xin ngày/ca cụ thể; so sánh hai booking đã khử định danh và nội dung đã gửi cho từng nhóm |
