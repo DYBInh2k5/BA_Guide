@@ -63,7 +63,7 @@ Sau khi authority xác nhận ma trận, mỗi ô liên quan thành test scenari
 
 **Câu hỏi gửi Product/Operations:** “Khi booking ở trạng thái PENDING, số ghế có được giữ trong thời hạn nào? Ai được quyền xác nhận thời hạn và cách giải phóng ghế?”
 
-**Mẫu execution UAT-05 do trợ lý chạy — không phải evidence người học:** Mock local nhận request `partySize=5` vào slot 19:00 và trả HTTP `409`, `code=SLOT_UNAVAILABLE`, `availableSeats=4`; Postman CLI exit code `1` do response 4xx. Response không có `reservationCode`. Lần chạy này chưa gọi lại list endpoint để kiểm tra hậu điều kiện nên chưa ghi “đã xác minh không tạo record”. Mock đang tính 4 ghế PENDING cùng 2 CONFIRMED vào occupancy; policy verdict vẫn `Blocked` vì DEC-01 còn Open. Để tự hoàn tất case, chạy GET danh sách ngay trong cùng phiên mock, ghi actual và tách implementation behavior khỏi policy decision.
+**Mẫu execution UAT-05 do trợ lý chạy — không phải evidence người học:** Trong cùng phiên mock, `POST` với `partySize=5` vào slot 19:00 trả HTTP `409`, `code=SLOT_UNAVAILABLE`, `availableSeats=4`; Postman CLI exit code `1` do response 4xx. Tiếp đó, `GET /api/reservations?date=2026-12-05` trả `200`, `total=4` và không có `UAT-05 Sample Guest`, nên hậu điều kiện không tạo record khớp trong danh sách đã lọc được quan sát trên mock. Mock đang tính 4 ghế PENDING cùng 2 CONFIRMED vào occupancy; policy verdict vẫn `Blocked` vì DEC-01 còn Open. Đây là evidence của đúng một lần chạy trên fixture, không phải kết quả của người học hoặc quyết định nghiệp vụ đã được duyệt.
 
 ## Phân loại lỗi
 
