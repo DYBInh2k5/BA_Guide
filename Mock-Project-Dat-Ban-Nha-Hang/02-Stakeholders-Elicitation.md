@@ -51,6 +51,19 @@ Hỏi từng câu một; chọn follow-up theo câu trả lời, không đọc c
 
 Câu 4 trước tiên để stakeholder tự định nghĩa “trùng bàn”; chỉ dùng follow-up sau nếu vẫn cần phân biệt booking cùng một bàn với ghi nhận theo khung giờ/số khách. Câu 5 tìm nguồn kiểm chứng; câu 6 cho stakeholder cơ hội sửa phần BA hiểu sai. Không suy ra nguyên nhân chỉ từ một lời kể, không xin thông tin nhận dạng thật để đưa vào workbook/portfolio, và không tự gán quyền duyệt policy cho người được phỏng vấn.
 
+### Chọn evidence khớp với claim
+
+Không có một loại nguồn luôn mạnh nhất; hãy chọn nguồn có thể trả lời đúng câu hỏi và ghi rõ giới hạn:
+
+| Claim cần kiểm tra | Evidence phù hợp | Evidence đó không tự chứng minh |
+|---|---|---|
+| Hai request có cùng trạng thái trong hệ thống vào thời điểm sự cố? | Hai record/reference đã khử định danh và lịch sử trạng thái tại thời điểm đó | Khách đã đọc/hiểu phản hồi; quy trình được phê duyệt |
+| Mỗi nhóm đã nhận thông điệp gì? | Nội dung phản hồi gửi đi, delivery evidence nếu có, và hỏi người nhận trong bối cảnh được cho phép | Nhà hàng đã dành bàn cụ thể nếu thông điệp chỉ nói đã nhận request |
+| Nhân viên thường xử lý request ra sao? | Quan sát nhiều trường hợp/ca phù hợp, hướng dẫn hiện hành và phỏng vấn người trực tiếp làm | Quy tắc chính thức hoặc quyền quyết định |
+| Quy tắc capacity/confirmation nào đang có hiệu lực? | Policy/decision có owner, approver, version và ngày hiệu lực | Quy trình thực tế luôn tuân thủ policy đó |
+
+Một lời kể là evidence rằng stakeholder đã báo điều đó; nó có thể đủ để mở câu hỏi discovery, nhưng chưa tự xác minh nguyên nhân/tần suất. Một record hệ thống cũng chỉ phản ánh những gì hệ thống ghi lại. Ghi riêng **claim**, **source**, **thời điểm/phạm vi**, **giới hạn**, và **quyết định/evidence còn cần**.
+
 ## Câu hỏi cho chủ/quản lý
 - Hiện đặt bàn đi qua những kênh nào? Ai chịu trách nhiệm xác nhận?
 - Trường hợp nào được xem là trùng bàn? Xin ví dụ gần nhất.
