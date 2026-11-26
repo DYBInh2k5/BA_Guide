@@ -69,6 +69,14 @@ Ví dụ bên dưới là tình huống giả định để phân loại, không
 
 Nếu AC đó thật sự được duyệt và test tái hiện được trên build xác định, có thể ghi defect. Nếu copy/CTA chưa được chốt, chưa đủ căn cứ để gọi thiếu copy là defect: mở decision/change để Product/UX thống nhất trước. Nếu stakeholder muốn bổ sung CTA sau khi baseline đã duyệt, đó có thể là change request. Luôn kiểm tra baseline, version và authority trước khi phân loại.
 
+### Áp dụng vào UAT-05 capacity
+
+**Mẫu do trợ lý chạy trên mock — không phải evidence người học:** request party size 5 trả `409 SLOT_UNAVAILABLE`, `availableSeats=4`; GET danh sách tiếp theo trả `200`, `total=4` và không có request mẫu mới. Đây là observation của mock, nơi PENDING đang được tính vào occupancy. Vì DEC-01 chưa có policy baseline được duyệt, verdict nghiệp vụ là `Blocked/Open decision`, chưa đủ căn cứ để gọi kết quả `409` là defect.
+
+- Nếu decision owner duyệt rằng PENDING **không** giữ capacity, cập nhật BRULE/AC/API contract và expected; nếu cùng build vẫn trả `409` và tái hiện được thì triage như defect theo baseline đó.
+- Nếu policy PENDING giữ chỗ đã được duyệt trước đó, rồi stakeholder muốn đổi policy sau baseline, ghi change request và phân tích impact; không sửa expected hồi tố để biến nó thành Pass.
+- Nếu chưa có owner/authority hoặc chưa rõ capacity unit, tiếp tục giữ `Blocked` và ghi rõ quyết định/evidence cần có.
+
 ### Defect record — template
 
 ```text
