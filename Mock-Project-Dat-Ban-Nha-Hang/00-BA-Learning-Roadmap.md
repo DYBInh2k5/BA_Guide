@@ -110,3 +110,5 @@ Chuyển definition sang [bài 60 — acknowledgement latency bằng SQL](./60-A
 Sau khi có metric analysis, làm [bài 61 — từ metric tới decision brief](./61-Metric-to-Decision-Brief-Lab.md): so sánh discovery/status/email/SMS; ghi DEC-ACK-01 ở trạng thái Open; xác định evidence gap, pilot outcome/guardrail và người có thẩm quyền. Không đặt target hoặc tuyên bố SMS gây giảm cuộc gọi từ fixture mô phỏng.
 
 Bài 61 cũng có worksheet phỏng vấn/coding H1 (chưa biết đã nhận), H2 (chưa được xác nhận bàn) và H3 (lý do khác); thực hành ghi nguồn, coverage, unknown và cách kiểm tra giả thuyết trước khi khuyến nghị option.
+
+Dùng [CSV 12 case giả lập](./Status-Inquiry-Coding-Practice.csv) để tự làm Excel PivotTable và tính linkage coverage. Phân biệt Unknown với H3; phần gợi ý trong bài 61 chỉ mở sau khi bạn đã tự coding.

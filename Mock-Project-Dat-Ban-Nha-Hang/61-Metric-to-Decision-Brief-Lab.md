@@ -66,6 +66,27 @@ Trong nghiên cứu thật, dùng ID giả danh, tuân thủ quyền truy cập/
 
 **Ví dụ diễn giải giả lập:** “Trong 12 case được review trong một pilot nhỏ, 5 được phân loại H1, 4 H2, 2 H3 và 1 chưa rõ; 8/12 có thể nối với request record. Đây là mô tả mẫu pilot, không đại diện khách hàng và chưa chứng minh giải pháp nào hiệu quả.” Các số này chỉ minh họa cách viết, không thuộc fixture thật.
 
+### Excel lab — tự coding 12 case giả lập
+
+Dùng [Status-Inquiry-Coding-Practice.csv](./Status-Inquiry-Coding-Practice.csv). Mọi case và câu hỏi đều hư cấu; không dùng làm bằng chứng customer research.
+
+1. Lưu một bản copy riêng rồi mở bằng Excel.
+2. Tự phân loại cột Analyst category thành H1, H2, H3 hoặc Unknown; ghi Confidence và Follow-up question. Đừng xem dòng trống là H3.
+3. Tạo PivotTable theo category và channel; thêm count linked/unlinked.
+4. Tính capture/linkage coverage = case có request reference / tổng case. Báo unknown riêng; không bỏ khỏi báo cáo.
+5. Viết 3 dòng insight: điều dataset mô tả, điều chưa thể suy ra, bằng chứng tiếp theo cần thu.
+
+Đừng mở phần gợi ý trước khi phân loại xong:
+
+<details>
+<summary>Gợi ý tự đối chiếu (không phải đáp án duy nhất)</summary>
+
+H1 candidate: CALL-SIM-01. H2 candidate: CALL-SIM-02, 05, 08. H3 candidate: CALL-SIM-04, 06, 09, 11, 12. Unknown/ambiguous: CALL-SIM-03, 07, 10. Các dòng 03/10 gợi ý vấn đề submit/technical state; chưa đủ bằng chứng xác định persistence. Dòng 07/11 thiếu thông tin để nối tới một request cụ thể. Có thể chọn Unknown thay vì áp nhãn H1/H2 nếu câu chữ chưa làm rõ intent; giải thích coding rule và follow-up.
+
+Dataset có 12 case, 9 case có request reference (75% linkage coverage). Tỷ lệ này chỉ mô tả fixture 12 dòng; không gọi là coverage của khách hàng thật.
+
+</details>
+
 ### Khuyến nghị BA
 
 **Chưa nên phê duyệt SMS như giải pháp đã chứng minh hiệu quả.** Trước tiên, Product/Operations xác nhận need và cách capture call inquiry; Engineering/Data xác nhận event, coverage và khả năng instrument; Privacy/Operations rà consent, retention, failure handling. Có thể so sánh SMS với status page/email sau khi có mục tiêu, tiêu chí lựa chọn và evidence đủ tin cậy.
@@ -123,6 +144,7 @@ Tạo bản copy decision brief và:
 5. Điền DEC-ACK-01 với status Open, decision owner, evidence gap và review trigger.
 6. Tạo một slide readout có finding → limitation → recommendation → decision request.
 7. Soạn coding guide H1/H2/H3 và ghi cách xử lý cuộc gọi không rõ/không nối được với request.
+8. Hoàn thành bản copy CSV, PivotTable và insight 3 dòng; lưu ảnh hoặc workbook cá nhân cùng ngày/tool/version.
 
 ### Rubric (0–2)
 

@@ -1,0 +1,13 @@
+Case ID,Source,Date,Channel,Reservation state at inquiry,Sanitized customer question,Linked to request?,Request reference,Analyst category,Confidence,Follow-up question,Notes
+CALL-SIM-01,Role-play synthetic,2026-11-02,WEB,PENDING,"Nhà hàng đã nhận yêu cầu của tôi chưa?",Yes,REQ-SIM-101,,,,
+CALL-SIM-02,Role-play synthetic,2026-11-02,PHONE,PENDING,"Bàn của tôi đã được xác nhận chưa?",Yes,REQ-SIM-102,,,,
+CALL-SIM-03,Role-play synthetic,2026-11-03,WEB,UNKNOWN,"Tôi gửi form rồi nhưng không thấy trang kết quả.",Yes,REQ-SIM-103,,,,
+CALL-SIM-04,Role-play synthetic,2026-11-03,PHONE,CONFIRMED,"Tôi muốn đổi số người trong đặt bàn.",Yes,REQ-SIM-104,,,,
+CALL-SIM-05,Role-play synthetic,2026-11-04,PHONE,PENDING,"Tôi có cần gọi lại nếu chưa thấy tin nhắn không?",Yes,REQ-SIM-105,,,,
+CALL-SIM-06,Role-play synthetic,2026-11-04,WEB,REJECTED,"Vì sao yêu cầu của tôi bị từ chối?",Yes,REQ-SIM-106,,,,
+CALL-SIM-07,Role-play synthetic,2026-11-05,PHONE,UNKNOWN,"Khách hỏi 'đặt bàn tối nay được không' nhưng nhân viên không ghi thêm chi tiết.",No,,,,,
+CALL-SIM-08,Role-play synthetic,2026-11-05,WEB,PENDING,"Tôi đã gửi từ lâu, nhà hàng đã quyết định chưa?",Yes,REQ-SIM-108,,,,
+CALL-SIM-09,Role-play synthetic,2026-11-06,PHONE,CONFIRMED,"Tôi không tìm thấy email xác nhận.",Yes,REQ-SIM-109,,,,
+CALL-SIM-10,Role-play synthetic,2026-11-06,WEB,UNKNOWN,"Tôi bấm gửi hai lần vì màn hình bị đứng.",Yes,REQ-SIM-110,,,,
+CALL-SIM-11,Role-play synthetic,2026-11-07,PHONE,PENDING,"Tôi muốn biết còn bàn cho nhóm sáu người không.",No,,,,,
+CALL-SIM-12,Role-play synthetic,2026-11-07,WEB,CONFIRMED,"Tôi muốn hủy đặt bàn đã xác nhận.",Yes,REQ-SIM-112,,,,
