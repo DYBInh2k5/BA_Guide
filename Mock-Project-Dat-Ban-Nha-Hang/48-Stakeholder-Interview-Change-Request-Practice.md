@@ -84,6 +84,8 @@ Khi rule được duyệt, BA mới nối rule tới backlog, API contract, prot
 
 **Bước impact analysis tiếp theo:** đọc phần CR-02 trong [traceability và impact analysis](./22-Traceability-va-Impact-Analysis.md); giữ SMS thành CR-01 riêng.
 
+- **BPMN/draw.io:** [Sơ đồ Partial As-Is từ role-play CHAT-RP-01](./48-Roleplay-Capacity-Partial-As-Is.drawio) — ví dụ do trợ lý tạo, gắn nhãn lời kể mô phỏng và để quy tắc sức chứa ở trạng thái mở; không phải evidence của người học.
+
 ## Phân loại đầu ra của ví dụ
 
 | Statement | Phân loại đúng | Việc tiếp theo |

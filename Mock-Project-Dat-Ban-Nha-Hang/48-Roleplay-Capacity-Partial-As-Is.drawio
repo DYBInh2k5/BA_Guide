@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="OpenAI Codex">
+  <diagram id="chat-roleplay-capacity" name="Role-play capacity - Partial As-Is">
+    <mxGraphModel dx="1158" dy="1490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="poolRestaurant" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;container=1;html=1;whiteSpace=wrap;" value="Nhà hàng" vertex="1">
+          <mxGeometry height="360" width="1120" x="80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="laneReception" parent="poolRestaurant" style="swimlane;html=1;startSize=30;horizontal=0;collapsible=0;fillColor=none;container=1;whiteSpace=wrap;" value="Lễ tân" vertex="1">
+          <mxGeometry height="220" width="1120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="startRequest" parent="laneReception" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=standard;symbol=message;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelBackgroundColor=#ffffff;" value="Yêu cầu đến" vertex="1">
+          <mxGeometry height="50" width="50" x="30" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="receiveRequest" parent="laneReception" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=user;" value="Nhận yêu cầu" vertex="1">
+          <mxGeometry height="62" width="135" x="120" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="checkBooking" parent="laneReception" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=user;" value="Hỏi quản lý kiểm tra chỗ" vertex="1">
+          <mxGeometry height="62" width="135" x="295" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="replyCustomer" parent="laneReception" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=send;" value="Phản hồi khách" vertex="1">
+          <mxGeometry height="62" width="135" x="880" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="endRestaurant" parent="laneReception" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=end;symbol=general;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelBackgroundColor=#ffffff;" value="Đã phản hồi" vertex="1">
+          <mxGeometry height="50" width="50" x="1040" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeStartReceive" edge="1" parent="laneReception" source="startRequest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="receiveRequest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeReceiveRecord" edge="1" parent="laneReception" source="receiveRequest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="checkBooking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeAskManager" edge="1" parent="poolRestaurant" source="checkBooking" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="askManager">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeReplyEnd" edge="1" parent="laneReception" source="replyCustomer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="endRestaurant">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="laneManager" parent="poolRestaurant" style="swimlane;html=1;startSize=30;horizontal=0;collapsible=0;fillColor=none;container=1;whiteSpace=wrap;" value="Quản lý ca" vertex="1">
+          <mxGeometry height="110" width="1120" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="askManager" parent="laneManager" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=user;" value="Đối chiếu sổ đặt bàn và sổ walk-in" vertex="1">
+          <mxGeometry height="58" width="170" x="650" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeManagerReply" edge="1" parent="poolRestaurant" source="askManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="replyCustomer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="poolCustomer" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;container=1;html=1;whiteSpace=wrap;" value="Khách hàng" vertex="1">
+          <mxGeometry height="100" width="1120" x="80" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="customerStart" parent="poolCustomer" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=standard;symbol=general;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelBackgroundColor=#ffffff;" value="Cần đặt bàn" vertex="1">
+          <mxGeometry height="50" width="50" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sendRequest" parent="poolCustomer" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=send;" value="Gửi yêu cầu qua Facebook" vertex="1">
+          <mxGeometry height="58" width="155" x="160" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="receiveReply" parent="poolCustomer" style="shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=receive;" value="Nhận phản hồi" vertex="1">
+          <mxGeometry height="58" width="150" x="830" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="endCustomer" parent="poolCustomer" style="shape=mxgraph.bpmn.event;html=1;perimeter=ellipsePerimeter;aspect=fixed;outline=end;symbol=general;verticalLabelPosition=bottom;verticalAlign=top;align=center;labelBackgroundColor=#ffffff;" value="Kết thúc" vertex="1">
+          <mxGeometry height="50" width="50" x="1040" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeCustomerStartSend" edge="1" parent="poolCustomer" source="customerStart" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="sendRequest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeCustomerReceiveEnd" edge="1" parent="poolCustomer" source="receiveReply" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="endCustomer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="messageRequest" edge="1" parent="1" source="sendRequest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4;startArrow=oval;startFill=0;endArrow=triangle;endFill=0;" target="startRequest" value="Yêu cầu đặt bàn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="messageReply" edge="1" parent="1" source="replyCustomer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 4;startArrow=oval;startFill=0;endArrow=triangle;endFill=0;" target="receiveReply" value="Kết quả xử lý">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=15;" value="Nguồn: CHAT-RP-01, role-play hoàn toàn mô phỏng do trợ lý tạo; không phải phỏng vấn thật. Stakeholder kể lễ tân phải hỏi quản lý; walk-in có thể làm thay đổi chỗ trống; dữ liệu walk-in ở sổ riêng và timestamp có thể không chính xác. Chưa xác minh quy tắc sức chứa, nguồn chuẩn hoặc PENDING có giữ chỗ không. Không dùng làm bằng chứng người học." vertex="1">
+          <mxGeometry height="70" width="920" x="80" y="690" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

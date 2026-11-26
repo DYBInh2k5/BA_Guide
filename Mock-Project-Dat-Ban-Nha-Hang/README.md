@@ -74,6 +74,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 56. `46-Need-Requirement-AC-Test-Oracle.md` — phân biệt need, requirement, design decision, AC, test case và oracle bằng CR-SMS; có worked example, bài phân loại và vertical slice.
 57. `47-API-Timeout-Retry-Reconciliation-Lab.md` — mô hình hóa timeout ambiguity, retry/idempotency policy, bài chạy mock Postman và giới hạn evidence.
 58. `48-Stakeholder-Interview-Change-Request-Practice.md` — worked role-play sponsor đề xuất SMS, cách hỏi need/evidence/outcome/authority và rubric phỏng vấn.
+   - Sơ đồ companion: [48-Roleplay-Capacity-Partial-As-Is.drawio](./48-Roleplay-Capacity-Partial-As-Is.drawio) — BPMN partial, gắn nhãn nguồn mô phỏng và policy còn mở.
 59. [Bài 57 — Attendance Rate bằng Excel](./57-Attendance-Rate-Excel-Practice.md) và [workbook thực hành](./outputs/attendance-rate-practice-20261123/Attendance-Rate-Practice.xlsx) — cohort, denominator, unknown outcome, outcome coverage và caveat KPI.
 60. [Bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và `Attendance-Rate-Analysis-Lab.sql` — chuyển metric Excel thành CTE/query SQLite, đối soát unknown và phân đoạn theo kênh.
 61. [Workbook execution log Postman/SQL](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Postman-SQL-Execution-Log.xlsx) — template nhập actual/evidence do người học tự chạy; oracle nháp, in-memory mock và SQLite fixture được phân biệt.
