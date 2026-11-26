@@ -44,6 +44,21 @@ Giữ các khả năng H-01 same-table overlap, H-02 aggregate capacity và H-03
 
 Evidence chưa có, thiếu quyền truy cập hoặc không ghi đúng thời điểm phải giữ `Unknown`. Không dùng một kết quả thiếu dữ liệu để xác nhận/bác bỏ hypothesis; ghi chính xác phạm vi và giới hạn của từng nguồn.
 
+### Decision brief checkpoint — CHAT-DB-01
+
+Trước khi điền options ở Phần B, viết brief ngắn để phân biệt **quyết định cần xin** với **giải pháp đã chọn**:
+
+| Trường | Bản nháp hiện tại |
+|---|---|
+| Quyết định cần có | Có đủ evidence để phân loại sự cố 19:30 không? Nếu chưa, cần xác minh gì trước khi cân nhắc thay đổi? |
+| Evidence hiện có | Lời nhớ lại giả lập của quản lý rằng hai nhóm cùng đến và nói họ đã đặt; hồ sơ chưa được đối chiếu |
+| Unknown quan trọng | Định nghĩa “trùng bàn”; nội dung mỗi nhóm nhận; trạng thái/booking records; quy trình nhân viên đã thực hiện |
+| Hành động đề xuất có điều kiện | Xin quyền xem record đã khử định danh và hỏi nhân viên ca đó; sau đó cập nhật hypothesis, chưa cam kết đầu tư công cụ |
+| Decision authority | Chưa xác định; cần hỏi ai phê duyệt quy tắc nghiệp vụ và scope thay đổi |
+| Điều làm khuyến nghị đổi hướng | Evidence phân loại incident vào failure mode khác, hoặc authority cung cấp policy/ràng buộc mới |
+
+Đây là decision brief discovery cho scenario giả lập, không phải quyết định vận hành. Không chấm điểm hoặc xếp hạng option trước khi stakeholder thống nhất tiêu chí và các input cần thiết. Sau khi điền Phần A, cập nhật lại brief bằng source/evidence mới; nếu chưa có dữ liệu, giữ nguyên `Unknown`.
+
 ## Phần A — Evidence trước, solution sau
 
 Điền cho **một** pain point. Không bắt đầu bằng “cần làm app”.
