@@ -63,6 +63,8 @@ Sau khi authority xác nhận ma trận, mỗi ô liên quan thành test scenari
 
 **Câu hỏi gửi Product/Operations:** “Khi booking ở trạng thái PENDING, số ghế có được giữ trong thời hạn nào? Ai được quyền xác nhận thời hạn và cách giải phóng ghế?”
 
+**Mẫu execution UAT-05 do trợ lý chạy — không phải evidence người học:** Mock local nhận request `partySize=5` vào slot 19:00 và trả HTTP `409`, `code=SLOT_UNAVAILABLE`, `availableSeats=4`; Postman CLI exit code `1` do response 4xx. Response không có `reservationCode`. Lần chạy này chưa gọi lại list endpoint để kiểm tra hậu điều kiện nên chưa ghi “đã xác minh không tạo record”. Mock đang tính 4 ghế PENDING cùng 2 CONFIRMED vào occupancy; policy verdict vẫn `Blocked` vì DEC-01 còn Open. Để tự hoàn tất case, chạy GET danh sách ngay trong cùng phiên mock, ghi actual và tách implementation behavior khỏi policy decision.
+
 ## Phân loại lỗi
 
 Nếu không có HTTP response, ghi `Blocked / environment` và kiểm tra server/port trước. Nếu có HTTP 4xx/5xx, đó là response để phân tích; không tự động gọi là lỗi kết nối. Nếu HTTP trả đúng nhánh mock nhưng test basis nghiệp vụ chưa được chốt, lưu observation và mở decision, không tự đặt expected policy.
