@@ -3,3 +3,6 @@
 
 # Generated inspection dumps
 *.inspect.ndjson
+
+# Spreadsheet authoring previews
+Mock-Project-Dat-Ban-Nha-Hang/outputs/status-inquiry-coding-lab-20261126/*-preview.png

@@ -68,11 +68,11 @@ Trong nghiên cứu thật, dùng ID giả danh, tuân thủ quyền truy cập/
 
 ### Excel lab — tự coding 12 case giả lập
 
-Dùng [Status-Inquiry-Coding-Practice.csv](./Status-Inquiry-Coding-Practice.csv). Mọi case và câu hỏi đều hư cấu; không dùng làm bằng chứng customer research.
+Dùng [workbook coding](./outputs/status-inquiry-coding-lab-20261126/Status-Inquiry-Coding-Practice.xlsx) hoặc [CSV nguồn](./Status-Inquiry-Coding-Practice.csv). Workbook có sheet Summary với linkage coverage và bảng đếm category × channel bằng công thức; sheet Coding practice có dropdown H1/H2/H3/Unknown, confidence, follow-up và trạng thái coding. Bảng đếm mô phỏng PivotTable bằng COUNTIFS/COUNTIF, không phải native PivotTable. Mọi case và câu hỏi đều hư cấu; không dùng làm bằng chứng customer research.
 
 1. Lưu một bản copy riêng rồi mở bằng Excel.
 2. Tự phân loại cột Analyst category thành H1, H2, H3 hoặc Unknown; ghi Confidence và Follow-up question. Đừng xem dòng trống là H3.
-3. Tạo PivotTable theo category và channel; thêm count linked/unlinked.
+3. Đối chiếu bảng summary theo category/channel. Để luyện PivotTable gốc, tự Insert PivotTable từ sheet Coding practice và thêm category/channel vào Rows/Columns; đếm Case ID và Linked to request.
 4. Tính capture/linkage coverage = case có request reference / tổng case. Báo unknown riêng; không bỏ khỏi báo cáo.
 5. Viết 3 dòng insight: điều dataset mô tả, điều chưa thể suy ra, bằng chứng tiếp theo cần thu.
 

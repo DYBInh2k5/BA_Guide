@@ -112,3 +112,5 @@ Sau khi có metric analysis, làm [bài 61 — từ metric tới decision brief]
 Bài 61 cũng có worksheet phỏng vấn/coding H1 (chưa biết đã nhận), H2 (chưa được xác nhận bàn) và H3 (lý do khác); thực hành ghi nguồn, coverage, unknown và cách kiểm tra giả thuyết trước khi khuyến nghị option.
 
 Dùng [CSV 12 case giả lập](./Status-Inquiry-Coding-Practice.csv) để tự làm Excel PivotTable và tính linkage coverage. Phân biệt Unknown với H3; phần gợi ý trong bài 61 chỉ mở sau khi bạn đã tự coding.
+
+Hoặc dùng [workbook Excel có sẵn](./outputs/status-inquiry-coding-lab-20261126/Status-Inquiry-Coding-Practice.xlsx) để nhập phân loại và xem formula summary cập nhật. Bảng category × channel là Pivot-style summary bằng COUNTIFS, không phải native PivotTable; nếu muốn luyện PivotTable gốc, bắt đầu từ sheet Coding practice và tự Insert PivotTable trong Excel.
