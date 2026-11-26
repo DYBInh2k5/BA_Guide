@@ -35,6 +35,21 @@ Khi lập evidence log, ghi riêng **reported claim**, **hypothesis** và **open
 
 **Bài tập:** chọn một hàng H-01/H-02/H-03, viết một câu hỏi trung lập để kiểm tra và chỉ ra artifact nào có thể trả lời. Nếu không có artifact hoặc quyền truy cập, ghi rõ blocker thay vì tự điền kết quả.
 
+### Interview guide ngắn — truy lại một sự cố được kể
+
+**Mở đầu:** “Em muốn hiểu đúng trường hợp chị vừa nhắc để phân biệt điều đã xảy ra với nguyên nhân mình còn cần kiểm tra. Đây là bài tập mô phỏng; nếu làm với dữ liệu thật, mình chỉ xem nội dung đã được phép truy cập và đã xóa thông tin nhận dạng khách. Em xin ghi chú nguồn và điều chưa rõ, chưa chọn giải pháp ở buổi này.”
+
+Hỏi từng câu một; chọn follow-up theo câu trả lời, không đọc cả danh sách như bảng kiểm:
+
+1. “Chị có thể nhớ sự việc đó xảy ra ngày/ca nào và mỗi nhóm đã nói gì khi đến không?”
+2. “Theo chị nhớ, mỗi nhóm đã được nhà hàng nói điều gì trước khi đến?”
+3. “Ai đã nhận và xử lý từng yêu cầu? Chị có thể chỉ giúp bước đầu tiên mình nên kiểm tra với nhân viên nào không?”
+4. “Nhà hàng lúc đó đã gán một bàn cụ thể cho mỗi nhóm, hay mới xem ngày/giờ/số khách?”
+5. “Có hồ sơ nào được phép đối chiếu để xác nhận thời điểm gửi, nội dung phản hồi và trạng thái của từng yêu cầu không?”
+6. Sau khi nghe xong, paraphrase: “Em đang hiểu rằng …; phần … vẫn là điều mình chưa xác minh. Em hiểu đúng chưa, và ai có thể bổ sung?”
+
+Câu 4 giúp phân biệt xung đột cùng một bàn với vấn đề tổng sức chứa; câu 5 tìm nguồn kiểm chứng; câu 6 cho stakeholder cơ hội sửa phần BA hiểu sai. Không suy ra nguyên nhân chỉ từ một lời kể, không xin thông tin nhận dạng thật để đưa vào workbook/portfolio, và không tự gán quyền duyệt policy cho người được phỏng vấn.
+
 ## Câu hỏi cho chủ/quản lý
 - Hiện đặt bàn đi qua những kênh nào? Ai chịu trách nhiệm xác nhận?
 - Trường hợp nào được xem là trùng bàn? Xin ví dụ gần nhất.
