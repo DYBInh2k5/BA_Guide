@@ -17,6 +17,22 @@
 4. Workshop xác định trạng thái, chính sách và ngoại lệ.
 5. Vẽ quy trình As-Is/To-Be, xác nhận bằng ví dụ cụ thể.
 
+### Evidence log — sự cố “hai nhóm cùng lúc 19:30”
+
+Ví dụ dưới đây chỉ dựa trên role-play trong chat; đây là lời kể giả lập, không phải sự cố hay dữ liệu nhà hàng thật.
+
+| ID | Claim / câu hỏi | Nguồn và loại | Trạng thái evidence | Bước xác minh tiếp |
+|---|---|---|---|---|
+| E-01 | Hai nhóm cùng nói họ đã đặt lúc 19:30 | Chị Lan trong role-play; lời nhớ lại | Reported, chưa đối chiếu | Xin ngày/ca cụ thể; so sánh hai booking đã khử định danh và nội dung đã gửi cho từng nhóm |
+| H-01 | Hai booking được gán cùng một bàn | Giả thuyết BA | Chưa có evidence | Hỏi nhà hàng có gán bàn cố định không; kiểm tra lịch bàn và thời điểm gán |
+| H-02 | Tổng khách vượt sức chứa của slot | Giả thuyết BA khác với H-01 | Chưa có evidence; không suy ra từ “cùng giờ” | Đối chiếu số khách, capacity policy đã duyệt và các booking cùng slot |
+| H-03 | Một khách gửi lại tạo request thứ hai | Giả thuyết BA khác với H-01/H-02 | Chưa có evidence | Đối chiếu request/reference ID, thời gian gửi và retry log đã khử định danh |
+| Q-01 | Mỗi nhóm được báo điều gì: đã nhận request hay đã xác nhận bàn? | Open question | Chưa trả lời | So nội dung xác nhận và lịch sử trạng thái; hỏi nhân viên ca đó |
+
+Khi lập evidence log, ghi riêng **reported claim**, **hypothesis** và **open question**; thêm ngày, người cung cấp, artifact nguồn, người chịu trách nhiệm follow-up và kết quả xác minh khi có. Không lưu tên/số điện thoại khách vào bài tập hoặc portfolio; dùng mã giả danh và bản trích xuất đã khử định danh theo quy định của tổ chức. Không đánh dấu hypothesis là fact chỉ vì nhiều người nhắc lại cùng một câu chuyện.
+
+**Bài tập:** chọn một hàng H-01/H-02/H-03, viết một câu hỏi trung lập để kiểm tra và chỉ ra artifact nào có thể trả lời. Nếu không có artifact hoặc quyền truy cập, ghi rõ blocker thay vì tự điền kết quả.
+
 ## Câu hỏi cho chủ/quản lý
 - Hiện đặt bàn đi qua những kênh nào? Ai chịu trách nhiệm xác nhận?
 - Trường hợp nào được xem là trùng bàn? Xin ví dụ gần nhất.
