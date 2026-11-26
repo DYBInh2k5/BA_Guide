@@ -37,7 +37,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 ## Đầu ra và bằng chứng
 
 - [Project charter](./01-Project-Charter.md)
-- [Stakeholder elicitation](./02-Stakeholders-Elicitation.md) và [stakeholder map/RACI](./08-Stakeholder-Map-RACI.md)
+- [Stakeholder elicitation](./02-Stakeholders-Elicitation.md) và [stakeholder map/RACI](./08-Stakeholder-Map-RACI.md), cùng [sơ đồ stakeholder/evidence cho sự cố đặt trùng](./Double-Booking-Incident-Stakeholder-Evidence-Map.drawio) do trợ lý tạo; đây chưa phải artifact cá nhân của người học.
 - [Requirements/backlog](./03-Requirements-Backlog.md), [refinement/Jira practice](./11-Backlog-Refinement-va-Jira.md)
 - [BPMN As-Is](./09-Reservation-As-Is.drawio), [bản minh họa annotation source/assumption/open question](./09-Reservation-As-Is-Annotation-Example.drawio), [BPMN To-Be](./10-Reservation-To-Be.drawio) và [bài phân tích](./10-Gap-Analysis-va-To-Be.md). Bản annotation do trợ lý chuẩn bị để học; không tính là evidence người học đã tự vẽ.
 - [Use case, data flow và UAT](./13-Use-Case-Data-Flow-UAT.md), [UML Use Case Diagram draft](./39-Reservation-Use-Case.drawio)
