@@ -169,3 +169,10 @@ Bài tiếp theo sau BPMN: [từ quy trình đến yêu cầu có thể kiểm c
 - [Workbook Practice và Answer Key](./outputs/notification-failure-rate-practice-20261123/Email-Delivery-Metric-Practice.xlsx)
 
 Workbook dùng event log giả lập để luyện numerator/denominator, dedup theo Message ID, retry, unknown outcome và giới hạn suy luận. Bản mẫu do trợ lý chuẩn bị không được tính là bằng chứng kỹ năng của người học.
+
+### Thực hành SQL trên máy
+
+- [Bài 62 — chạy SQL với Node.js](./62-SQL-Lab-Node-SQLite.md): dùng Node.js 22.5+ và database trong bộ nhớ, không cần cài SQLite riêng.
+- [Truy vấn khởi đầu](./Reservation-SQL-Query.sql) và [runner SELECT-only](./run-reservation-sql.mjs).
+
+Đây là lab do trợ lý chuẩn bị; chỉ ghi nhận năng lực sau khi người học tự chạy, sửa truy vấn và giải thích kết quả.
