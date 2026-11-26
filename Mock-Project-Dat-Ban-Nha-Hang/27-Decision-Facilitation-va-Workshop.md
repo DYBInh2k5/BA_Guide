@@ -6,6 +6,8 @@ BA không tự quyết policy thay business owner. BA chuẩn bị lựa chọn,
 
 **Board dự án hiện có:** [BA Practice Project — Restaurant Reservation](https://www.figma.com/board/J2aymYBMv2bJEzn75EET23) là board mẫu FigJam đã được tạo và chụp ảnh kiểm tra trước đó. Hãy dùng board này làm điểm bắt đầu cho workshop. Một board trống trùng lặp [BA Practice — BRULE-02 Decision Workshop](https://www.figma.com/board/HJaxjtgrTZm8gz3afLZAgZ) đã được tạo nhầm trong lần tiếp tục này; Figma Starter đã chặn các lượt gọi sau đó nên board này chưa có nội dung và chưa được kiểm tra. Không dùng board trống đó làm đầu ra portfolio.
 
+Nếu chưa có quyền edit FigJam, dùng [draw.io BRULE-02 workshop canvas](./27-BRULE-02-Decision-Workshop-Canvas.drawio) làm bản thay thế: mở bản sao, điền Evidence / Assumptions / Options / Decisions và action log. Canvas gốc do trợ lý tạo; không tính là evidence người học đã điều phối workshop.
+
 Tất cả số liệu và vai trò trong bài là giả lập để thực hành. Chúng không phải quyết định đã được nhà hàng xác nhận.
 
 ## 1. Phân biệt loại phát biểu

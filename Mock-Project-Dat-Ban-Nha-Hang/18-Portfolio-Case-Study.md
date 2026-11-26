@@ -60,7 +60,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 - [Root cause/problem validation](./25-Root-Cause-Analysis-va-Problem-Validation.md) và [fishbone draw.io](./25-Reservation-Fishbone.drawio)
 - [Business rules/decision tables](./26-Business-Rules-va-Decision-Tables.md) và [workbook Excel](./outputs/decision-table-lab/Business-Rules-Decision-Table-Lab.xlsx)
 - [Functional decomposition/Sitemap/Function List](./29-Functional-Decomposition-Sitemap-Function-List.md) và [AI/framework practice](./30-AI-BA-va-Ban-do-Frameworks.md)
-- [Workshop ra quyết định](./27-Decision-Facilitation-va-Workshop.md), [decision brief BRULE-02](./28-Decision-Brief-BRULE-02.md), [evidence lab Excel](./outputs/evidence-analysis-lab/Pending-Decision-Evidence-Lab.xlsx) và [capacity analysis SQL](./Reservation-Capacity-Analysis-Lab.sql)
+- [Workshop ra quyết định](./27-Decision-Facilitation-va-Workshop.md), [canvas workshop BRULE-02 cho draw.io](./27-BRULE-02-Decision-Workshop-Canvas.drawio), [decision brief BRULE-02](./28-Decision-Brief-BRULE-02.md), [evidence lab Excel](./outputs/evidence-analysis-lab/Pending-Decision-Evidence-Lab.xlsx) và [capacity analysis SQL](./Reservation-Capacity-Analysis-Lab.sql). Canvas gốc do trợ lý chuẩn bị; chỉ bản người học tự điền và review mới có thể làm evidence portfolio.
 
 ### Bài luyện bổ sung cho backlog và knowledge management
 

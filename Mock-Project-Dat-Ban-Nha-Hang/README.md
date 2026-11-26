@@ -79,6 +79,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 60. [Bài 58 — Attendance Rate bằng SQL](./58-Attendance-Rate-SQL-Practice.md) và `Attendance-Rate-Analysis-Lab.sql` — chuyển metric Excel thành CTE/query SQLite, đối soát unknown và phân đoạn theo kênh.
 61. [Workbook execution log Postman/SQL](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Postman-SQL-Execution-Log.xlsx) — template nhập actual/evidence do người học tự chạy; oracle nháp, in-memory mock và SQLite fixture được phân biệt.
 62. [Workbook sensitivity cho DEC-01](./outputs/01a1f81d-850b-76e2-a64c-0953c973c53f/Capacity-Policy-Sensitivity.xlsx) — thay đổi giả định capacity/occupancy để so sánh kịch bản; không chọn policy thay authority.
+66. [Canvas workshop BRULE-02 cho draw.io](./27-BRULE-02-Decision-Workshop-Canvas.drawio) — template Evidence / Assumptions / Options / Decisions và action log; bản gốc do trợ lý chuẩn bị, chưa phải evidence cá nhân.
 63. [59 — Metric specification: acknowledgement latency](./59-Acknowledgement-Latency-Metric-Spec.md) — nối need “khách biết request đã được nhận” với event, cohort, coverage, instrumentation, privacy và giới hạn suy luận; toàn bộ case là mô phỏng.
 64. [Jira ACK backlog staging](./Jira-ACK-Backlog-Staging.csv) — mini backlog 1 Epic + 1 Story draft + 1 discovery Task để luyện CSV/hierarchy; chưa import vào Jira.
 65. [ACK UAT execution log template](./ACK-UAT-Execution-Log-Template.csv) — bốn hàng TC-ACK-01..04 để người học tự ghi expected/actual/oracle/evidence; trạng thái khởi đầu Not run.
