@@ -78,6 +78,8 @@ Mock chỉ kiểm tra header `X-Training-Staff: demo`: không có/khác giá tr�
 
 UAT-05 mong đợi API trả `409` cho fixture hiện tại. Postman CLI có thể trả exit code `1` khi response không phải 2xx/3xx, dù không có assertion nào thất bại; vì vậy không dùng riêng exit code như verdict nghiệp vụ. Đối chiếu status/body với test basis và kiểm tra hậu điều kiện (record có được tạo hay không). Với DEC-01 còn `Open`, có thể ghi “mock branch matched”, nhưng policy UAT vẫn `Blocked`.
 
+**Ví dụ chạy bởi trợ lý — không phải bằng chứng người học:** request `02 - Create reservation - unavailable slot` trả `HTTP 409 Conflict`, `code=SLOT_UNAVAILABLE`, `availableSeats=4`; cả hai assertion về status và error code đều pass, nhưng Postman CLI trả exit code `1` vì response thuộc nhóm 4xx. Đây là nhánh mock đã chạy đúng theo test basis của fixture; không chứng minh policy capacity đã được business phê duyệt. Cần giữ riêng ba cột: HTTP status/body, assertion result, và UAT/business verdict.
+
 ### Coverage boundary — timeout/retry và idempotency
 
 `POST /api/reservations` trong mock hiện chưa nhận idempotency key. Mỗi request hợp lệ đi tới nhánh tạo reservation và thêm record mới vào bộ nhớ (`practice-api/server.js`, nhánh `POST /api/reservations`). Vì vậy, gửi cùng một payload hai lần trong Postman sẽ tạo hai lần submit độc lập theo implementation hiện tại. Kết quả đó **không chứng minh** cách xử lý retry của một sản phẩm thật và cũng chưa phải kiểm thử BRULE-09.
