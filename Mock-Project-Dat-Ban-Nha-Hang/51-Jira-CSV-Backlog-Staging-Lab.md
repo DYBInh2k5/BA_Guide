@@ -6,7 +6,7 @@ Thực hành chuyển backlog đã refinement thành dữ liệu có thể nhậ
 
 ## Tệp thực hành
 
-Mở [Jira-Backlog-Import-Staging.csv](./Jira-Backlog-Import-Staging.csv). Đây là dữ liệu giả lập có 1 Epic, 5 Story và 1 Task khám phá thuộc case đặt bàn. Tệp chưa được nhập vào Jira; chưa có Jira work item key, owner hay estimate thực. `Work item ID` chỉ là ID tạm trong file import.
+Mở [Jira-Backlog-Import-Staging.csv](./Jira-Backlog-Import-Staging.csv). Đây là dữ liệu giả lập có 1 Epic, 5 Story và 2 Task khám phá thuộc case đặt bàn. Tệp chưa được nhập vào Jira; chưa có Jira work item key, owner hay estimate thực. `Work item ID` chỉ là ID tạm trong file import.
 
 ## Cấu trúc CSV
 
@@ -37,10 +37,10 @@ Import hoàn tất chỉ xác nhận bước tạo dữ liệu; hãy kiểm tra 
 
 | Kiểm tra | Kỳ vọng với CSV mẫu | Nếu không khớp |
 |---|---|---|
-| Số work item | 7 dòng: 1 Epic, 5 Story, 1 Task | Đối chiếu import log và các item thực tế; không import lại mù quáng vì có thể tạo bản trùng |
+| Số work item | 8 dòng: 1 Epic, 5 Story, 2 Task | Đối chiếu import log và các item thực tế; không import lại mù quáng vì có thể tạo bản trùng |
 | Work type | Epic/Story/Task được map đúng theo destination | Xem lại mapping type; nhất là discovery Task không được âm thầm biến thành Story hoặc loại khác |
-| Parent hierarchy | 6 item con nằm dưới Epic được tạo từ Work item ID `1` | Kiểm tra đã map `Work item ID` / `Parent`, đúng thứ tự parent trước child và đúng field hierarchy |
-| Nội dung C-02/Task | `BRULE-02`, `DEC-01`, open question và Draft/TBD còn nguyên; không có Jira key giả | Sửa file copy/mapping rồi lập kế hoạch sửa dữ liệu import hiện hữu trước lần import khác |
+| Parent hierarchy | 7 item con nằm dưới Epic được tạo từ Work item ID `1` | Kiểm tra đã map `Work item ID` / `Parent`, đúng thứ tự parent trước child và đúng field hierarchy |
+| Nội dung discovery Task | Task ID 7 giữ nội dung `BRULE-02`/`DEC-01`; Task ID 8 giữ source `CHAT-DB-01`, các trạng thái supported/refuted/unknown, privacy và blocker; không có Jira key giả | Sửa file copy/mapping rồi lập kế hoạch sửa dữ liệu import hiện hữu trước lần import khác |
 | Dependency | Quan hệ `blocks` chỉ xuất hiện khi team xác nhận; không suy ra từ `Parent=1` | Tạo link riêng bằng work item key thật sau khi import; rà lại dependency với owner |
 
 Jira cung cấp import log chi tiết để tìm mapping/lỗi. Lưu log đã khử thông tin nhạy cảm cùng checklist; không coi import log thay cho việc mở work item để xác nhận hierarchy và description.
@@ -60,6 +60,10 @@ Dòng `Task — Xác nhận quy tắc sức chứa để refinement C-02` trong 
 `Parent=1` đặt Task dưới Epic trong hierarchy của file import. Sau khi import, kiểm tra destination hỗ trợ work type `Task` và quan hệ parent được tạo đúng; rồi link discovery Task `blocks` story C-02 nếu team xác nhận dependency. `BRULE-02`, `DEC-01`, `RES-02` và số trong `Work item ID` là ID tài liệu/file cục bộ, không phải Jira key.
 
 Nếu authority chưa đưa ra quyết định, Task vẫn Blocked với action owner và ngày review do team xác nhận. Không ghi một policy mới vào Description rồi gọi đó là decision; cập nhật nguồn chuẩn trước, sau đó refine requirement/test theo phiên bản đã duyệt.
+
+## Worked example — discovery Task cho CHAT-DB-01
+
+Dòng `Task ID 8 — Xác minh và phân loại incident 19:30` theo dõi evidence work riêng: đối chiếu hồ sơ được phép xem, hỏi nhân viên và ghi rõ từng hypothesis là supported/refuted/unknown. Đây **không phải** Task capacity `ID 7`, không tạo feature để xử lý trước khi incident được phân loại, và cũng chưa phải Jira issue. Nếu không có record hoặc quyền truy cập, tiêu chí hoàn tất cho discovery là ghi blocker, lý do, next owner/action; không được đánh dấu incident đã xác minh.
 
 ## Tài liệu Atlassian
 
