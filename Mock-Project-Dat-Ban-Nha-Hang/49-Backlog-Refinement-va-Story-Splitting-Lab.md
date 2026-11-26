@@ -84,6 +84,20 @@ Là khách, tôi muốn nhận kết quả xử lý để biết yêu cầu đã
 
 Story này phụ thuộc việc chốt kênh thông báo, nội dung, consent và xử lý gửi lỗi. Có thể triển khai sau MVP nếu chưa có kênh được duyệt.
 
+### Áp dụng vào Story “đánh giá khung giờ và sức chứa” trong CSV staging
+
+Work item ID `3` trong [Jira backlog staging](./Jira-Backlog-Import-Staging.csv) đang gộp ba mối quan tâm: giờ hoạt động, capacity theo policy, và invariant khi nhiều request tới cùng lúc. Đây là điểm để refinement xem story có thể tách theo outcome/điều kiện kiểm thử không; chưa sửa file import gốc.
+
+| Candidate slice | Giá trị / hành vi | Điều kiện readiness | Liên kết |
+|---|---|---|---|
+| CAL-01 — kiểm tra lịch nhận đặt | Khách biết ngày/giờ đã chọn có thuộc lịch nhận đặt không; trường hợp ngoài lịch nhận đặt không đi tiếp như một slot hợp lệ. | Chủ nhà hàng/Operations duyệt giờ mở, ngày nghỉ, timezone và ngoại lệ. | BRULE-01, FR-02; UAT giờ mở/đóng |
+| CAP-01 — đánh giá sức chứa theo policy | Request chỉ được tiếp tục nếu capacity khả dụng theo rule đã duyệt đủ cho party size; nếu không đủ thì không tạo reservation. | Owner duyệt đơn vị capacity, nguồn chuẩn, trạng thái nào giữ chỗ, thời điểm giải phóng và kết quả khi thiếu chỗ. | BRULE-02, DEC-01, FR-03; UAT-05 |
+| CONC-01 — giữ invariant khi xử lý đồng thời | Tổng request được chấp nhận không vượt capacity đã duyệt khi nhiều thao tác diễn ra cùng lúc. Đây là cross-cutting constraint/acceptance, không tự động thành story hướng người dùng riêng. | Engineering xác định test environment và giải pháp; Product/Operations chốt resource, policy, ưu tiên/conflict outcome; QA xây test concurrency. | BRULE-08, AC-CONC-01; test design chưa chạy |
+
+Story CAL-01 và CAP-01 không nên tách theo UI/API/database layer. Mỗi lát cắt giữ hành vi đầu-cuối đủ để người dùng hoặc vận hành nhận giá trị và nhóm có thể kiểm chứng. CONC-01 có thể được quản lý bằng AC/NFR và technical task theo cách làm của team; giữ trace về CAP-01 và business invariant.
+
+Trong CSV, Task ID `7` “Xác nhận quy tắc sức chứa để refinement C-02” là discovery dependency cho CAP-01. `Parent=1` chỉ đặt Task dưới Epic; sau khi tạo issue key thật, team mới xác nhận có cần link `blocks` từ Task tới CAP-01 hay không. Khi DEC-01 còn Open, CAP-01 chưa Ready và test party size 5 chỉ phân biệt policy giả định; chưa có business expected result để ký UAT.
+
 ## 4. Kiểm tra INVEST và độ sẵn sàng
 
 Trước khi đưa story vào Sprint, hỏi:
