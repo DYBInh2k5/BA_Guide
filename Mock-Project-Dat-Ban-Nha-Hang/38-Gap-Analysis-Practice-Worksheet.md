@@ -18,6 +18,23 @@ Trong worksheet này, `RP-01` là **mã tham chiếu cục bộ do bài tập g�
 
 Trong role-play giả lập, có lời kể về việc đọc tin nhắn, ghi request vào sổ và một khách tới khi trạng thái chưa rõ. Chưa có dữ liệu để định lượng tần suất, chưa xác nhận handoff sang ca trưởng, và chưa biết policy chính thức. Dùng mã nguồn giả lập `RP-01`; nếu hồ sơ nguồn không có câu trả lời, ghi `Open`, không tự điền thành fact.
 
+### Áp dụng riêng cho scenario chat “hai nhóm lúc 19:30”
+
+Đây là scenario giả lập riêng trong cuộc hội thoại, **không thuộc `RP-01`** ở bài 32. Nếu dùng scenario này, đặt mã nguồn cục bộ `CHAT-DB-01` để tránh nối nhầm lời kể hoặc evidence giữa hai case.
+
+Thông tin khởi đầu duy nhất: trong role-play, chị Lan nhớ có hai nhóm cùng đến lúc 19:30 và cả hai nói họ đã đặt; chị không chắc về kênh/chi tiết và chưa đối chiếu hồ sơ. Đây là `Reported` trong mô phỏng, không phải incident đã xác minh ngoài đời.
+
+| Trường | Điểm xuất phát cho CHAT-DB-01 |
+|---|---|
+| Phát biểu vấn đề, chưa nêu giải pháp | Cần làm rõ lời quản lý nhớ về việc hai nhóm nói họ đã đặt so với cách nhà hàng ghi nhận/xác nhận request; chưa đủ dữ liệu để kết luận nguyên nhân |
+| Source ID | `CHAT-DB-01` — role-play chat, lời nhớ lại của quản lý giả lập |
+| Nhãn | `Reported — simulated, unverified` |
+| Điều chưa biết quan trọng | “Trùng bàn” nghĩa là gì trong sự việc; mỗi nhóm nhận thông báo nào; có record/reference nào để đối chiếu không |
+| Bằng chứng cần thu | Hồ sơ hai request đã khử định danh, lịch sử trạng thái và nội dung phản hồi nếu tồn tại/được phép xem; lời kể nhân viên ca đó |
+| Người/vai trò cần hỏi | Quản lý về case/date và quyền truy cập; nhân viên về cách nhận/xử lý; người duyệt quy tắc chỉ sau khi xác định được vai trò |
+
+Giữ các khả năng H-01 same-table overlap, H-02 aggregate capacity, H-03 duplicate submission và Q-01 confirmation-message ambiguity thành các dòng riêng. Chưa điền solution/To-Be như đã chọn; trước tiên xác định claim nào có thể đối chiếu và source nào phù hợp.
+
 ## Phần A — Evidence trước, solution sau
 
 Điền cho **một** pain point. Không bắt đầu bằng “cần làm app”.
