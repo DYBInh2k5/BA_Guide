@@ -87,7 +87,7 @@ Story/AC cần xác định population, precondition, event, expected result và
 - **Miro/FigJam:** workshop gom nhu cầu, nhóm chức năng và review sitemap; plugin Miro hiện chưa được phát hiện trong workspace, dùng FigJam nếu truy cập được hoặc draw.io.
 - **Visual Paradigm:** tạo Use Case Diagram/UML nếu có license; draw.io là lựa chọn thay thế để học ký pháp cơ bản.
 - **Figma:** chọn 1–2 node trong sitemap và tạo wireframe/flow, gồm loading, validation, slot unavailable và `PENDING`.
-- **Jira/Confluence:** khi kết nối được, tạo epic/story và canonical page; hiện dùng Markdown/backlog mẫu.
+- **Jira/Confluence:** connector site đã kết nối; tạo epic/story và canonical page trong project/space học tập được cấp quyền. Tới khi có destination đó, dùng Markdown/backlog mẫu.
 
 ### Đáp án mẫu: exception flow FN-03 “không đủ capacity”
 

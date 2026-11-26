@@ -107,7 +107,7 @@ Sponsor đề xuất: “Nếu còn chỗ thì tự xác nhận ngay; thêm SMS 
 
 ## 5. Thực hành trên công cụ
 
-- **Jira:** link issue “implements / tests / blocks”; dùng filter tìm approved requirement chưa verified hoặc story không có parent/source. Jira chưa kết nối trong workspace hiện tại.
+- **Jira:** link issue “implements / tests / blocks”; dùng filter tìm approved requirement chưa verified hoặc story không có parent/source. Connector site đã kết nối; quyền tạo/xem issue phụ thuộc project. Dùng repo staging nếu chưa có project học tập được cấp quyền.
 - **Confluence:** đặt decision log và NFR catalog có owner/version; Jira issue trỏ về trang rule được duyệt.
 - **Excel:** mỗi row một relationship; filter status, requirement type, release, owner; conditional formatting highlight `No test`, `Unapproved`, `No source`. Tránh gộp nhiều ID vào một ô nếu muốn lọc.
 - **FigJam:** workshop impact map CR-01 theo nhánh process/data/API/test/ops/metrics; chốt assumptions/owner ngay trên board.

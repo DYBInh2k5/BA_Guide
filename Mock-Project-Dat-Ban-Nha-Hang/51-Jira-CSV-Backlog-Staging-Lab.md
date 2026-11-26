@@ -26,7 +26,7 @@ Trong Jira Cloud importer hỗ trợ hierarchy, map ba cột `Work item ID`, `Wo
 1. Mở CSV bằng Excel hoặc Sheets, kiểm tra delimiter, dấu tiếng Việt, dòng/column count và không có dữ liệu thật.
 2. Đọc từng Description; xác nhận có actor/value, AC quan sát được, requirement source, assumption và dependency.
 3. Tạo bản copy để sửa. Không ghi đè file mẫu; đặt tên có ngày và initials.
-4. Khi Jira được kết nối và đã chọn destination phù hợp, xác nhận quyền, importer và work type khả dụng; nhập bản copy vào project/space học tập. Nếu chưa kết nối, mô phỏng bằng bảng CSV và đánh dấu bước import là chưa thực hiện.
+4. Connector Jira đã kết nối tới site tổ chức. Trước khi import, chọn destination học tập được phép và xác nhận project permission, importer, work type; nhập bản copy, không đưa dữ liệu cá nhân/thật. Nếu chưa có destination phù hợp, tiếp tục mô phỏng bằng CSV và đánh dấu bước import là chưa thực hiện.
 5. Sau import, kiểm tra một Epic, một Story và discovery Task: issue type, Description, AC/tiêu chí hoàn tất, labels, encoding và parent association. Sửa mapping nếu nội dung bị cắt hoặc field sai.
 6. `Parent` biểu diễn hierarchy (Epic chứa Story/Task). `blocks / is blocked by` biểu diễn dependency/sequence giữa hai work item; tạo link đó sau import khi có key thật và team xác nhận dependency.
 7. Lưu ảnh hoặc export sau nhập và ghi lại ngày, project học tập, số issue, mapping, lỗi import và cách xử lý. Không lưu token/API key hay PII vào portfolio.

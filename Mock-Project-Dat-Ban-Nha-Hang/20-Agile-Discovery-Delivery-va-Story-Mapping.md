@@ -114,7 +114,7 @@ Velocity là công cụ forecast nội bộ của team khi họ thống nhất e
 
 | Công cụ | Thực hành trong case study | Evidence cần giữ |
 |---|---|---|
-| Jira | Tạo Epic/story; ghi AC/open question; link issue; board state phản ánh flow; filter blocked/ready | Issue key, links, history và demo evidence. Jira hiện chưa kết nối; dùng bước này sau khi kết nối workspace |
+| Jira | Tạo Epic/story trong project học tập có quyền; ghi AC/open question; link issue; board state phản ánh flow; filter blocked/ready | Issue key, links, history và demo evidence. Connector site đã có; nếu chưa có project được cấp quyền, luyện bằng CSV/Markdown staging |
 | Confluence/Markdown | Ghi decision log, glossary, workshop notes đã ẩn dữ liệu, link từ page tới Jira | Owner/version/date, source và decision |
 | FigJam | Chuyển story map từ draw.io, chạy affinity clustering, dot vote và assumptions | Board có legend, mục tiêu session, kết quả và người xác nhận |
 | Figma | Prototype trạng thái PENDING, lỗi validation, capacity unavailable, staff decision | User flow, prototype link, review feedback và version |

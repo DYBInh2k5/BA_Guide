@@ -59,9 +59,9 @@ AC mô tả hành vi mong muốn, không buộc frontend/backend dùng công ngh
 7. Đưa Story sang sprint chỉ sau Definition of Ready và khi team đã estimate; trạng thái Jira phải phản ánh workflow thật của nhóm.
 8. Tạo filter cho Epic hoặc label, sau đó kiểm tra issue có liên kết và AC còn hiển thị rõ.
 
-Jira chưa được kết nối trong môi trường này, nên thực hành hiện tại là hướng dẫn và backlog trong repository. Khi kết nối, tạo issue trong project bạn được phép dùng; không đưa dữ liệu khách thật vào case study.
+Jira connector đã kết nối tới site tổ chức, nhưng quyền tạo issue phụ thuộc project. Thực hành trên backlog trong repository cho tới khi có project học tập được cấp quyền; không đưa dữ liệu khách thật vào case study.
 
-### Issue card mẫu để nhập khi Jira được kết nối
+### Issue card mẫu để nhập vào project học tập được cấp quyền
 
 Đây là nội dung chuẩn bị trong tài liệu, **không phải issue đã tạo trên Jira**. Field name có thể khác theo cấu hình project; giữ ý nghĩa và traceability khi map sang field tương ứng.
 

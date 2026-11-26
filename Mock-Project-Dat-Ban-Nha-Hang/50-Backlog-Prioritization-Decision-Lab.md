@@ -74,7 +74,7 @@ Sau khi chốt scope và điều kiện bắt buộc, xếp thứ tự dựa tr�
 | Decision owner | Người có quyền chấp nhận trade-off |
 | Review trigger | Evidence hoặc mốc nào khiến ta phải xếp lại |
 
-Không có Jira/ClickUp kết nối vẫn làm được lab bằng bảng Markdown/Excel; cấu trúc và traceability mới là kỹ năng có thể chuyển giao. Khi kết nối tool, tạo Epic, Story, link dependency và ghi rationale/decision link vào đúng trường theo cấu hình team. Không tự tạo issue vào workspace nếu chưa chọn đúng project/list.
+Jira connector site đã kết nối nhưng chưa có project học tập được cấp quyền; ClickUp chưa có workspace được cấp. Có thể làm lab bằng bảng Markdown/Excel. Khi có destination được phép, tạo Epic/Story, link dependency và ghi rationale/decision link theo cấu hình team. Không tạo issue vào project/list chưa được chọn cho bài tập.
 
 ## 5. Thực hành
 

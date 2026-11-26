@@ -64,7 +64,7 @@ Kết nối plugin và năng lực người học là hai trạng thái khác nh
 
 ### Lab A — Process → requirements
 
-Mở As-Is/To-Be, chọn một pain point, cập nhật quy tắc, viết story+AC, truy tới test trong RTM. Bắt đầu trên draw.io và Markdown; đưa vào Jira sau khi có kết nối.
+Mở As-Is/To-Be, chọn một pain point, cập nhật quy tắc, viết story+AC, truy tới test trong RTM. Bắt đầu trên draw.io và Markdown; đưa vào Jira khi có project học tập được cấp quyền.
 
 ### Lab B — Design → API
 
@@ -76,7 +76,7 @@ Chạy SQL bằng dataset giả lập; kiểm tra duplicate, state transition v�
 
 ### Lab D — Change → governance
 
-Mô phỏng CR-01: làm impact map, cập nhật RTM, ghi decision log; giữ nguyên baseline nếu chưa duyệt. Dùng Jira link/change status và Confluence page khi đã kết nối.
+Mô phỏng CR-01: làm impact map, cập nhật RTM, ghi decision log; giữ nguyên baseline nếu chưa duyệt. Dùng Jira link/change status và Confluence page trong project/space học tập được cấp quyền.
 
 ### Lab E — UAT → portfolio
 

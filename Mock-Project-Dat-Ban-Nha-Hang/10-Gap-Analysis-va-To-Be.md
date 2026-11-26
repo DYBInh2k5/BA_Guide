@@ -44,8 +44,8 @@ ID hiện có trong backlog cần được rà soát cùng stakeholder; mapping 
 ## 4. Dùng công cụ trong bài này
 - **draw.io**: mở `10-Reservation-To-Be.drawio`, bật BPMN 2.0 shapes nếu muốn chỉnh ký hiệu; rà lane, gateways, nhãn nhánh và message flow; lưu phiên bản mới.
 - **FigJam**: workshop pain points/gap analysis; ghi mỗi ý lên sticky note và gắn nhãn “bằng chứng”, “giả định”, “câu hỏi”.
-- **Jira**: tạo Epic “Đặt bàn trực tuyến”, chia story gửi yêu cầu, xử lý yêu cầu, thông báo; liên kết story với FR/AC. Hiện Jira chưa được kết nối trong môi trường học này.
-- **Confluence**: lưu quyết định, glossary và open questions; chưa kết nối, có thể dùng tài liệu Markdown trong repo.
+- **Jira**: tạo Epic “Đặt bàn trực tuyến” trong project học tập được cấp quyền; chia story gửi yêu cầu, xử lý yêu cầu, thông báo; liên kết story với FR/AC. Connector site đã có, quyền tạo phụ thuộc project.
+- **Confluence**: connector đã kết nối tới site Atlassian của tổ chức; quyền tạo/sửa phụ thuộc space. Dùng Markdown trong repo cho tới khi có space học tập được xác nhận.
 - **Postman**: sau khi API sẵn sàng, dùng collection mẫu để gửi request hợp lệ/không hợp lệ và so kết quả với AC.
 - **Figma**: ở bước sau dựng wireframe form đặt bàn và màn hình hàng đợi lễ tân từ cùng luồng nghiệp vụ.
 

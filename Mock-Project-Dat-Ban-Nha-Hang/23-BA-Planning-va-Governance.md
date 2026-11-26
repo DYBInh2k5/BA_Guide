@@ -94,7 +94,7 @@ Mỗi review định kỳ chọn một cải tiến nhỏ, owner và thời đi�
 
 | Tool | System of record gợi ý | BA action | Governance rule |
 |---|---|---|---|
-| Jira | Issue status, owner, priority, dependency, decision links | Lọc blocked/ready, link test/epic, giữ history | Project permissions và workflow do admin/team chốt; Jira chưa kết nối hiện tại |
+| Jira | Issue status, owner, priority, dependency, decision links | Lọc blocked/ready, link test/epic, giữ history | Connector site đã kết nối; quyền và workflow cần xác nhận ở project học tập với admin/team |
 | Confluence | Quy tắc, glossary, meeting/decision records, approved specs | Link canonical page từ issue | Page owner/version/approval rõ; không chứa data nhạy cảm không được phép |
 | Figma/FigJam | Prototype, workshop map và feedback | Version/snapshot, link decision/requirement | Prototype không tự động là production behavior hoặc stakeholder approval |
 | draw.io | Process/sequence/ERD | Version file, legend, source/owner | Update khi rule thay đổi; review link với requirements |

@@ -144,7 +144,7 @@ BA tổng hợp và khuyến nghị dựa trên evidence. BA không ký thay bus
 | Tool | Việc làm | Evidence đầu ra |
 |---|---|---|
 | Postman Local Mode | Lưu request/response cho filter ngày không có record; ghi environment và actual | Collection run hoặc ảnh đã khử dữ liệu; response body/status |
-| Markdown/issue tracker | Tạo defect hoặc decision với AC/UAT link, reproduction steps, owner và status | Issue link/ID hoặc defect log; Jira chưa kết nối thì dùng bảng Markdown |
+| Markdown/issue tracker | Tạo defect hoặc decision với AC/UAT link, reproduction steps, owner và status | Issue link/ID hoặc defect log; nếu chưa có project Jira học tập được cấp quyền thì dùng bảng Markdown |
 | RTM Excel | Cập nhật verification link/evidence state sau khi chạy; giữ status requirement Draft nếu chưa được duyệt | Row có test ID, evidence link và actual state; không đặt Verified chỉ từ test design |
 | Figma/FigJam | Review riêng UX empty state hoặc ghi unresolved decision | Frame/version hoặc decision sticky có owner/date |
 

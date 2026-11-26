@@ -77,7 +77,7 @@ Rủi ro là điều chưa chắc chắn có thể xảy ra; issue là điều �
 
 ## Thực hành công cụ
 
-- **Jira:** tạo CR-01 dạng issue/change request; liên kết epic/story/test; dùng trạng thái chờ phân tích, duyệt, hoãn. Nếu Jira chưa kết nối, thực hành trên bảng markdown/backlog hiện có.
+- **Jira:** tạo CR-01 dạng issue/change request trong project học tập đã được cấp quyền; liên kết epic/story/test và dùng trạng thái chờ phân tích, duyệt, hoãn. Connector tới site tổ chức đã kết nối nhưng quyền tạo phụ thuộc project; nếu chưa có destination phù hợp, thực hành trên bảng Markdown/backlog hiện có.
 - **Confluence hoặc tài liệu dự án:** lưu quyết định, phiên bản baseline và risk register có owner/ngày review.
 - **FigJam:** workshop impact mapping: nhu cầu → actor → quy trình → hệ thống → dữ liệu → test → vận hành.
 - **Excel:** thêm owner, ngày review, trạng thái, điểm P×I; lọc rủi ro cao và theo dõi trend. Điểm số giúp ưu tiên thảo luận, không thay phán đoán.

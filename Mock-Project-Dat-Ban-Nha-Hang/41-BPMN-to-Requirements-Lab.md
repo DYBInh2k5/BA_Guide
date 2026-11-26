@@ -73,7 +73,7 @@ Trong Jira hoặc backlog tương đương, link story với nguồn, open quest
 
 1. **FigJam:** đặt E-01, H-01, NEED-01, OPT-01, REQ-01, AC-01, TC-01 trên sticky riêng; nối mũi tên và ghi `Reported`, `Hypothesis`, `Draft`, `Open`.
 2. **draw.io:** mở `09-Reservation-As-Is.drawio`; đặt annotation E-01 cạnh nhánh Facebook ngoài giờ. Không thêm task “hệ thống gửi cảnh báo” vào As-Is vì đó là phương án To-Be.
-3. **Jira hoặc spreadsheet:** tạo một requirement draft và liên kết ít nhất một open question. Nếu Jira chưa được kết nối, dùng bảng backlog hiện có; mục tiêu là traceability, không phải tên tool.
+3. **Jira hoặc spreadsheet:** tạo một requirement draft và liên kết ít nhất một open question. Nếu chưa có project Jira học tập được cấp quyền, dùng bảng backlog hiện có; mục tiêu là traceability, không phải tên tool.
 4. **Review:** kiểm tra từng mũi tên có căn cứ không; đánh dấu cạnh chưa được stakeholder xác nhận là giả thuyết hoặc option.
 
 ## 6. Bài tự làm

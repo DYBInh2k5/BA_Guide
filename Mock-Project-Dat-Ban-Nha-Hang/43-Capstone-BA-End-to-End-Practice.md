@@ -50,7 +50,7 @@ Không viết yêu cầu kiểu “hệ thống thân thiện/nhanh/an toàn” 
 Chọn và dùng ít nhất ba công cụ khác nhau; lưu artifact do chính bạn tạo:
 
 1. **draw.io:** context, BPMN hoặc To-Be flow; dùng nhãn cho unknown/handoff.
-2. **Markdown/Jira tương đương:** requirement/backlog với ID, source, owner, status, AC và dependency. Nếu Jira chưa kết nối, dùng Markdown.
+2. **Markdown/Jira tương đương:** requirement/backlog với ID, source, owner, status, AC và dependency. Nếu chưa có project Jira học tập được cấp quyền, dùng Markdown.
 3. **Figma/FigJam:** prototype trạng thái chính và một trạng thái lỗi/empty; nếu chưa thao tác được, ghi blocker cùng ảnh/chú thích và không tính là đã hoàn tất.
 4. **Postman hoặc SQL:** chọn một câu hỏi có thể kiểm tra từ mock/fixture. Ghi môi trường, dữ liệu tổng hợp, expected/actual và giới hạn. Không gọi mock response là bằng chứng của hệ thống thật.
 5. **Excel:** tạo traceability tối thiểu `Need → Requirement → Design/Process → AC → Test → Evidence/Status`; thêm filter để tìm requirement thiếu test.

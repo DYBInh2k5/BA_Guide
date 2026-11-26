@@ -104,7 +104,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 - Không coi nội dung giả lập trong hồ sơ là sự thật đã được stakeholder xác nhận.
 - Mỗi quyết định phải truy được về mục tiêu, stakeholder hoặc bằng chứng.
 - Học công cụ theo nhiệm vụ BA: đầu vào là gì, thao tác nào cần làm, đầu ra dùng cho ai.
-- Jira/Confluence hiện chưa kết nối tài khoản. Trong phiên kiểm tra 25-11-2026, Postman Desktop không xuất hiện trong app inventory nên UI/Local Files chưa xác nhận; `postman --version` trả `1.93.0`, Node.js trả `v22.20.0`. Các lần CLI chạy mock trước do trợ lý thực hiện, không phải evidence kỹ năng người học. Health/UAT-05 chỉ phản ánh mock; policy UAT vẫn Blocked vì DEC-01 Open.
+- Jira/Confluence connector đã xác thực tới site Atlassian của tổ chức và báo read-write ở cấp sản phẩm; quyền đọc/ghi cụ thể phụ thuộc project/space. Trong phiên kiểm tra 25-11-2026, Postman Desktop không xuất hiện trong app inventory nên UI/Local Files chưa xác nhận; `postman --version` trả `1.93.0`, Node.js trả `v22.20.0`. Các lần CLI chạy mock trước do trợ lý thực hiện, không phải evidence kỹ năng người học. Health/UAT-05 chỉ phản ánh mock; policy UAT vẫn Blocked vì DEC-01 Open.
 - Board FigJam dự án mẫu: [BA Practice Project — Restaurant Reservation](https://www.figma.com/board/J2aymYBMv2bJEzn75EET23), tạo trong team Cody empire theo lựa chọn của người dùng; đã kiểm tra ảnh render và chỉnh chiều cao khung để nội dung không tràn. Board là tài liệu học do trợ lý soạn, không phải evidence kỹ năng người học.
 
 ## Tiến độ

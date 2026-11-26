@@ -141,7 +141,7 @@ Nếu chưa chốt: giữ `TBD`, nêu rủi ro không thể baseline/triển kha
 |---|---|---|
 | FigJam hoặc draw.io | Tạo board 4 vùng: Evidence / Assumptions / Options / Decisions; thêm agenda, timebox, owner và parking lot | Ảnh/export hoặc link board; ghi rõ nội dung mô phỏng |
 | Excel | Tạo bảng options với criteria, weight do stakeholder xác nhận, score, source và sensitivity; để trống score khi thiếu evidence | Workbook có nguồn dữ liệu, công thức và caveat; không bịa trọng số |
-| Jira | Tạo issue cho open question/action, gắn owner, deadline, dependency và link requirement; cập nhật status theo flow | Issue link hoặc screenshot; Jira hiện có thể chưa kết nối |
+| Jira | Tạo issue cho open question/action trong project được phép, gắn owner, deadline, dependency và link requirement; cập nhật status theo flow | Issue link hoặc screenshot; connector site đã có, nhưng quyền tạo cần xác nhận theo project |
 | Confluence/Markdown | Ghi decision log và canonical rule, version, approver, effective date | Page/file có history/version và liên kết RTM |
 | draw.io | Cập nhật gateway/exception sau khi policy được quyết định | Sơ đồ trước/sau, revision note và link rule |
 | Postman/SQL | Sau khi có policy, kiểm tra response và data effect cho scenario được duyệt | Request/response và query output trên dữ liệu giả lập; mock chưa chứng minh production behavior |
