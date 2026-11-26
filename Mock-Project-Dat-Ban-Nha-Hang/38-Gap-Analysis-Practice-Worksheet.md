@@ -33,7 +33,16 @@ Thông tin khởi đầu duy nhất: trong role-play, chị Lan nhớ có hai nh
 | Bằng chứng cần thu | Hồ sơ hai request đã khử định danh, lịch sử trạng thái và nội dung phản hồi nếu tồn tại/được phép xem; lời kể nhân viên ca đó |
 | Người/vai trò cần hỏi | Quản lý về case/date và quyền truy cập; nhân viên về cách nhận/xử lý; người duyệt quy tắc chỉ sau khi xác định được vai trò |
 
-Giữ các khả năng H-01 same-table overlap, H-02 aggregate capacity, H-03 duplicate submission và Q-01 confirmation-message ambiguity thành các dòng riêng. Chưa điền solution/To-Be như đã chọn; trước tiên xác định claim nào có thể đối chiếu và source nào phù hợp.
+Giữ các khả năng H-01 same-table overlap, H-02 aggregate capacity và H-03 duplicate submission thành các hypothesis riêng. Q-01 về nội dung xác nhận là open question, chưa phải hypothesis nguyên nhân. Chưa điền solution/To-Be như đã chọn; trước tiên xác định claim nào có thể đối chiếu và source nào phù hợp.
+
+| Hypothesis | Evidence có thể ủng hộ | Evidence có thể làm hypothesis yếu đi / bác bỏ trong case này |
+|---|---|---|
+| H-01: Hai booking được gán cùng một bàn trong khoảng thời gian chồng lấn | Hai lịch sử booking đã khử định danh cùng trỏ tới một table ID, với thời gian dùng bị overlap | Hồ sơ cho thấy bàn khác nhau, không có bàn cụ thể nào được gán, hoặc thời lượng không chồng lấn; chỉ áp dụng nếu hệ thống/nhà hàng lưu các trường đó |
+| H-02: Tổng khách vượt capacity của slot | Tổng demand cùng slot cao hơn capacity theo rule có thẩm quyền và cùng version/effective date | Theo policy đã duyệt, tổng demand không vượt capacity; nếu chưa có policy hoặc dữ liệu occupancy đáng tin cậy thì kết quả vẫn `Unknown`, không được gọi là đã bác bỏ |
+| H-03: Một thao tác gửi lại tạo hai request | Hai record gắn cùng correlation/reference context hoặc payload/time pattern phù hợp với retry; cần dữ liệu đã khử định danh và log có quyền truy cập | Hai record có nguồn/khách độc lập và không có liên hệ retry; hai nhóm cùng nói đã đặt, tự nó không ủng hộ giả thuyết một người gửi lặp |
+| Q-01: Khách hiểu “đã nhận request” là “đã xác nhận bàn” | Thông điệp chỉ nói đã nhận nhưng người nhận nói họ hiểu là đã có bàn | Nội dung xác nhận phân biệt rõ pending với confirmed và người nhận xác nhận đã hiểu; lời kể hoặc nội dung gửi đi một mình chưa chứng minh người nhận đã đọc/hiểu |
+
+Evidence chưa có, thiếu quyền truy cập hoặc không ghi đúng thời điểm phải giữ `Unknown`. Không dùng một kết quả thiếu dữ liệu để xác nhận/bác bỏ hypothesis; ghi chính xác phạm vi và giới hạn của từng nguồn.
 
 ## Phần A — Evidence trước, solution sau
 
