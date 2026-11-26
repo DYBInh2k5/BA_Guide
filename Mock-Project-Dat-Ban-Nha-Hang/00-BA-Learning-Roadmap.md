@@ -87,13 +87,18 @@ Tự làm một ghi chú ngắn với bốn phần:
 
 Bài kiểm tra nhanh: nếu quản lý nói “hãy làm app để khỏi trùng bàn”, bạn chưa ghi đó là business need. Hãy hỏi về một trường hợp gần nhất, cách hiện tại được xử lý, ảnh hưởng quan sát được, và cách xác nhận kết quả sẽ tốt hơn. Chỉ sau khi có evidence mới mô tả problem/need và so sánh app với phương án quy trình khác.
 
-### Bước kế tiếp trong dự án
+### Thứ tự thực hành tiếp theo
 
-Sau khi hoàn thành ghi chú nền tảng, chuyển sang [bài 53 — ưu tiên backlog bằng Excel](./53-Backlog-Priority-Excel-Practice.md) và [hướng dẫn 54](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md). Sau đó thực hành nhập backlog vào Jira từ [bài 51](./51-Jira-CSV-Backlog-Staging-Lab.md) trong một project sandbox riêng; quyền kết nối đã có nhưng hiện chưa thấy project đích phù hợp. Gửi ghi chú hoặc bản workbook tự làm để review; khi chưa có artifact cá nhân, trạng thái năng lực vẫn là `Chưa đánh giá`.
+Học theo phụ thuộc của công việc BA; các file nâng cao ở dưới là thư viện, không phải yêu cầu phải làm trước.
 
-### Bài thực hành tiếp theo — tự chạy API test trong Postman
+1. **Nền tảng:** hoàn thành ghi chú ở trên và [bài khám phá vấn đề](./06-Bai-tap-Kham-pha-van-de.md). Phân biệt câu “làm app” là đề xuất giải pháp với vấn đề/need cần kiểm tra.
+2. **Stakeholder và evidence:** dùng [bài elicitation](./02-Stakeholders-Elicitation.md) cùng [sơ đồ incident stakeholder/evidence](./Double-Booking-Incident-Stakeholder-Evidence-Map.drawio). Lưu một bản copy; chọn stakeholder phỏng vấn trước, câu hỏi và artifact cần xin. Scenario này là giả lập, không dùng dữ liệu khách thật.
+3. **Quy trình:** trước khi vẽ As-Is, kiểm tra các bước với nguồn/role-play. Dùng [lab context → BPMN](./37-Context-to-BPMN-Bridge-Lab.md) để học notation; đó là role-play khác, nên chỉ chuyển giao kỹ thuật modeling và không trộn lời kể giữa hai scenario. Nếu chưa xác minh được các bước của incident đặt trùng, giữ câu hỏi mở, chưa vẽ process như sự thật.
+4. **Requirements:** học [Need → Requirement → AC → Test Oracle](./46-Need-Requirement-AC-Test-Oracle.md). Gắn source, status, owner và open question; dùng `Draft/Unknown` khi chưa có authority hoặc policy.
+5. **Backlog và công cụ delivery:** dùng [Jira CSV staging lab](./51-Jira-CSV-Backlog-Staging-Lab.md) hoặc Markdown/CSV local. Chỉ import vào Jira project sandbox học tập nếu được cấp; hiện chưa có project đích phù hợp. Sau đó mới refinement/priority bằng [bài 53](./53-Backlog-Priority-Excel-Practice.md) và [hướng dẫn 54](./54-Huong-Dan-Uu-Tien-Backlog-Excel.md).
+6. **Verification và analytics:** khi đã có requirement/test basis, làm [Postman UAT worksheet 55](./55-Postman-UAT-Execution-Worksheet.md), rồi Excel/SQL metric labs. Chỉ lưu actual do bạn tự chạy; mock không phải bằng chứng production.
 
-Dùng [worksheet 55 — Postman UAT Execution](./55-Postman-UAT-Execution-Worksheet.md) để ghi execution log cá nhân. Worksheet nối bài [15 — Postman Practice Lab](./15-Postman-Practice-Lab.md) với test basis, actual response, evidence và verdict; chưa đánh dấu năng lực cho tới khi có artifact do người học tự chạy.
+Mỗi checkpoint cần một bản do bạn tự làm để được review. File mẫu, role-play do trợ lý tạo và lần chạy do trợ lý thực hiện không được tính là evidence cá nhân; khi chưa có artifact cá nhân, năng lực vẫn `Chưa đánh giá`.
 
 ### Lab Excel — định nghĩa metric và grain dữ liệu
 
