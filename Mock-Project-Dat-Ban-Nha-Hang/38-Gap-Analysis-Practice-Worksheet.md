@@ -33,6 +33,8 @@ Thông tin khởi đầu duy nhất: trong role-play, chị Lan nhớ có hai nh
 | Bằng chứng cần thu | Hồ sơ hai request đã khử định danh, lịch sử trạng thái và nội dung phản hồi nếu tồn tại/được phép xem; lời kể nhân viên ca đó |
 | Người/vai trò cần hỏi | Quản lý về case/date và quyền truy cập; nhân viên về cách nhận/xử lý; người duyệt quy tắc chỉ sau khi xác định được vai trò |
 
+Xem [Data request map trong bài 12](./12-Data-Modeling-SQL-API.md) để nối từng hypothesis với trường có thể cần và giới hạn schema hiện tại. Đây là kế hoạch thu thập, không khẳng định những trường/log đó đang tồn tại.
+
 Giữ các khả năng H-01 same-table overlap, H-02 aggregate capacity và H-03 duplicate submission thành các hypothesis riêng. Q-01 về nội dung xác nhận là open question, chưa phải hypothesis nguyên nhân. Chưa điền solution/To-Be như đã chọn; trước tiên xác định claim nào có thể đối chiếu và source nào phù hợp.
 
 | Hypothesis | Evidence có thể ủng hộ | Evidence có thể làm hypothesis yếu đi / bác bỏ trong case này |

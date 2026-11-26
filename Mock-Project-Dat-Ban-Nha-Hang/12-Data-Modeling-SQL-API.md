@@ -52,6 +52,19 @@ Luyện KPI và kiểm tra cohort trong [lab SQL tỷ lệ khách đến](./58-A
 
 Worked example có kết quả fixture, hai cách tính sức chứa, câu hỏi policy và giới hạn evidence: [Capacity policy sensitivity](./outputs/sql-capacity-demo/Capacity-Policy-Sensitivity.md).
 
+### Data request map — CHAT-DB-01 (scenario riêng, giả lập)
+
+Scenario hai nhóm cùng nói đã đặt lúc 19:30 trong cuộc hội thoại không thuộc role-play `RP-01` ở bài 32. Trước khi query, BA xác định claim, source, quyền truy cập, timestamp/snapshot và các trường thực sự tồn tại. Dùng mã/alias đã khử định danh; không đưa tên, phone, email hay message raw có PII vào portfolio.
+
+| Câu hỏi/hypothesis | Dữ liệu tối thiểu có thể cần nếu được lưu | Giới hạn phải ghi |
+|---|---|---|
+| H-01: Có booking được gán cùng bàn với thời gian overlap không? | Request/booking reference đã giả danh; `table_id` nếu có; thời gian bắt đầu/kết thúc hoặc duration; assignment event/time | Schema `RESERVATION` mẫu hiện không có `table_id`, thời lượng bàn hoặc lịch sử gán bàn; query hiện tại không thể chứng minh table overlap |
+| H-02: Tổng khách có vượt capacity theo rule hiệu lực không? | Slot/timezone; `party_size`; trạng thái tại thời điểm incident; occupancy cùng slot; policy ID/version/effective date | `capacity` và `status` trong schema mẫu không tự chứng minh policy được duyệt; không có policy/version đúng thời điểm thì kết luận `Unknown` |
+| H-03: Có một thao tác retry tạo nhiều request không? | Request/reference IDs đã giả danh; timestamp; channel/source; correlation/idempotency key nếu hệ thống có | Schema mẫu không lưu idempotency/correlation key; hai request độc lập có thể giống dữ liệu nhưng không đủ chứng minh cùng một thao tác |
+| Q-01: Khách nhận thông điệp nào và hiểu ra sao? | Nội dung template đã duyệt; send/delivery timestamp/status; phỏng vấn người nhận nếu có căn cứ và được cho phép | Schema mẫu không lưu message body/delivery; log gửi thành công không chứng minh người nhận đã đọc/hiểu |
+
+Schema mẫu có `reservation_code`, `slot_id`, `party_size`, `status`, `created_at` và history, nhưng thiếu table assignment, message evidence, retry key và policy version. Vì vậy, `Reservation-Practice.sql` chỉ hỗ trợ một phần câu hỏi capacity; không dùng fixture đó trả lời incident CHAT-DB-01 hoặc tự thêm các field trên vào canonical model. Nếu xác nhận có need và owner cho những dữ liệu mới, mới lập data requirement/change request, privacy/retention review và model change.
+
 ## 2. Truy vấn SQL để BA kiểm tra dữ liệu
 
 **Sức chứa còn lại theo slot**
