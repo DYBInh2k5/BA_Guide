@@ -52,6 +52,14 @@ Mỗi assessment điền: `ngày | artifact/link | task tự làm | reviewer/fee
 | Excel | Workbook benefit, RTM, decision table, evidence lab và hai workbook practice mới có sẵn; workbook Postman/SQL là execution log trống, workbook capacity là sensitivity model có input giả lập. Chưa có bằng chứng người học tự thao tác. | Tự nhập execution log sau khi chạy Postman/SQL; đổi input capacity trong workbook sensitivity, giải thích conditional outcome và policy gap. |
 
 Kết nối plugin và năng lực người học là hai trạng thái khác nhau: tool sẵn có không chứng minh đã thực hành; file mẫu do trợ lý tạo không được tính là evidence cấp độ của người học. Trạng thái công cụ có thể thay đổi, nên kiểm tra lại trước lab thực tế.
+
+### Recheck kết nối mới hơn — 26-11-2026
+
+- **Figma:** profile xác thực là Bình Võ Duy; quyền edit board/deck cần thử riêng trước khi người học chỉnh file.
+- **GitHub:** profile `DYBInh2k5` xác thực; repo `DYBInh2k5/BA_Guide` là nơi lưu portfolio học tập. Bản mẫu do trợ lý tạo không tính là evidence cá nhân.
+- **Jira/Confluence:** site `reputyze-team-vx3aseym.atlassian.net` cho quyền sản phẩm read-write, nhưng truy vấn project `BA` có quyền tạo trả 0; personal space đọc được, tạo page draft riêng tư trả `permission_denied`. Chưa có issue/page học tập. Không ghi vào project tổ chức; dùng CSV/Markdown trong repo tới khi có sandbox và quyền phù hợp.
+- **Miro:** không thấy plugin Miro trong kết quả tìm kiếm kết nối; dùng FigJam hoặc draw.io để luyện cùng nhóm kỹ năng.
+
 ## Lộ trình lab theo thứ tự phụ thuộc
 
 ### Lab A — Process → requirements
