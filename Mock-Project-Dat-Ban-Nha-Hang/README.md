@@ -158,6 +158,7 @@ Bài tiếp theo sau BPMN: [từ quy trình đến yêu cầu có thể kiểm c
 - [49 — Backlog refinement và chẻ User Story](./49-Backlog-Refinement-va-Story-Splitting-Lab.md): chẻ epic, viết AC, làm rõ dependency và kiểm tra độ sẵn sàng.
 - [50 — Ưu tiên backlog bằng quyết định có căn cứ](./50-Backlog-Prioritization-Decision-Lab.md): dùng MoSCoW, evidence, dependency và decision log để thảo luận phạm vi release.
 - [51 — Chuẩn bị backlog để nhập vào Jira](./51-Jira-CSV-Backlog-Staging-Lab.md): kiểm tra CSV staging, map field và xác minh parent/dependency sau import.
+- [63 — Jira CSV import: bài thực hành cá nhân](./63-Jira-Import-Hands-On-Checkpoint.md): tự review Story, lập mapping, ghi QA và phân biệt evidence CSV với evidence Jira.
 - [CSV backlog staging](./Jira-Backlog-Import-Staging.csv): 1 Epic + 5 Story + 2 discovery Task giả lập (capacity và incident CHAT-DB-01); 8 work item, chưa được nhập vào Jira.
 - [52 — Confluence: trang chuẩn và decision log](./52-Confluence-Decision-Log-and-Canonical-Page.md): giữ một nguồn chuẩn, trace quyết định tới Jira và test, ghi rõ draft/approved.
 - [DEC-01 — PENDING occupancy policy](./DEC-01-Capacity-Policy-Draft.md): trang Confluence-ready, còn Open; chưa phải policy được duyệt hay nội dung đã tạo trong Confluence.

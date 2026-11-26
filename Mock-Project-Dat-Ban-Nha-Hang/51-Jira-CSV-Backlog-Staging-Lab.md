@@ -8,6 +8,8 @@ Thực hành chuyển backlog đã refinement thành dữ liệu có thể nhậ
 
 Mở [Jira-Backlog-Import-Staging.csv](./Jira-Backlog-Import-Staging.csv). Đây là dữ liệu giả lập có 1 Epic, 5 Story và 2 Task khám phá thuộc case đặt bàn. Tệp chưa được nhập vào Jira; chưa có Jira work item key, owner hay estimate thực. `Work item ID` chỉ là ID tạm trong file import.
 
+Để tự review một Story và ghi evidence cá nhân, làm [Bài 63 — Jira CSV import: bài thực hành cá nhân](./63-Jira-Import-Hands-On-Checkpoint.md).
+
 ## Cấu trúc CSV
 
 | Cột | Cách xử lý khi nhập |
