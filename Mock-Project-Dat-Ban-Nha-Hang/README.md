@@ -82,6 +82,7 @@ Scenario giả định nhà hàng nhận đặt bàn qua điện thoại và m�
 64. [Jira ACK backlog staging](./Jira-ACK-Backlog-Staging.csv) — mini backlog 1 Epic + 1 Story draft + 1 discovery Task để luyện CSV/hierarchy; chưa import vào Jira.
 65. [ACK UAT execution log template](./ACK-UAT-Execution-Log-Template.csv) — bốn hàng TC-ACK-01..04 để người học tự ghi expected/actual/oracle/evidence; trạng thái khởi đầu Not run.
 66. [60 — Acknowledgement latency bằng SQL](./60-Acknowledgement-Latency-SQL-Practice.md) và [fixture/query SQLite](./Acknowledgement-Latency-Analysis-Lab.sql) — luyện latency, median/p90, timestamp completeness, valid coverage và phân biệt missing/invalid; dữ liệu synthetic.
+67. [61 — Từ metric tới decision brief](./61-Metric-to-Decision-Brief-Lab.md) — cân nhắc lựa chọn SMS/status/email/discovery bằng evidence, trade-off, governance và pilot readiness; không suy diễn nhân quả từ fixture.
 
 ## Lộ trình học trong case study
 

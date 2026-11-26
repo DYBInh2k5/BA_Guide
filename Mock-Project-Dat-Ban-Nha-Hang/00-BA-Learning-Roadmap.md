@@ -106,3 +106,5 @@ Sau đó chuyển cùng metric sang [bài 58 — Attendance Rate bằng SQL](./5
 Trong cùng bài, thực hành trace slice `Need → Requirement → AC → UAT → Metric`; chọn một công cụ sẵn có để làm artifact riêng (CSV/Markdown/draw.io nếu Jira hoặc Figma không có quyền phù hợp). Ghi rõ trạng thái draft/approved, owner, evidence và giới hạn mock.
 
 Chuyển definition sang [bài 60 — acknowledgement latency bằng SQL](./60-Acknowledgement-Latency-SQL-Practice.md) và [script fixture SQLite](./Acknowledgement-Latency-Analysis-Lab.sql). Tự viết query trước khi mở answer key; báo timestamp completeness và valid-latency coverage riêng, kèm missing/invalid và sample caveat. Không dùng fixture để tuyên bố KPI thật.
+
+Sau khi có metric analysis, làm [bài 61 — từ metric tới decision brief](./61-Metric-to-Decision-Brief-Lab.md): so sánh discovery/status/email/SMS; ghi DEC-ACK-01 ở trạng thái Open; xác định evidence gap, pilot outcome/guardrail và người có thẩm quyền. Không đặt target hoặc tuyên bố SMS gây giảm cuộc gọi từ fixture mô phỏng.
