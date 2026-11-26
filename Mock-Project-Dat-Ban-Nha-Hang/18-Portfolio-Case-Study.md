@@ -67,7 +67,7 @@ Nhà hàng giả định tiếp nhận đặt bàn qua điện thoại và mạn
 Các tài liệu dưới đây mở rộng case study sau khi storyboard ban đầu được viết. Đây là **bài hướng dẫn và artifact mẫu**, không phải bằng chứng người học đã tự thực hành:
 
 - [Interview stakeholder về Change Request](./48-Stakeholder-Interview-Change-Request-Practice.md) và [refinement/chẻ Story](./49-Backlog-Refinement-va-Story-Splitting-Lab.md).
-- [Ưu tiên backlog bằng evidence và dependency](./50-Backlog-Prioritization-Decision-Lab.md); [CSV staging Jira](./Jira-Backlog-Import-Staging.csv) kèm [hướng dẫn import/mapping](./51-Jira-CSV-Backlog-Staging-Lab.md). CSV chưa được import vào Jira.
+- [Ưu tiên backlog bằng evidence và dependency](./50-Backlog-Prioritization-Decision-Lab.md); [CSV staging Jira](./Jira-Backlog-Import-Staging.csv) kèm [hướng dẫn import/mapping](./51-Jira-CSV-Backlog-Staging-Lab.md) và [checkpoint tự review/import](./63-Jira-Import-Hands-On-Checkpoint.md). CSV chưa được import vào Jira; checkpoint trống chưa phải evidence cá nhân.
 - [Confluence canonical page và decision log](./52-Confluence-Decision-Log-and-Canonical-Page.md); policy `BRULE-02` vẫn `Draft/TBD`, chưa có stakeholder thật phê duyệt.
 
 Khi biến case study thành hồ sơ ứng tuyển, chỉ ghi “tôi đã làm” cho artifact bạn tự tạo/chỉnh sửa, có version và có thể giải thích. Tách phần do trợ lý chuẩn bị, phần bạn đã tự làm và phần cần người khác xác nhận.
