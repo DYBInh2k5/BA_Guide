@@ -80,6 +80,12 @@ UAT-05 mong đợi API trả `409` cho fixture hiện tại. Postman CLI có th�
 
 **Ví dụ chạy bởi trợ lý — không phải bằng chứng người học:** request `02 - Create reservation - unavailable slot` trả `HTTP 409 Conflict`, `code=SLOT_UNAVAILABLE`, `availableSeats=4`; cả hai assertion về status và error code đều pass, nhưng Postman CLI trả exit code `1` vì response thuộc nhóm 4xx. Đây là nhánh mock đã chạy đúng theo test basis của fixture; không chứng minh policy capacity đã được business phê duyệt. Cần giữ riêng ba cột: HTTP status/body, assertion result, và UAT/business verdict.
 
+### Coverage boundary — lịch mở cửa
+
+Mock chưa mô hình hóa lịch hoạt động hay quy tắc thời điểm mở/đóng. Slot 20:00 trong fixture được đánh dấu `isOpen=false` đồng thời có capacity bằng 0; API trả chung `409 SLOT_UNAVAILABLE` cho slot đóng, slot không tồn tại và slot không đủ sức chứa. Do đó, response này chỉ chứng minh nhánh “không khả dụng” tổng hợp, không kiểm chứng độc lập BRULE-01 về giờ hoạt động.
+
+Để kiểm thử BRULE-01, BA cần được xác nhận lịch theo ngày, múi giờ, cách hiểu đúng thời điểm mở/đóng, ngày nghỉ và thông điệp/API contract. Sau đó Engineering cần cung cấp fixture có slot ngoài lịch nhưng capacity còn chỗ, cùng slot biên mở/đóng. Trước khi có các dữ liệu đó, ghi test design là **Blocked / Not executable**; không coi `409` hiện tại là bằng chứng UAT đạt. Nếu quan sát mock, lưu riêng request/response và kiểm tra không phát sinh reservation như bằng chứng hành vi fixture.
+
 ### Coverage boundary — timeout/retry và idempotency
 
 `POST /api/reservations` trong mock hiện chưa nhận idempotency key. Mỗi request hợp lệ đi tới nhánh tạo reservation và thêm record mới vào bộ nhớ (`practice-api/server.js`, nhánh `POST /api/reservations`). Vì vậy, gửi cùng một payload hai lần trong Postman sẽ tạo hai lần submit độc lập theo implementation hiện tại. Kết quả đó **không chứng minh** cách xử lý retry của một sản phẩm thật và cũng chưa phải kiểm thử BRULE-09.
