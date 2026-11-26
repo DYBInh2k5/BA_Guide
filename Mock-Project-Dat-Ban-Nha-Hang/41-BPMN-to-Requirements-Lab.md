@@ -93,6 +93,40 @@ Test evidence cần lưu:
 
 **Đáp án mẫu rút gọn cho bước “ghi vào sổ”:** lời kể giả lập nói lễ tân ghi yêu cầu vào sổ; cần quan sát sổ/cách ghi và hỏi các kênh nào được ghi. Need có thể là truy lại được yêu cầu; không kết luận phải mua app. Option có thể gồm chuẩn hóa sổ hiện tại hoặc dùng hàng đợi số. Requirement/AC chỉ chốt sau khi chọn phương án và thống nhất dữ liệu, quyền truy cập, cách xử lý trùng.
 
+## Lát cắt riêng — role-play capacity CHAT-RP-01
+
+Đây là transcript role-play mới do trợ lý tạo trong chat, được minh họa bằng [sơ đồ Partial As-Is](./48-Roleplay-Capacity-Partial-As-Is.drawio). Nó **không phải** transcript của bài 07, bài 32 hay cuộc phỏng vấn ngoài đời. Mọi nội dung dưới đây là lời kể mô phỏng, chưa có quan sát hoặc hồ sơ thật đối chiếu.
+
+| ID | Nội dung | Trạng thái bằng chứng | Cần làm rõ/kiểm tra |
+|---|---|---|---|
+| RP-CAP-01 | Một yêu cầu Facebook tối thứ bảy được phản hồi sau khoảng 30 phút; lễ tân nói phải hỏi quản lý về chỗ trống | Một anecdote do stakeholder role-play kể; không có execution evidence | Xin case đã khử nhận dạng; đối chiếu timestamp nhận/phản hồi và người xử lý |
+| RP-CAP-02 | Walk-in có thể thay đổi chỗ trống; thông tin nằm ở sổ khác và timestamp có thể không chính xác | Reported trong cùng role-play; độ đầy đủ/độ chính xác chưa biết | Hỏi owner của hai sổ; quan sát quy trình cập nhật và thời điểm ghi |
+| H-CAP-01 | Nguồn capacity tách rời và phụ thuộc hỏi quản lý có thể góp phần làm chậm quyết định | Giả thuyết, chưa chứng minh quan hệ nhân quả | So sánh nhiều ca/kênh; xác định các nguyên nhân khác và ngoại lệ |
+| NEED-CAP-01 | Nhân viên cần biết ai theo dõi request và căn cứ capacity hiện tại để phản hồi chính xác | Need candidate; cần lễ tân/quản lý xác nhận | Xác minh “phản hồi chính xác” kết thúc ở nhận request, pending hay confirmed |
+| DEC-CAP-01 | `PENDING` có giữ chỗ hay không; nguồn capacity nào là nguồn chuẩn; ai có quyền quyết định | Open; không tự đặt rule | Xác định business decision authority, options, impact và ngày hiệu lực |
+
+### Option, requirement và test chưa thể duyệt
+
+Có thể so sánh ba hướng: **(A)** chuẩn hóa quy trình/handoff và sổ hiện tại; **(B)** tạo queue chung có source, thời điểm, trạng thái và người phụ trách; **(C)** cân nhắc tự động xác nhận sau khi đã chốt rule và xác thực dữ liệu capacity. Đây là options để phân tích, chưa phải lựa chọn hay scope được phê duyệt.
+
+Nếu stakeholder chọn hướng số hóa queue, **REQ-CAP-01 (draft có điều kiện)** có thể là: “Với request thuộc kênh trong phạm vi, hệ thống hiển thị source, thời điểm nhận, trạng thái và người phụ trách cho nhân viên được ủy quyền.” **AC-CAP-01 (candidate)**: “Given request được ghi nhận qua kênh đã duyệt, when nhân viên có quyền mở queue, then bản ghi hiển thị ID, source, timestamp theo timezone đã thống nhất, status khởi tạo và owner hoặc trạng thái chưa assign.”
+
+`AC-CAP-01` chưa Ready vì chưa chốt kênh trong scope, timezone, role, status/owner semantics và policy capacity. `TC-CAP-01` chưa executable cho UAT: cần dữ liệu test đã khử nhận dạng, môi trường/build, expected result có authority và hậu điều kiện. Không dùng hành vi mock `PENDING` hiện tại làm oracle nghiệp vụ; không báo `Pass` khi `DEC-CAP-01` còn Open. Nếu option không được chọn, không tạo requirement này chỉ vì nó dễ triển khai.
+
+### Trace minh họa
+
+```text
+RP-CAP-01/02 (reported, simulated)
+  → H-CAP-01 (hypothesis; needs validation)
+  → NEED-CAP-01 (candidate; stakeholder validation needed)
+  → options A/B/C (assess with owner/evidence)
+  → DEC-CAP-01 (open policy/authority)
+  → REQ-CAP-01 / AC-CAP-01 (conditional draft only if option B selected)
+  → TC-CAP-01 (blocked until test basis and environment are approved)
+```
+
+Lát cắt này chỉ chứng minh cách **trợ lý cấu trúc một ví dụ học tập**. Nó không nâng scorecard và không thể ghi vào portfolio như phỏng vấn/nghiên cứu do người học thực hiện.
+
 ### Tiêu chí tự review
 
 - [ ] Phân biệt lời kể với evidence đã kiểm tra.
