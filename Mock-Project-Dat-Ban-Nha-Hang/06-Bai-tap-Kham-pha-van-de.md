@@ -15,6 +15,19 @@ Trước khi đọc các ví dụ bên dưới, tự điền bản nháp:
 
 **Tiêu chí tự kiểm tra:** chưa khẳng định sự cố hoặc nguyên nhân nếu chưa có ví dụ/số liệu; need nói về kết quả cho người dùng/nhà hàng; câu hỏi không gài sẵn câu trả lời “cần app”. Ghi trạng thái `Draft — scenario giả lập`. Chỉ đánh dấu được review sau khi người hướng dẫn xem câu trả lời của bạn.
 
+### Làm rõ “đặt trùng” trước khi viết requirement
+
+“Hai nhóm cùng đến lúc 19:30” chưa đủ để kết luận loại lỗi. BA cần hỏi và kiểm chứng vì các trường hợp dưới đây có nguyên nhân, rule và test khác nhau:
+
+| Khả năng cần phân biệt | Điều cần làm rõ | Bằng chứng phù hợp |
+|---|---|---|
+| Hai booking được gán cùng một bàn và thời gian chồng lấn | Nhà hàng gán bàn cố định hay chỉ giữ chỗ theo số khách? “Trùng” được định nghĩa theo thời gian nào? | Hai booking đã khử định danh, sơ đồ/lịch bàn và thời điểm gán bàn |
+| Tổng số khách vượt sức chứa của khung giờ | Capacity tính theo ghế, bàn hay tổ hợp? Trạng thái nào giữ chỗ? | Booking theo slot, cấu hình sức chứa có version và policy được người có thẩm quyền duyệt |
+| Một khách gửi lại tạo nhiều request | Có gửi lại sau timeout hoặc bấm nhiều lần không? | Request/reference ID, timestamp và log retry đã khử định danh |
+| Khách tưởng đã có bàn trong khi nhà hàng mới nhận yêu cầu | Nội dung xác nhận dùng từ nào? Ai/điều gì chuyển request sang trạng thái đã xác nhận? | Nội dung thông báo, lịch sử trạng thái và thời điểm quyết định |
+
+Không gộp các trường hợp này thành một story hoặc một test oracle nếu chưa chứng minh chúng cùng rule. Discovery task `Xác nhận quy tắc sức chứa` trong backlog staging chỉ xử lý policy capacity; nó **không tự trả lời** câu hỏi hai booking có được gán cùng bàn hay một request bị tạo trùng. Trước tiên hãy xin ví dụ sự cố cụ thể, đối chiếu hồ sơ, rồi phân loại đúng failure mode.
+
 ## Warm-up — phân biệt lời kể và bằng chứng
 
 **Tình huống luyện tập giả lập:** yêu cầu đặt bàn đến qua điện thoại và mạng xã hội; nhân viên kể rằng đôi khi yêu cầu bị bỏ lỡ. Đây chỉ là brief hư cấu, không phải kết quả khảo sát nhà hàng thật.
