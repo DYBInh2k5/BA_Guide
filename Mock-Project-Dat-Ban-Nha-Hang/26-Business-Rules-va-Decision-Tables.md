@@ -110,7 +110,7 @@ BPMN gateway thể hiện decision order; sequence thể hiện message/system i
 - **Excel:** decision matrix có thể lọc theo rule owner/status/test; dùng validation/formatting để làm lộ TBD, nhưng decision phải có nguồn.
 - **BPMN/draw.io:** exclusive gateway cho nhánh điều kiện; label rõ rule ID trên gateway/flow.
 - **DMN modeler:** dùng khi bảng quyết định phức tạp, version/deployment cần quản trị; không cần thêm engine cho vài rule đơn giản.
-- **Jira/Confluence:** rule/story/test linkage và approved decision log; Jira/Confluence chưa kết nối hiện tại.
+- **Jira/Confluence:** có thể dùng để liên kết rule/story/test và lưu approved decision log khi workspace phù hợp. Connector hiện kết nối tới site Atlassian của tổ chức và báo read-write ở cấp sản phẩm; quyền tạo vẫn phụ thuộc project/space. Chỉ luyện trong project/space cá nhân hoặc sandbox đã xác nhận; nếu chưa có, dùng CSV/Markdown trong repo.
 - **Postman/SQL:** xác minh API response/data effects sau khi rule được approved; mock output không phải business policy.
 
 ## Bài tập
