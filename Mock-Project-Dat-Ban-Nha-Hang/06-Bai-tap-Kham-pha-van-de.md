@@ -1,5 +1,20 @@
 # Bài tập 1 — Khám phá vấn đề trước khi thiết kế giải pháp
 
+## Bài khởi động — “Làm app để tránh đặt trùng bàn”
+
+**Brief giả lập:** Quản lý nhà hàng nói: “Hãy làm ứng dụng để tránh đặt trùng bàn.” Câu nói này cho biết giải pháp quản lý mong muốn; nó chưa xác nhận rằng đặt trùng đã xảy ra, nguyên nhân là gì, hoặc ứng dụng là cách phù hợp nhất.
+
+Trước khi đọc các ví dụ bên dưới, tự điền bản nháp:
+
+| Phân loại | Ghi chú của người học |
+|---|---|
+| Thông tin được nêu trong brief (chưa phải bằng chứng vận hành) | |
+| Điều chưa biết / giả thuyết cần kiểm tra | |
+| Need — kết quả cần cải thiện, chưa chọn công nghệ | |
+| Ba câu hỏi trung lập: quy trình, tần suất/tác động, cách xác nhận thành công | |
+
+**Tiêu chí tự kiểm tra:** chưa khẳng định sự cố hoặc nguyên nhân nếu chưa có ví dụ/số liệu; need nói về kết quả cho người dùng/nhà hàng; câu hỏi không gài sẵn câu trả lời “cần app”. Ghi trạng thái `Draft — scenario giả lập`. Chỉ đánh dấu được review sau khi người hướng dẫn xem câu trả lời của bạn.
+
 ## Warm-up — phân biệt lời kể và bằng chứng
 
 **Tình huống luyện tập giả lập:** yêu cầu đặt bàn đến qua điện thoại và mạng xã hội; nhân viên kể rằng đôi khi yêu cầu bị bỏ lỡ. Đây chỉ là brief hư cấu, không phải kết quả khảo sát nhà hàng thật.
